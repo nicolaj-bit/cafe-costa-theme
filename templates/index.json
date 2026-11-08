@@ -9,7 +9,7 @@
         "image": "shopify://shop_images/costa-risteriet-shaun.jpg",
         "badge_label": "I risteren nu",
         "badge_text": "'Kiwi' espresso",
-        "badge_link": "/collections/kaffe",
+        "badge_link": "shopify://collections/kaffe",
         "color": "bg"
       },
       "blocks": {
@@ -36,7 +36,7 @@
           "type": "button",
           "settings": {
             "label": "Køb kaffe",
-            "link": "/collections/kaffe",
+            "link": "shopify://collections/kaffe",
             "style": "buy",
             "link_type": "custom"
           }
@@ -111,7 +111,7 @@
         "label": "Webshop",
         "heading": "Fra risteriet",
         "text": "<p>Vores sortiment spænder bredt, og der er noget for enhver smag, når det kommer til kaffe.</p>",
-        "collection": "",
+        "collection": "kaffe",
         "use_page_collection": true,
         "products_limit": 6,
         "columns": 3,
