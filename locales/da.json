@@ -527,5 +527,29 @@
       "expanded": "Formularen til modtager af gavekort er vist",
       "collapsed": "Formularen til modtager af gavekort er skjult"
     }
+  },
+  "costa": {
+    "contact": {
+      "phone": "Telefon",
+      "email_cafe": "Café-mail",
+      "email_office": "Kontor-mail",
+      "cvr": "CVR",
+      "submit": "Send",
+      "success": "Tak for din besked. Vi vender tilbage hurtigst muligt.",
+      "error": "Nogle felter er ikke udfyldt korrekt."
+    },
+    "map": {
+      "consent": "Kortet vises med Google Maps, som sætter cookies.",
+      "load": "Vis kort",
+      "route": "Eller få rutevejledning i Google Maps",
+      "title": "Kort over {{ address }}"
+    },
+    "menu": {
+      "nav_label": "Genveje i menukortet",
+      "to_top": "Til top"
+    },
+    "footer": {
+      "findsmiley": "Se vores kontrolrapport på Findsmiley.dk"
+    }
   }
 }

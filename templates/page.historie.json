@@ -1,0 +1,210 @@
+/*
+ * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "costa-hero",
+      "settings": {
+        "image": "shopify://shop_images/costa-hero.jpg",
+        "height": "small",
+        "show_logo": false,
+        "logo_width": 180
+      },
+      "blocks": {
+        "heading_212": {
+          "type": "heading",
+          "settings": {
+            "heading": "Costa Kalundborg Kaffe",
+            "tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_212"
+      ]
+    },
+    "min_historie": {
+      "type": "costa-text-image",
+      "settings": {
+        "image_position": "none",
+        "color": "bg"
+      },
+      "blocks": {
+        "heading_213": {
+          "type": "heading",
+          "settings": {
+            "heading": "Min historie",
+            "tag": "h2"
+          }
+        },
+        "text_214": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fra Devonport tog jeg ofte båden til downtown Auckland. Her besøgte jeg mit yndlingsristeri og herfra begyndte min passion for kaffe.</p><p>New Zealand har igennem årene fået udviklet sin helt egen kaffekultur og er nok mest kendt for en “Flat White”.</p><p>Da jeg kom til Danmark, begyndte jeg virkelig at savne en rigtig god Flat White.</p>"
+          }
+        },
+        "text_215": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Shaun Gamble</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_213",
+        "text_214",
+        "text_215"
+      ]
+    },
+    "rejsen": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-historie-shaun.jpg",
+        "image_position": "left",
+        "ratio": "3 / 4",
+        "color": "surface"
+      },
+      "blocks": {
+        "text_216": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Jeg havde altid drømt om en Rocket Giotto espressomaskine, og nu var tiden inde til at købe den. Men jeg savnede stadig noget. – Mit lokale kafferisteri. Så jeg købte altså også en kafferister. Efter at have stået i køkkenet og øvet mig, begyndte mine venner og bekendte pludselig at efterspørge min friskristede kaffe og resten af historien kender I. Min rejse begyndte for alvor, da jeg så investerede i en kaffevogn og lørdag efter lørdag, stod på gågaden og til events rundt omkring i lokalområdet, og solgte min helt egen kaffe.</p><p>Jeg ville være selvstændig og leve af min kaffe, så jeg sagde straks mit job op og grundlagde Costa Kalundborg Kaffe.</p><p>Drømmen var at skabe et særligt sted hvor jeg kunne dele min kærlighed til kaffe og lokale varer, men også en mulighed for at dele mine New Zealandske rødder med Kalundborgenseren, og da muligheden kom, slog jeg til og åbnede Café Costa Kalundborg.</p><p>Min drøm blev til virkelighed, og nu kan du kan sidde i de sene eftermiddagstimer og følge solen gå ned ude på fjorden, mens du stille nyder din frisk ristede kaffe og en ægte pie sammen med dine allernærmeste.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_216"
+      ]
+    },
+    "navnet": {
+      "type": "costa-text-image",
+      "settings": {
+        "image_position": "none",
+        "color": "bg"
+      },
+      "blocks": {
+        "heading_217": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hvorfor “Costa Kalundborg Kaffe”?",
+            "tag": "h2"
+          }
+        },
+        "text_218": {
+          "type": "text",
+          "settings": {
+            "text": "<p>En strandelskende New Zealænder flytter til Kalundborg ved fjorden, tager på ferie til Costa del Sol med nogle danske venner, der er vokset op med Shu-bi-dua. – Behøves der, at siges mere? Desuden ligger navnet godt i munden, lige som god friskbrygget kaffe.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_217",
+        "text_218"
+      ]
+    },
+    "social": {
+      "type": "costa-social",
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg <br>på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      },
+      "blocks": {
+        "link_219": {
+          "type": "link",
+          "settings": {
+            "platform": "facebook",
+            "url": ""
+          }
+        },
+        "link_220": {
+          "type": "link",
+          "settings": {
+            "platform": "instagram",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_219",
+        "link_220"
+      ]
+    },
+    "galleri": {
+      "type": "costa-gallery",
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      },
+      "blocks": {
+        "image_221": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_222": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-2.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_223": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_224": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_225": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-5.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_226": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
+            "caption": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_221",
+        "image_222",
+        "image_223",
+        "image_224",
+        "image_225",
+        "image_226"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "min_historie",
+    "rejsen",
+    "navnet",
+    "social",
+    "galleri"
+  ]
+}

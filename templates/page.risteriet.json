@@ -1,0 +1,217 @@
+/*
+ * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "costa-hero",
+      "settings": {
+        "image": "shopify://shop_images/costa-hero.jpg",
+        "height": "small",
+        "show_logo": false,
+        "logo_width": 180
+      },
+      "blocks": {
+        "heading_135": {
+          "type": "heading",
+          "settings": {
+            "heading": "Café Costa Kalundborg har eget kafferisteri",
+            "tag": "h1"
+          }
+        },
+        "tagline_136": {
+          "type": "tagline",
+          "settings": {
+            "text": "Friskristet kaffe smager bare bedre"
+          }
+        }
+      },
+      "block_order": [
+        "heading_135",
+        "tagline_136"
+      ]
+    },
+    "tekst": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-risteriet-shaun.jpg",
+        "image_position": "left",
+        "ratio": "3 / 4",
+        "color": "bg"
+      },
+      "blocks": {
+        "heading_137": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fra kvalitetsbønner til den perfekte kop kaffe",
+            "tag": "h2"
+          }
+        },
+        "text_138": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hos <a href=\"/\">Café Costa Kalundborg</a> fusionerer vi passionen for kaffe med ønsket om at dele denne oplevelse med vores gæster. Vores kafferisteri, placeret i hjertet af caféen, fungerer som et åbent værksted, hvor gæsterne inviteres indenfor i processen - fra bønner til den perfekte kop kaffe.</p><p>Dette unikke koncept sikrer ikke kun en frisk og aromatisk kaffeoplevelse <strong>hver gang</strong> du besøger os, men også en mulighed for at opleve kafferistningsprocessen på tætteste hold. Foruden vores lokale besøgende fra Kalundborg, nyder vi også en fast og kvalitetsbevidst kundekreds fra Jyderup, Ordrup og flere af de omkringliggende byer.</p>"
+          }
+        },
+        "heading_139": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stort udvalg i vores kafferisteri",
+            "tag": "h2"
+          }
+        },
+        "text_140": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Med vores <em>slowroasting</em>-teknik, sikrer vi, at hver kop kaffe ikke blot afspejler vores dybe passion for det perfekte bryg, men også kærligheden og stoltheden bag hver bønne. Vi omhyggeligt udvælger og rister vores bønner på stedet for at garantere den højeste kvalitet og friskhed.</p><p>Vores sortiment spænder bredt, og der er noget for enhver smag, når det kommer til kaffe. Fra den fyldige espresso til den bløde filterkaffe, inviterer vi dig til at udforske en verden af smag i vores kafferisteri. Vi deler gerne vores viden om kaffebønnernes oprindelse og giver råd om, hvordan du bedst serverer og opbevarer din kaffe derhjemme.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_137",
+        "text_138",
+        "heading_139",
+        "text_140"
+      ]
+    },
+    "besoeg": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-risteriet-kaffeposer.jpg",
+        "image_position": "right",
+        "ratio": "4 / 3",
+        "color": "surface"
+      },
+      "blocks": {
+        "heading_141": {
+          "type": "heading",
+          "settings": {
+            "heading": "Besøg vores kafferisteri og oplev passionen",
+            "tag": "h2"
+          }
+        },
+        "text_142": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Café Costa Kalundborg tilbyder ikke kun exceptionel kaffe, men også en unik oplevelse, hvor du kan komme tæt på kaffen og dens tilblivelse.</p><p>Kom forbi vores risteri og smag selv på vores udvalg, og tag din favorit med hjem - vi har også unikke tilbud til din arbejdsplads. Læs mere om en erhvervsaftale <a href=\"/pages/kaffe-til-erhverv\">her.</a></p><p>Vi glæder os til at dele vores passion med dig hos Café Costa Kalundborg.</p>"
+          }
+        },
+        "button_143": {
+          "type": "button",
+          "settings": {
+            "label": "Kaffe til erhverv",
+            "link": "shopify://pages/kaffe-til-erhverv",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_141",
+        "text_142",
+        "button_143"
+      ]
+    },
+    "social": {
+      "type": "costa-social",
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg <br>på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      },
+      "blocks": {
+        "link_144": {
+          "type": "link",
+          "settings": {
+            "platform": "facebook",
+            "url": ""
+          }
+        },
+        "link_145": {
+          "type": "link",
+          "settings": {
+            "platform": "instagram",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_144",
+        "link_145"
+      ]
+    },
+    "galleri": {
+      "type": "costa-gallery",
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      },
+      "blocks": {
+        "image_146": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_147": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-2.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_148": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_149": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_150": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-5.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_151": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
+            "caption": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_146",
+        "image_147",
+        "image_148",
+        "image_149",
+        "image_150",
+        "image_151"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "tekst",
+    "besoeg",
+    "social",
+    "galleri"
+  ]
+}

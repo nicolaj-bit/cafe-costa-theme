@@ -1,0 +1,212 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  endif
+-%}
+
+{%- assign categories = section.blocks | where: 'type', 'category' -%}
+<section class="costa{{ color_class }}">
+  <div class="costa__inner costa__inner--narrow">
+    {%- if section.settings.show_nav and categories.size > 1 -%}
+      <nav class="costa-menu__nav" aria-label="{{ 'costa.menu.nav_label' | t }}">
+        {%- for block in categories -%}
+          {%- if block.settings.nav_label != blank -%}
+            <a href="#{{ block.settings.anchor | default: block.settings.title | handleize }}">{{ block.settings.nav_label }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'category' -%}
+          <h2 class="costa-menu__category" id="{{ block.settings.anchor | default: block.settings.title | handleize }}" {{ block.shopify_attributes }}>{{ block.settings.title }}</h2>
+          {%- if block.settings.note != blank -%}<p class="costa-menu__note">{{ block.settings.note }}</p>{%- endif -%}
+        {%- when 'group' -%}
+          <h3 class="costa-menu__group" {{ block.shopify_attributes }}>{{ block.settings.title }}</h3>
+          {%- if block.settings.note != blank -%}<p class="costa-menu__note">{{ block.settings.note }}</p>{%- endif -%}
+        {%- when 'item' -%}
+          <div class="costa-menu__item" {{ block.shopify_attributes }}>
+            <span class="costa-menu__name">{{ block.settings.name }}</span>
+            <span class="costa-menu__price">{{ block.settings.price | newline_to_br }}</span>
+            {%- if block.settings.description != blank -%}<div class="costa-menu__desc">{{ block.settings.description }}</div>{%- endif -%}
+          </div>
+        {%- when 'text' -%}
+          <div class="costa-richtext" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        {%- when 'image' -%}
+          <div class="costa-menu__images costa-gallery" style="--costa-gallery-columns: {% if block.settings.image_2 != blank %}2{% else %}1{% endif %};" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}<figure class="costa-gallery__item">{%- render 'costa-image', image: block.settings.image, sizes: '(min-width: 750px) 410px, 50vw' -%}</figure>{%- endif -%}
+            {%- if block.settings.image_2 != blank -%}<figure class="costa-gallery__item">{%- render 'costa-image', image: block.settings.image_2, sizes: '(min-width: 750px) 410px, 50vw' -%}</figure>{%- endif -%}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+    {%- if section.settings.footnote != blank -%}<div class="costa-muted" style="margin-top: var(--costa-space-xl);">{{ section.settings.footnote }}</div>{%- endif -%}
+    {%- if section.settings.show_top_link -%}<p class="costa--center" style="margin-top: var(--costa-space-l);"><a href="#MainContent">{{ 'costa.menu.to_top' | t }} ↑</a></p>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: menukort",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_nav",
+      "label": "Vis genveje til kategorierne øverst",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "footnote",
+      "label": "Note nederst"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_top_link",
+      "label": "Vis «Til top»-link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Lys"
+        },
+        {
+          "value": "surface",
+          "label": "Flade"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Kategori",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Overskrift",
+          "default": "Kategori"
+        },
+        {
+          "type": "text",
+          "id": "nav_label",
+          "label": "Navn i genvejene",
+          "info": "Tomt = vises ikke i genvejene."
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "Anker-id",
+          "info": "F.eks. morgenmad – så virker links som /pages/menu#morgenmad."
+        },
+        {
+          "type": "inline_richtext",
+          "id": "note",
+          "label": "Note under overskriften"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "Undergruppe",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Overskrift",
+          "default": "Undergruppe"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "note",
+          "label": "Note"
+        }
+      ]
+    },
+    {
+      "type": "item",
+      "name": "Ret",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "name",
+          "label": "Navn",
+          "default": "Ret"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Beskrivelse"
+        },
+        {
+          "type": "textarea",
+          "id": "price",
+          "label": "Pris",
+          "info": "Én pris pr. linje, hvis der er flere.",
+          "default": "0,-"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "<p>Skriv din tekst her.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Billeder",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Billede 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Billede 2"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: menukort",
+      "blocks": [
+        {
+          "type": "category"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

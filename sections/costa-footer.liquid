@@ -1,0 +1,187 @@
+<footer class="costa-footer" style="--costa-footer-logo-width: {{ section.settings.logo_width }}px;">
+  <div class="costa-footer__inner">
+    {%- for block in section.blocks -%}
+      <div class="costa-footer__col" {{ block.shopify_attributes }}>
+        {%- case block.type -%}
+          {%- when 'logo' -%}
+            <a class="costa-footer__logo" href="{{ routes.root_url }}">
+              {%- if settings.costa_footer_logo != blank -%}
+                {{ settings.costa_footer_logo | image_url: width: 500 | image_tag: alt: settings.costa_cafe_name, loading: 'lazy' }}
+              {%- else -%}
+                <img src="{{ 'costa-logo-lys.svg' | asset_url }}" alt="{{ settings.costa_cafe_name | escape }}" width="1415" height="1049" loading="lazy">
+              {%- endif -%}
+            </a>
+          {%- when 'address' -%}
+            <p class="costa-footer__title">{{ settings.costa_company }}</p>
+            <p>{{ settings.costa_street }}, {{ settings.costa_city }}</p>
+            <p><a href="{{ settings.costa_route_url }}" target="_blank" rel="noopener">{{ block.settings.route_label }}</a></p>
+          {%- when 'contact' -%}
+            <p class="costa-footer__title">{{ block.settings.title }}</p>
+            {%- if settings.costa_phone != blank -%}<p>{{ 'costa.contact.phone' | t }}: <a href="tel:{{ settings.costa_phone | remove: ' ' }}">{{ settings.costa_phone }}</a></p>{%- endif -%}
+            {%- if block.settings.mail_link != blank -%}<p>{{ block.settings.mail_text }} <a href="{{ block.settings.mail_link }}">{{ block.settings.mail_link_text }}</a></p>{%- endif -%}
+            {%- if block.settings.show_social -%}
+              <div class="costa-footer__social">
+                {%- if settings.social_facebook_link != blank -%}<a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener">{{ 'icon-facebook.svg' | inline_asset_content }}<span class="visually-hidden">Facebook</span></a>{%- endif -%}
+                {%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener">{{ 'icon-instagram.svg' | inline_asset_content }}<span class="visually-hidden">Instagram</span></a>{%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- when 'hours' -%}
+            <p class="costa-footer__title">{{ settings.costa_hours_label }}</p>
+            <p class="costa-footer__hours">{{ settings.costa_hours }}</p>
+          {%- when 'badges' -%}
+            <div class="costa-footer__badges">
+              {%- if settings.costa_findsmiley_url != blank -%}
+                <a href="{{ settings.costa_findsmiley_url }}" target="_blank" rel="noopener"><img src="{{ 'costa-findsmiley.svg' | asset_url }}" alt="{{ 'costa.footer.findsmiley' | t }}" width="48" height="48" loading="lazy"></a>
+              {%- endif -%}
+              {%- if settings.costa_lag_url != blank -%}
+                <a href="{{ settings.costa_lag_url }}" target="_blank" rel="noopener">
+                  {%- if settings.costa_lag_logo != blank -%}
+                    {{ settings.costa_lag_logo | image_url: width: 600 | image_tag: alt: 'LAG Midt-Nordvestsjælland', loading: 'lazy' }}
+                  {%- else -%}
+                    <img src="{{ 'costa-lag-logo.png' | asset_url }}" alt="LAG Midt-Nordvestsjælland" width="522" height="80" loading="lazy">
+                  {%- endif -%}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- when 'text' -%}
+            {{ block.settings.text }}
+        {%- endcase -%}
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="costa-footer__bottom">
+    &copy; {{ 'now' | date: '%Y' }} {{ settings.costa_company }}{% if settings.costa_cvr != blank %} · CVR {{ settings.costa_cvr }}{% endif %}
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Costa: footer",
+  "tag": "div",
+  "class": "costa-section",
+  "enabled_on": {
+    "groups": [
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Adresse, telefon, åbningstider og links hentes fra Tema-indstillinger › Costa – virksomhed og › Sociale medier."
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logobredde",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 160
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "address",
+      "name": "Adresse",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "route_label",
+          "label": "Tekst på rute-link",
+          "default": "Klik her for rutevejledning"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Kontakt",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Overskrift",
+          "default": "Kontaktinformation"
+        },
+        {
+          "type": "text",
+          "id": "mail_text",
+          "label": "Tekst før mail-link",
+          "default": "Send os en mail"
+        },
+        {
+          "type": "text",
+          "id": "mail_link_text",
+          "label": "Linktekst",
+          "default": "her"
+        },
+        {
+          "type": "url",
+          "id": "mail_link",
+          "label": "Link til kontaktside"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "label": "Vis Facebook og Instagram",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "name": "Åbningstider",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "badges",
+      "name": "Findsmiley og LAG",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: footer",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "address"
+        },
+        {
+          "type": "contact"
+        },
+        {
+          "type": "hours"
+        },
+        {
+          "type": "badges"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

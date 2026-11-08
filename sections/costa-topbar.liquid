@@ -1,0 +1,106 @@
+<div class="costa-topbar">
+  <div class="costa-topbar__inner">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'route' -%}
+          <a href="{{ settings.costa_route_url }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>{{ block.settings.label | default: settings.costa_street }}</a>
+        {%- when 'phone' -%}
+          {%- if settings.costa_phone != blank -%}
+            <a href="tel:{{ settings.costa_phone | remove: ' ' }}" {{ block.shopify_attributes }}>{{ block.settings.prefix }}{{ settings.costa_phone }}</a>
+          {%- endif -%}
+        {%- when 'hours' -%}
+          <span class="costa-topbar__hours" {{ block.shopify_attributes }}>{% if block.settings.show_label %}{{ settings.costa_hours_label }}: {% endif %}{{ settings.costa_hours }}</span>
+        {%- when 'text' -%}
+          <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Costa: topbjælke",
+  "tag": "div",
+  "class": "costa-section",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Adresse, telefon og åbningstider hentes fra Tema-indstillinger › Costa – virksomhed."
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "route",
+      "name": "Find vej",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tekst",
+          "default": "Find vej"
+        }
+      ]
+    },
+    {
+      "type": "phone",
+      "name": "Telefon",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "prefix",
+          "label": "Tekst foran nummeret",
+          "default": "Tlf. "
+        }
+      ]
+    },
+    {
+      "type": "hours",
+      "name": "Åbningstider",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_label",
+          "label": "Vis overskriften foran",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Tekst"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: topbjælke",
+      "blocks": [
+        {
+          "type": "route"
+        },
+        {
+          "type": "phone"
+        },
+        {
+          "type": "hours"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

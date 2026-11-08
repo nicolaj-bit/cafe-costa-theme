@@ -1,0 +1,432 @@
+/*
+ * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "costa-hero",
+      "settings": {
+        "image": "shopify://shop_images/costa-hero.jpg",
+        "height": "small",
+        "show_logo": false,
+        "logo_width": 180
+      },
+      "blocks": {
+        "heading_176": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kaffe til erhverv",
+            "tag": "h1"
+          }
+        },
+        "tagline_177": {
+          "type": "tagline",
+          "settings": {
+            "text": "Ønsker I bedre kaffe på arbejdspladsen?"
+          }
+        }
+      },
+      "block_order": [
+        "heading_176",
+        "tagline_177"
+      ]
+    },
+    "service": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-erhverv-kaffe.jpg",
+        "image_position": "left",
+        "ratio": "4 / 3",
+        "color": "bg"
+      },
+      "blocks": {
+        "heading_178": {
+          "type": "heading",
+          "settings": {
+            "heading": "Alletiders personlig service og support",
+            "tag": "h2"
+          }
+        },
+        "text_179": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hos <a href=\"/\">Café Costa Kalundborg</a> elsker vores kaffe. Vi kender historien bag alle vores kaffesorter, og vi vil gerne dele denne kendskab med dig: f.eks. hvordan man bedst serverer og opbevarer kaffe, gode råd om kaffetyper og udstyr.</p><p>Sammen med en partner kan vi levere, installere og træne i alle typer maskiner. Kaffeautomater, espresso maskine, kværn, osv.</p><p>Vi er lokale, så vi garanterer hurtige svartider og levering til døren.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_178",
+        "text_179"
+      ]
+    },
+    "bestil": {
+      "type": "costa-contact",
+      "settings": {
+        "heading": "Bestil en kaffeløsning til din arbejdsplads",
+        "show_info": false,
+        "show_hours": false,
+        "show_form": true,
+        "form_name": "Kaffe til erhverv",
+        "submit_label": "Send",
+        "color": "surface"
+      },
+      "blocks": {
+        "text_180": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hvis du er interesseret i at høre mere om vores kaffeløsninger til din arbejdsplads, bedes du venligst udfylde formularen, så vi hurtigst muligt kan vende tilbage og skræddersy et tilbud til jeres behov sammen med dig.</p>"
+          }
+        },
+        "field_181": {
+          "type": "field",
+          "settings": {
+            "label": "Firmanavn",
+            "type": "text",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_182": {
+          "type": "field",
+          "settings": {
+            "label": "Kontaktperson",
+            "type": "text",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_183": {
+          "type": "field",
+          "settings": {
+            "label": "E-mail",
+            "type": "email",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_184": {
+          "type": "field",
+          "settings": {
+            "label": "Telefon",
+            "type": "tel",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_185": {
+          "type": "field",
+          "settings": {
+            "label": "Hvilken slags kaffeløsning har I brug for på jeres arbejdsplads? Bønner, malet kaffe, hvor mange kilo hver måned? Maskine og bønner?",
+            "type": "textarea",
+            "placeholder": "",
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "text_180",
+        "field_181",
+        "field_182",
+        "field_183",
+        "field_184",
+        "field_185"
+      ]
+    },
+    "kunder": {
+      "type": "costa-gallery",
+      "settings": {
+        "heading": "Nuværende erhvervskunder:",
+        "style": "logos",
+        "columns": 6,
+        "tight": false,
+        "color": "bg"
+      },
+      "blocks": {
+        "image_186": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-1.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_187": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-hushlittleone.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_188": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-3.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_189": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-4.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_190": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-5.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_191": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-kalundborg.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_192": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-7.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_193": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-8.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_194": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-9.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_195": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-skoel.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_196": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-luve.png",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_197": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-betterlife.png",
+            "caption": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_186",
+        "image_187",
+        "image_188",
+        "image_189",
+        "image_190",
+        "image_191",
+        "image_192",
+        "image_193",
+        "image_194",
+        "image_195",
+        "image_196",
+        "image_197"
+      ]
+    },
+    "intertek": {
+      "type": "costa-text-image",
+      "settings": {
+        "image_position": "none",
+        "color": "surface"
+      },
+      "blocks": {
+        "subheading_198": {
+          "type": "subheading",
+          "settings": {
+            "text": "Lokal Kaffe aftale"
+          }
+        },
+        "heading_199": {
+          "type": "heading",
+          "settings": {
+            "heading": "Intertek Denmark A/S – Kalundborg",
+            "tag": "h2"
+          }
+        },
+        "text_200": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Intertek skriver i et opslag på deres hjemmeside:</p>"
+          }
+        },
+        "quote_201": {
+          "type": "quote",
+          "settings": {
+            "text": "<p>“Intertek Denmark A/S (Caleb Brett) har indgået en ny aftale vedr. levering af kaffe til vores kunder og medarbejdere på vores HQ Adresse i Kalundborg, det er Costa Kalundborg Kaffe ved Shaun Gamble der nu leverer frisk ristet kaffe til vores nye flotte kaffe maskine, som er leveret af <a href=\"https://friskbrygget.dk/\">friskbrygget.dk</a> i Holbæk ved Ronny Banerjee Friskbrygget.dk har leveret en hollandsk produceret de JONG DUKE maskine (EDGE 8-124) som kan levere både frisk kværnet kaffe og kaffe lavet på formalet bønner, alt i alt en fantastisk kvalitets løsning både på Kaffe og Maskine og samtidigt så har vi fået en lokal løsning #Støtlokalt som vi er meget stolte af og som passer godt i tråd med de værdier vi sætter højt hos Intertek som kvalitets partner for vores inspektions og analyse kunder.</p><p>Hvis I overvejer at lave en lignende kaffe aftale for jeres firma til glæde for jeres medarbejdere og kunder, så er I meget velkomne til at ringe for yderligere info, ellers så kan I tage direkte kontakt til Shaun Gamble på telefon: 51 79 75 31″</p>",
+            "author": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_198",
+        "heading_199",
+        "text_200",
+        "quote_201"
+      ]
+    },
+    "udtalelser": {
+      "type": "costa-text-image",
+      "settings": {
+        "image_position": "none",
+        "center": false,
+        "color": "bg"
+      },
+      "blocks": {
+        "quote_202": {
+          "type": "quote",
+          "settings": {
+            "text": "<p>”Costa Kalundborg kaffe er en af vores foretrukne lokale leverandører, som vi er meget glade for at have samhandel med. De spændende varianter af kaffe, historien og emballagen er altsammen med til at give en lækker og fuldendt oplevelse af kvalitet og gode kaffestunder. Vores samarbejde med Shaun er vi meget glade for, og Shaun er god til at bakke op om salgsfremmende aktiviteter, ligesom man tydeligt fornemmer hvordan han “brænder” for kaffe.</p><p>De bedste anbefalinger herfra.”</p>",
+            "author": "MENY Kalundborg"
+          }
+        },
+        "quote_203": {
+          "type": "quote",
+          "settings": {
+            "text": "<p>”Vores kunder elsker virkelig kaffen fra Costa Kalundborg Kaffe og vi oplever, at folk kommer forbi specielt, for at nyde en kop frisk malet kaffe. En kaffe som altid er frisk og fuld af smag. Shaun og hans team tilbyder et godt samarbejde og leverer altid kaffe af den højeste kvalitet.”</p>",
+            "author": "Wild Kiwi Pies"
+          }
+        }
+      },
+      "block_order": [
+        "quote_202",
+        "quote_203"
+      ]
+    },
+    "social": {
+      "type": "costa-social",
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg <br>på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      },
+      "blocks": {
+        "link_204": {
+          "type": "link",
+          "settings": {
+            "platform": "facebook",
+            "url": ""
+          }
+        },
+        "link_205": {
+          "type": "link",
+          "settings": {
+            "platform": "instagram",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_204",
+        "link_205"
+      ]
+    },
+    "galleri": {
+      "type": "costa-gallery",
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      },
+      "blocks": {
+        "image_206": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_207": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-2.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_208": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_209": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_210": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-5.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_211": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
+            "caption": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_206",
+        "image_207",
+        "image_208",
+        "image_209",
+        "image_210",
+        "image_211"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "service",
+    "bestil",
+    "kunder",
+    "intertek",
+    "udtalelser",
+    "social",
+    "galleri"
+  ]
+}

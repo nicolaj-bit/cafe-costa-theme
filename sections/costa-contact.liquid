@@ -1,0 +1,292 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  endif
+-%}
+
+{%- liquid
+  assign field_blocks = section.blocks | where: 'type', 'field'
+  assign has_form = false
+  if section.settings.show_form and field_blocks.size > 0
+    assign has_form = true
+  endif
+  assign form_id = 'CostaForm-' | append: section.id
+  assign success_message = section.settings.success_message
+  if success_message == blank
+    assign success_message = 'costa.contact.success' | t
+  endif
+  assign submit_label = section.settings.submit_label
+  if submit_label == blank
+    assign submit_label = 'costa.contact.submit' | t
+  endif
+-%}
+<section class="costa{{ color_class }}" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="costa__inner">
+    {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+    <div class="costa-contact{% if has_form %} costa-contact--has-form{% endif %}">
+      <div class="costa-contact__info">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'text' -%}<div {{ block.shopify_attributes }}>{{ block.settings.text }}</div>{%- endif -%}
+        {%- endfor -%}
+        {%- if section.settings.show_info -%}
+          <dl>
+            <dt>{{ settings.costa_cafe_name }}</dt>
+            <dd><a href="{{ settings.costa_route_url }}" target="_blank" rel="noopener">{{ settings.costa_street }}<br>{{ settings.costa_city }}</a></dd>
+            {%- if settings.costa_phone != blank -%}
+              <dt>{{ 'costa.contact.phone' | t }}</dt>
+              <dd><a href="tel:{{ settings.costa_phone | remove: ' ' }}">{{ settings.costa_phone }}</a></dd>
+            {%- endif -%}
+            {%- if settings.costa_email != blank -%}
+              <dt>{{ 'costa.contact.email_cafe' | t }}</dt>
+              <dd><a href="mailto:{{ settings.costa_email }}">{{ settings.costa_email }}</a></dd>
+            {%- endif -%}
+            {%- if settings.costa_email_office != blank -%}
+              <dt>{{ 'costa.contact.email_office' | t }}</dt>
+              <dd><a href="mailto:{{ settings.costa_email_office }}">{{ settings.costa_email_office }}</a></dd>
+            {%- endif -%}
+            {%- if section.settings.show_hours -%}
+              <dt>{{ settings.costa_hours_label }}</dt>
+              <dd>{{ settings.costa_hours }}</dd>
+            {%- endif -%}
+            {%- if settings.costa_cvr != blank -%}
+              <dt>{{ 'costa.contact.cvr' | t }}</dt>
+              <dd>{{ settings.costa_cvr }}</dd>
+            {%- endif -%}
+          </dl>
+        {%- endif -%}
+      </div>
+      {%- if has_form -%}
+        <div class="costa-contact__form">
+          {%- if section.settings.form_heading != blank -%}<h3>{{ section.settings.form_heading }}</h3>{%- endif -%}
+          {%- form 'contact', id: form_id, class: 'costa-form' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="costa-form__status" role="status">{{ success_message }}</p>
+            {%- elsif form.errors -%}
+              <div class="costa-form__status costa-form__status--error" role="alert">
+                <p>{{ 'costa.contact.error' | t }}</p>
+                {{ form.errors | default_errors }}
+              </div>
+            {%- endif -%}
+            <input type="hidden" name="contact[Formular]" value="{{ section.settings.form_name | default: page.title | escape }}">
+            {%- for block in field_blocks -%}
+              {%- liquid
+                assign fid = 'CostaForm-' | append: section.id | append: '-' | append: forloop.index
+                assign fname = 'contact[' | append: block.settings.label | append: ']'
+                if block.settings.type == 'email'
+                  assign fname = 'contact[email]'
+                endif
+              -%}
+              <div class="costa-form__field" {{ block.shopify_attributes }}>
+                <label for="{{ fid }}">{{ block.settings.label }}{% if block.settings.required %} *{% endif %}</label>
+                {%- if block.settings.type == 'textarea' -%}
+                  <textarea id="{{ fid }}" name="{{ fname }}" placeholder="{{ block.settings.placeholder | escape }}" {% if block.settings.required %}required{% endif %}></textarea>
+                {%- else -%}
+                  <input
+                    id="{{ fid }}"
+                    type="{{ block.settings.type }}"
+                    name="{{ fname }}"
+                    placeholder="{{ block.settings.placeholder | escape }}"
+                    {% if block.settings.type == 'email' %}autocomplete="email"{% elsif block.settings.type == 'tel' %}autocomplete="tel"{% endif %}
+                    {% if block.settings.required %}required{% endif %}
+                  >
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+            <div><button type="submit" class="costa-button">{{ submit_label | escape }}</button></div>
+          {%- endform -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: kontakt",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Kontakt"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_info",
+      "label": "Vis adresse, telefon og mail fra tema-indstillingerne",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hours",
+      "label": "Vis åbningstider",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Formular"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_form",
+      "label": "Vis kontaktformular",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Overskrift over formularen"
+    },
+    {
+      "type": "text",
+      "id": "form_name",
+      "label": "Formularens navn i mailen",
+      "info": "Så I kan se, hvilken side beskeden kom fra. Tomt = sidens titel."
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Tekst på send-knap",
+      "default": "Send"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Tak-besked",
+      "default": "Tak for din besked. Vi vender tilbage hurtigst muligt."
+    },
+    {
+      "type": "paragraph",
+      "content": "Beskeder sendes til butikkens mail (Indstillinger › Butiksoplysninger). Tilføj et felt af typen e-mail – det er påkrævet af Shopify."
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Lys"
+        },
+        {
+          "value": "surface",
+          "label": "Flade"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anker-id (til links som #morgenmad)",
+      "info": "Kun små bogstaver og bindestreger."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "<p>Skriv din tekst her.</p>"
+        }
+      ]
+    },
+    {
+      "type": "field",
+      "name": "Formularfelt",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Feltnavn",
+          "default": "Navn"
+        },
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Type",
+          "default": "text",
+          "options": [
+            {
+              "value": "text",
+              "label": "Tekst"
+            },
+            {
+              "value": "email",
+              "label": "E-mail"
+            },
+            {
+              "value": "tel",
+              "label": "Telefon"
+            },
+            {
+              "value": "number",
+              "label": "Tal"
+            },
+            {
+              "value": "date",
+              "label": "Dato"
+            },
+            {
+              "value": "textarea",
+              "label": "Lang tekst"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Hjælpetekst i feltet"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Skal udfyldes",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: kontakt",
+      "blocks": [
+        {
+          "type": "field",
+          "settings": {
+            "label": "Navn",
+            "type": "text"
+          }
+        },
+        {
+          "type": "field",
+          "settings": {
+            "label": "E-mail",
+            "type": "email"
+          }
+        },
+        {
+          "type": "field",
+          "settings": {
+            "label": "Besked",
+            "type": "textarea"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

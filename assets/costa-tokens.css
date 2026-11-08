@@ -1,0 +1,239 @@
+/*
+  Café Costa – al stil for costa-sektionerne.
+  Værdierne kommer fra tema-indstillingerne (Costa – stil) via
+  snippets/costa-token-settings.liquid. Standardværdierne herunder bruges,
+  hvis en indstilling mangler. Sektionerne må kun bruge variablerne – ingen
+  faste farver eller størrelser i sektionsfilerne.
+*/
+
+/* ---------- 1. Tokens (standard: neutral og varm) ---------- */
+:root {
+  --costa-color-bg: #f7f2eb;
+  --costa-color-surface: #efe6da;
+  --costa-color-text: #2e2620;
+  --costa-color-muted: #6e6258;
+  --costa-color-accent: #8a5a3c;
+  --costa-color-accent-text: #ffffff;
+  --costa-color-dark: #2e2620;
+  --costa-color-dark-text: #f7f2eb;
+  --costa-color-border: #dccfbf;
+  --costa-overlay-opacity: 0.35;
+
+  --costa-font-heading: Georgia, serif;
+  --costa-font-heading-weight: 400;
+  --costa-font-body: -apple-system, 'Segoe UI', sans-serif;
+  --costa-font-body-weight: 400;
+  --costa-font-scale: 1;
+  --costa-heading-case: none;
+
+  --costa-text-base: calc(1.6rem * var(--costa-font-scale));
+  --costa-text-small: calc(1.4rem * var(--costa-font-scale));
+  --costa-text-h1: calc(clamp(3rem, 5vw, 5rem) * var(--costa-font-scale));
+  --costa-text-h2: calc(clamp(2.4rem, 3.4vw, 3.6rem) * var(--costa-font-scale));
+  --costa-text-h3: calc(clamp(1.9rem, 2.2vw, 2.4rem) * var(--costa-font-scale));
+  --costa-line-height: 1.6;
+
+  --costa-space-xs: 0.4rem;
+  --costa-space-s: 0.8rem;
+  --costa-space-m: 1.6rem;
+  --costa-space-l: 3.2rem;
+  --costa-space-xl: 4.8rem;
+  --costa-space-section: 72px;
+  --costa-page-width: 1200px;
+  --costa-gutter: 16px;
+
+  --costa-radius: 8px;
+  --costa-button-radius: 4px;
+  --costa-button-padding: 14px;
+  --costa-button-case: none;
+  --costa-button-border: 2px;
+  --costa-shadow: 0 6px 24px rgb(0 0 0 / 0.08);
+}
+
+/* ---------- 2. Grundlag ---------- */
+.costa {
+  background: var(--costa-color-bg);
+  color: var(--costa-color-text);
+  font-family: var(--costa-font-body);
+  font-weight: var(--costa-font-body-weight);
+  font-size: var(--costa-text-base);
+  line-height: var(--costa-line-height);
+  padding-block: var(--costa-space-section);
+}
+.costa--surface { background: var(--costa-color-surface); }
+.costa--dark { background: var(--costa-color-dark); color: var(--costa-color-dark-text); }
+.costa--tight { padding-block: calc(var(--costa-space-section) / 2); }
+.costa__inner {
+  max-width: var(--costa-page-width);
+  margin-inline: auto;
+  padding-inline: var(--costa-gutter);
+}
+@media (min-width: 750px) { .costa__inner { padding-inline: calc(var(--costa-gutter) * 2); } }
+.costa__inner--narrow { max-width: 820px; }
+.costa--center { text-align: center; }
+
+.costa h1, .costa h2, .costa h3, .costa h4, .costa .costa-h {
+  font-family: var(--costa-font-heading);
+  font-weight: var(--costa-font-heading-weight);
+  text-transform: var(--costa-heading-case);
+  color: inherit;
+  line-height: 1.2;
+  margin: 0 0 var(--costa-space-m);
+  letter-spacing: 0;
+}
+.costa h1 { font-size: var(--costa-text-h1); }
+.costa h2 { font-size: var(--costa-text-h2); }
+.costa h3 { font-size: var(--costa-text-h3); }
+.costa h4 { font-size: var(--costa-text-base); font-family: var(--costa-font-body); font-weight: 700; }
+.costa p { margin: 0 0 var(--costa-space-m); }
+.costa p:empty { display: none; }
+.costa a:not(.costa-button) { color: var(--costa-color-accent); text-underline-offset: 0.2em; }
+.costa--dark a:not(.costa-button) { color: inherit; }
+.costa ul { padding-left: 2rem; margin: 0 0 var(--costa-space-m); }
+.costa img { max-width: 100%; height: auto; display: block; }
+.costa-subheading { font-size: var(--costa-text-h3); color: var(--costa-color-muted); }
+.costa--dark .costa-subheading { color: inherit; opacity: 0.85; }
+.costa-muted { color: var(--costa-color-muted); font-size: var(--costa-text-small); }
+
+/* ---------- 3. Knapper ---------- */
+.costa-buttons { display: flex; flex-wrap: wrap; gap: var(--costa-space-m); margin-top: var(--costa-space-l); }
+.costa--center .costa-buttons, .costa-buttons--center { justify-content: center; }
+.costa-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px;
+  padding: var(--costa-button-padding) calc(var(--costa-button-padding) * 2);
+  border-radius: var(--costa-button-radius);
+  border: var(--costa-button-border) solid var(--costa-color-accent);
+  background: var(--costa-color-accent);
+  color: var(--costa-color-accent-text);
+  font-family: var(--costa-font-body);
+  font-size: var(--costa-text-base);
+  font-weight: 700;
+  text-transform: var(--costa-button-case);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s, color 0.2s;
+}
+.costa-button:hover { opacity: 0.88; }
+.costa-button--secondary { background: transparent; color: var(--costa-color-accent); }
+.costa-button--secondary:hover { background: var(--costa-color-accent); color: var(--costa-color-accent-text); opacity: 1; }
+.costa--dark .costa-button--secondary, .costa-hero .costa-button--secondary { color: var(--costa-color-dark-text); border-color: currentColor; }
+
+/* ---------- 4. Topbjælke (header) ---------- */
+.costa-topbar { background: var(--costa-color-dark); color: var(--costa-color-dark-text); font-family: var(--costa-font-body); font-size: var(--costa-text-small); }
+.costa-topbar__inner { max-width: var(--costa-page-width); margin-inline: auto; padding: var(--costa-space-s) var(--costa-gutter); display: flex; flex-wrap: wrap; gap: var(--costa-space-xs) var(--costa-space-l); justify-content: center; align-items: center; }
+.costa-topbar a { color: inherit; text-decoration: none; }
+.costa-topbar a:hover { text-decoration: underline; }
+.costa-topbar__hours { white-space: pre-line; text-align: center; }
+@media (max-width: 749px) { .costa-topbar__hours--long { display: none; } }
+
+/* ---------- 5. Hero ---------- */
+.costa-hero { position: relative; display: grid; place-items: center; min-height: var(--costa-hero-height, 60vh); padding-block: var(--costa-space-xl); overflow: hidden; color: var(--costa-color-dark-text); background: var(--costa-color-dark); text-align: center; }
+.costa-hero--small { --costa-hero-height: 36vh; }
+.costa-hero--large { --costa-hero-height: 80vh; }
+.costa-hero__media, .costa-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.costa-hero__media::after { content: ''; position: absolute; inset: 0; background: #000; opacity: var(--costa-overlay-opacity); }
+.costa-hero__content { position: relative; z-index: 1; max-width: 820px; padding-inline: var(--costa-gutter); }
+.costa-hero__logo { margin: 0 auto var(--costa-space-l); width: var(--costa-logo-width, 160px); max-width: 60vw; }
+.costa-hero__title { font-size: var(--costa-text-h1); }
+.costa-hero__tagline { font-size: var(--costa-text-h3); margin-bottom: var(--costa-space-s); }
+.costa-hero .costa-buttons { justify-content: center; }
+
+/* ---------- 6. Tekst med billede ---------- */
+.costa-split { display: grid; gap: var(--costa-space-l); align-items: center; }
+@media (min-width: 750px) {
+  .costa-split--has-media { grid-template-columns: 1fr 1fr; gap: var(--costa-space-xl); }
+  .costa-split--media-right .costa-split__media { order: 2; }
+}
+.costa-split__media img { width: 100%; border-radius: var(--costa-radius); aspect-ratio: var(--costa-media-ratio, 4 / 3); object-fit: cover; }
+.costa-quote { margin: 0 0 var(--costa-space-l); padding-left: var(--costa-space-m); border-left: 3px solid var(--costa-color-accent); font-style: italic; }
+.costa-quote cite { display: block; margin-top: var(--costa-space-s); font-style: normal; font-weight: 700; }
+
+/* ---------- 7. Fokuskort ---------- */
+.costa-cards { display: grid; gap: var(--costa-space-l); grid-template-columns: 1fr; }
+@media (min-width: 750px) { .costa-cards { grid-template-columns: repeat(3, 1fr); } }
+.costa-card { display: flex; flex-direction: column; background: var(--costa-color-bg); border-radius: var(--costa-radius); overflow: hidden; box-shadow: var(--costa-shadow); color: inherit; text-decoration: none; }
+.costa--surface .costa-card { background: var(--costa-color-bg); }
+.costa-card__media img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
+.costa-card__body { padding: var(--costa-space-l); display: flex; flex-direction: column; flex: 1; }
+.costa-card__body .costa-buttons { margin-top: auto; padding-top: var(--costa-space-m); }
+
+/* ---------- 8. Galleri og logoer ---------- */
+.costa-gallery { display: grid; gap: var(--costa-space-s); grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 750px) { .costa-gallery { grid-template-columns: repeat(var(--costa-gallery-columns, 3), 1fr); } }
+.costa-gallery__item { margin: 0; }
+.costa-gallery__item img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--costa-radius); }
+.costa-gallery__item figcaption { font-size: var(--costa-text-small); color: var(--costa-color-muted); margin-top: var(--costa-space-xs); }
+.costa-gallery--logos { gap: var(--costa-space-l); align-items: center; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 750px) { .costa-gallery--logos { grid-template-columns: repeat(var(--costa-gallery-columns, 5), 1fr); } }
+.costa-gallery--logos img { aspect-ratio: auto; object-fit: contain; border-radius: 0; max-height: 90px; margin-inline: auto; }
+
+/* ---------- 9. Sociale medier ---------- */
+.costa-social__links { display: flex; justify-content: center; gap: var(--costa-space-l); margin-top: var(--costa-space-l); }
+.costa-social__links a { display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; border-radius: 50%; background: var(--costa-color-accent); color: var(--costa-color-accent-text); }
+.costa-social__links svg { width: 26px; height: 26px; fill: currentColor; }
+.costa-social--bg { position: relative; overflow: hidden; }
+.costa-social--bg .costa-social__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.25; }
+.costa-social--bg .costa__inner { position: relative; }
+
+/* ---------- 10. Kontakt og formular ---------- */
+.costa-contact { display: grid; gap: var(--costa-space-xl); }
+@media (min-width: 750px) { .costa-contact--has-form { grid-template-columns: 1fr 1.3fr; } }
+.costa-contact__info dl { margin: 0; display: grid; gap: var(--costa-space-s); }
+.costa-contact__info dt { font-weight: 700; }
+.costa-contact__info dd { margin: 0 0 var(--costa-space-s); white-space: pre-line; }
+.costa-form { display: grid; gap: var(--costa-space-m); }
+.costa-form__field { display: grid; gap: var(--costa-space-xs); }
+.costa-form label { font-size: var(--costa-text-small); font-weight: 700; }
+.costa-form input, .costa-form textarea {
+  width: 100%; box-sizing: border-box; font: inherit; color: var(--costa-color-text);
+  background: var(--costa-color-bg); border: 1px solid var(--costa-color-border);
+  border-radius: var(--costa-radius); padding: var(--costa-space-m); min-height: 44px;
+}
+.costa-form textarea { min-height: 160px; resize: vertical; }
+.costa-form input:focus, .costa-form textarea:focus { outline: 2px solid var(--costa-color-accent); outline-offset: 1px; }
+.costa-form__status { padding: var(--costa-space-m); border-radius: var(--costa-radius); background: var(--costa-color-surface); }
+.costa-form__status--error { border: 1px solid #b3261e; }
+
+/* ---------- 11. Kort ---------- */
+.costa-map__frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--costa-radius); overflow: hidden; background: var(--costa-color-surface); }
+@media (max-width: 749px) { .costa-map__frame { aspect-ratio: 4 / 3; } }
+.costa-map__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- 12. Menukort ---------- */
+.costa-menu__nav { display: flex; flex-wrap: wrap; gap: var(--costa-space-s); justify-content: center; margin-bottom: var(--costa-space-xl); }
+.costa-menu__nav a { padding: var(--costa-space-xs) var(--costa-space-m); border: 1px solid var(--costa-color-border); border-radius: var(--costa-button-radius); text-decoration: none; }
+.costa-menu__category { scroll-margin-top: 120px; margin: var(--costa-space-xl) 0 var(--costa-space-s); padding-top: var(--costa-space-l); border-top: 1px solid var(--costa-color-border); }
+.costa-menu__category:first-of-type { border-top: 0; }
+.costa-menu__note { color: var(--costa-color-muted); margin-bottom: var(--costa-space-l); }
+.costa-menu__group { margin: var(--costa-space-l) 0 var(--costa-space-s); }
+.costa-menu__item { display: grid; grid-template-columns: 1fr auto; gap: var(--costa-space-xs) var(--costa-space-l); padding: var(--costa-space-m) 0; border-bottom: 1px dashed var(--costa-color-border); }
+.costa-menu__name { font-weight: 700; }
+.costa-menu__price { font-weight: 700; white-space: pre-line; text-align: right; }
+.costa-menu__desc { grid-column: 1 / -1; color: var(--costa-color-muted); white-space: pre-line; }
+.costa-menu__desc p { margin: 0; }
+.costa-menu__images { margin: var(--costa-space-l) 0; }
+
+/* ---------- 13. Video ---------- */
+.costa-video video { width: 100%; border-radius: var(--costa-radius); display: block; }
+
+/* ---------- 14. Footer ---------- */
+.costa-footer { background: var(--costa-color-dark); color: var(--costa-color-dark-text); font-family: var(--costa-font-body); font-size: var(--costa-text-small); line-height: var(--costa-line-height); }
+.costa-footer__inner { max-width: var(--costa-page-width); margin-inline: auto; padding: var(--costa-space-xl) var(--costa-gutter); display: grid; gap: var(--costa-space-l); grid-template-columns: 1fr; text-align: center; }
+@media (min-width: 750px) { .costa-footer__inner { grid-template-columns: 1fr 1fr 1fr 1fr; text-align: left; align-items: start; } }
+.costa-footer a { color: inherit; }
+.costa-footer p { margin: 0 0 var(--costa-space-xs); }
+.costa-footer__title { font-weight: 700; margin-bottom: var(--costa-space-s); }
+.costa-footer__logo img { width: var(--costa-footer-logo-width, 160px); max-width: 100%; height: auto; margin-inline: auto; }
+@media (min-width: 750px) { .costa-footer__logo img { margin-inline: 0; } }
+.costa-footer__hours { white-space: pre-line; }
+.costa-footer__badges { display: flex; flex-wrap: wrap; gap: var(--costa-space-m); align-items: center; justify-content: center; }
+@media (min-width: 750px) { .costa-footer__badges { justify-content: flex-start; } }
+.costa-footer__badges img { height: 48px; width: auto; }
+.costa-footer__social { display: flex; gap: var(--costa-space-m); justify-content: center; margin-top: var(--costa-space-s); }
+@media (min-width: 750px) { .costa-footer__social { justify-content: flex-start; } }
+.costa-footer__social svg { width: 24px; height: 24px; fill: currentColor; }
+.costa-footer__bottom { border-top: 1px solid rgb(255 255 255 / 0.15); text-align: center; padding: var(--costa-space-m) var(--costa-gutter); opacity: 0.8; }
+
+/* ---------- 15. Dawn-header i Costa-farver ---------- */
+.section-header .header, .section-header .header-wrapper { background: var(--costa-color-bg); }

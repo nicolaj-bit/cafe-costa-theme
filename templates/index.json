@@ -1,75 +1,302 @@
+/*
+ * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "costa-hero",
+      "settings": {
+        "image": "shopify://shop_images/costa-hero.jpg",
+        "height": "large",
+        "show_logo": true,
+        "logo_width": 220
+      },
       "blocks": {
-        "heading": {
+        "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "heading": "Café Costa Kalundborg",
+            "tag": "p"
           }
         },
-        "button": {
-          "type": "buttons",
+        "tagline_2": {
+          "type": "tagline",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "text": "Café, spisested og lokalt kafferisteri, med et unikt strejf af New Zealand - midt på havnen."
+          }
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>There's no place in Kalundborg like it.</p>"
+          }
+        },
+        "button_4": {
+          "type": "button",
+          "settings": {
+            "label": "Se vores menu",
+            "link": "shopify://pages/menu",
+            "style": "primary"
+          }
+        },
+        "button_5": {
+          "type": "button",
+          "settings": {
+            "label": "Åbningstider",
+            "link": "shopify://pages/aabningstider",
+            "style": "secondary"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+        "heading_1",
+        "tagline_2",
+        "text_3",
+        "button_4",
+        "button_5"
+      ]
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "intro": {
+      "type": "costa-text-image",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
+        "image": "shopify://shop_images/costa-intro.jpg",
+        "image_position": "left",
+        "ratio": "1 / 1",
+        "color": "bg"
+      },
+      "blocks": {
+        "heading_6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Oplev hyggen ved vandkanten hos Café Costa Kalundborg",
+            "tag": "h1"
+          }
+        },
+        "subheading_7": {
+          "type": "subheading",
+          "settings": {
+            "text": "Café og spisested med et unikt strejf af New Zealand"
+          }
+        },
+        "text_8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>I hjertet af Kalundborgs maleriske havnepark finder du Café Costa Kalundborg - en perle for enhver, der sætter pris på kvalitetskaffe, håndlavet delikatesser, og en betagende udsigt.</p><p>Vores sydvendte terrasse byder på solskin fra morgen til aften, perfekt til afslappende stunder med familie og venner. Udover lokale gæster fra Kalundborg har vi også mange glade stamkunder fra Jyderup, Ordrup og andre nærtliggende byer.</p><p>Det ser vi som et skulderklap til vores hyggelige café og spisested.</p>"
+          }
+        },
+        "button_9": {
+          "type": "button",
+          "settings": {
+            "label": "Se mere om risteriet",
+            "link": "shopify://pages/risteriet",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6",
+        "subheading_7",
+        "text_8",
+        "button_9"
+      ]
+    },
+    "mere": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-havn.jpg",
+        "image_position": "right",
+        "ratio": "4 / 3",
+        "color": "surface"
+      },
+      "blocks": {
+        "heading_10": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mere end bare en café",
+            "tag": "h2"
+          }
+        },
+        "text_11": {
+          "type": "text",
+          "settings": {
+            "text": "<p>På Café Costa Kalundborg forener vi passionen for friskristet kaffe fra eget <a href=\"/pages/risteriet\">risteri</a> med kærligheden til mad. Vores menukort inkluderer en række lækre retter med rødder til New Zealand. Herunder vores populære og autentiske madtærter.</p><p>Som kvalitetsbevidst spisested lægger vi vægt på friskhed og omhyggelighed, og vi udvælger så vidt muligt altid vores råvarer fra lokale leverandører.</p>"
+          }
+        },
+        "heading_12": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kom forbi hyggelige Café Costa Kalundborg",
+            "tag": "h2"
+          }
+        },
+        "text_13": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Er du på udkig efter et sted, hvor mad, drikke, og atmosfære går op i en højere enhed? Så lad Café Costa Kalundborg være dit næste stop. Besøg os og lad dig forføre af duften af frisk kaffe, smagen af hjemmelavet New Zealandsk mad, og synet af Kalundborgs smukke havnefront.</p><p>Vi glæder os til at byde dig velkommen!</p>"
+          }
+        },
+        "button_14": {
+          "type": "button",
+          "settings": {
+            "label": "Se vores historie",
+            "link": "shopify://pages/historie",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_10",
+        "text_11",
+        "heading_12",
+        "text_13",
+        "button_14"
+      ]
+    },
+    "fokus": {
+      "type": "costa-focus-cards",
+      "settings": {
+        "color": "bg"
+      },
+      "blocks": {
+        "card_15": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/costa-fokus-risteriet.jpg",
+            "title": "Risteriet",
+            "text": "<p>Vores kafferisteri, placeret i hjertet af caféen, fungerer som et åbent værksted, hvor gæsterne inviteres indenfor i processen.</p>",
+            "link": "shopify://pages/risteriet",
+            "button_label": "Læs mere"
+          }
+        },
+        "card_16": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/costa-fokus-kaffevogn.jpg",
+            "title": "Kaffevogn",
+            "text": "<p>Vi bringer den fulde caféoplevelse og byens bedste kaffe til næsten enhver lokation. Med vognen følger højkvalitetskaffe og professionelt udstyr.</p>",
+            "link": "shopify://pages/kaffevogn",
+            "button_label": "Læs mere"
+          }
+        },
+        "card_17": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/costa-fokus-erhverv.jpg",
+            "title": "Kaffe til erhverv",
+            "text": "<p>Sammen med en partner kan vi levere, installere og træne i alle typer maskiner. Kaffeautomater, espresso maskine, kværn, osv.</p>",
+            "link": "shopify://pages/kaffe-til-erhverv",
+            "button_label": "Læs mere"
+          }
+        }
+      },
+      "block_order": [
+        "card_15",
+        "card_16",
+        "card_17"
+      ]
+    },
+    "social": {
+      "type": "costa-social",
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg <br>på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      },
+      "blocks": {
+        "link_18": {
+          "type": "link",
+          "settings": {
+            "platform": "facebook",
+            "url": ""
+          }
+        },
+        "link_19": {
+          "type": "link",
+          "settings": {
+            "platform": "instagram",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_18",
+        "link_19"
+      ]
+    },
+    "galleri": {
+      "type": "costa-gallery",
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      },
+      "blocks": {
+        "image_20": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_21": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-2.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_22": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_23": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_24": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-5.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_25": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
+            "caption": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_20",
+        "image_21",
+        "image_22",
+        "image_23",
+        "image_24",
+        "image_25"
+      ]
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero",
+    "intro",
+    "mere",
+    "fokus",
+    "social",
+    "galleri"
   ]
 }

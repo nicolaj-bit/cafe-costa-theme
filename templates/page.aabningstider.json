@@ -1,0 +1,264 @@
+/*
+ * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "costa-hero",
+      "settings": {
+        "image": "shopify://shop_images/costa-hero.jpg",
+        "height": "small",
+        "show_logo": false,
+        "logo_width": 180
+      },
+      "blocks": {
+        "heading_227": {
+          "type": "heading",
+          "settings": {
+            "heading": "Åbningstider & kontakt",
+            "tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_227"
+      ]
+    },
+    "tider": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-aabningstider-cafe-front.jpg",
+        "image_position": "left",
+        "ratio": "4 / 3",
+        "color": "bg"
+      },
+      "blocks": {
+        "heading_228": {
+          "type": "heading",
+          "settings": {
+            "heading": "Åbningstider",
+            "tag": "h2"
+          }
+        },
+        "heading_229": {
+          "type": "heading",
+          "settings": {
+            "heading": "SOMMERSÆSON",
+            "tag": "h3"
+          }
+        },
+        "subheading_230": {
+          "type": "subheading",
+          "settings": {
+            "text": "d.1 Maj - d.18 Okt, uge 42/Efterårsferien"
+          }
+        },
+        "text_231": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mandag - fredag: 09.00 - 18.00</p><p>Lørdag og søndag: 09.00 - 18.00</p>"
+          }
+        },
+        "heading_232": {
+          "type": "heading",
+          "settings": {
+            "heading": "RESTEN AF ÅRET - d.19 Okt 26 - d.30 Apr 27",
+            "tag": "h3"
+          }
+        },
+        "text_233": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mandag - fredag: 09.00 - 17.00</p><p>Lørdag &amp; søndag: 09.00 - 17.00</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_228",
+        "heading_229",
+        "subheading_230",
+        "text_231",
+        "heading_232",
+        "text_233"
+      ]
+    },
+    "kontakt": {
+      "type": "costa-contact",
+      "settings": {
+        "heading": "Kontakt",
+        "show_info": true,
+        "show_hours": false,
+        "show_form": true,
+        "form_heading": "Skriv til os",
+        "form_name": "Åbningstider & kontakt",
+        "submit_label": "Send besked",
+        "color": "surface"
+      },
+      "blocks": {
+        "text_234": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Caféen er walk-in. Bordbestilling er kun nødvendig for grupper på 6+ gæster.</p><p>I weekenden tager vi desværre ikke imod reservationer, da vi har begrænset plads og ofte mere travlt. Derfor kører vi efter ‘først til mølle’. Hvis vejret er godt, så er der masser af plads både inden- og udenfor, mange vælger at sidde udenfor og nyde havnen og udsigten.</p><p>Til bordbestillinger: vær søde og hjælp os med så mange detaljer som muligt - <strong>Dato, antal gæster, tidspunkt, betaling samlet eller hver for sig, særlig behov</strong> (f.eks. stole med ryglæn), begivenhed osv.</p><p>Vi glæder os til at se jer.</p>"
+          }
+        },
+        "field_235": {
+          "type": "field",
+          "settings": {
+            "label": "Navn",
+            "type": "text",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_236": {
+          "type": "field",
+          "settings": {
+            "label": "Telefon",
+            "type": "tel",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_237": {
+          "type": "field",
+          "settings": {
+            "label": "E-mail",
+            "type": "email",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_238": {
+          "type": "field",
+          "settings": {
+            "label": "Besked",
+            "type": "textarea",
+            "placeholder": "",
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "text_234",
+        "field_235",
+        "field_236",
+        "field_237",
+        "field_238"
+      ]
+    },
+    "kort": {
+      "type": "costa-map",
+      "settings": {
+        "heading": "Find vej",
+        "zoom": 15,
+        "load_on_click": true,
+        "color": "bg"
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "social": {
+      "type": "costa-social",
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg <br>på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      },
+      "blocks": {
+        "link_239": {
+          "type": "link",
+          "settings": {
+            "platform": "facebook",
+            "url": ""
+          }
+        },
+        "link_240": {
+          "type": "link",
+          "settings": {
+            "platform": "instagram",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_239",
+        "link_240"
+      ]
+    },
+    "galleri": {
+      "type": "costa-gallery",
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      },
+      "blocks": {
+        "image_241": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_242": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-2.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_243": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_244": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_245": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-5.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_246": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
+            "caption": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_241",
+        "image_242",
+        "image_243",
+        "image_244",
+        "image_245",
+        "image_246"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "tider",
+    "kontakt",
+    "kort",
+    "social",
+    "galleri"
+  ]
+}

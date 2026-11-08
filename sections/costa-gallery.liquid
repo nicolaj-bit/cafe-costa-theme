@@ -1,0 +1,136 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  endif
+-%}
+
+<section class="costa{{ color_class }}{% if section.settings.tight %} costa--tight{% endif %}" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="costa__inner">
+    {%- if section.settings.heading != blank -%}<h2 class="costa--center">{{ section.settings.heading }}</h2>{%- endif -%}
+    <div class="costa-gallery{% if section.settings.style == 'logos' %} costa-gallery--logos{% endif %}" style="--costa-gallery-columns: {{ section.settings.columns }};">
+      {%- for block in section.blocks -%}
+        <figure class="costa-gallery__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{%- endif -%}
+          {%- render 'costa-image', image: block.settings.image, sizes: '(min-width: 750px) 33vw, 50vw' -%}
+          {%- if block.settings.link != blank -%}</a>{%- endif -%}
+          {%- if block.settings.caption != blank -%}<figcaption>{{ block.settings.caption }}</figcaption>{%- endif -%}
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: billedgalleri",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift (valgfri)"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Visning",
+      "default": "photos",
+      "options": [
+        {
+          "value": "photos",
+          "label": "Fotos (kvadratiske)"
+        },
+        {
+          "value": "logos",
+          "label": "Logoer"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Kolonner på computer",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "tight",
+      "label": "Mindre luft over og under",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Lys"
+        },
+        {
+          "value": "surface",
+          "label": "Flade"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anker-id (til links som #morgenmad)",
+      "info": "Kun små bogstaver og bindestreger."
+    }
+  ],
+  "max_blocks": 24,
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Billede",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Billede"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Billedtekst (valgfri)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (valgfrit)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: billedgalleri",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

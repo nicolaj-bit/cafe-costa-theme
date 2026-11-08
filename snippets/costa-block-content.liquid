@@ -1,0 +1,28 @@
+{% comment %}
+  Fælles tekst-blocks: heading, subheading, text, quote, button.
+  Knapper samles i én række. Brug: render 'costa-block-content', blocks: section.blocks
+{% endcomment %}
+{%- assign buttons = '' -%}
+{%- for block in blocks -%}
+  {%- if block.type == 'button' -%}
+    {%- capture one_button -%}{%- render 'costa-button', block: block -%}{%- endcapture -%}
+    {%- assign buttons = buttons | append: one_button -%}
+    {%- continue -%}
+  {%- endif -%}
+  {%- if buttons != blank -%}<div class="costa-buttons">{{ buttons }}</div>{%- assign buttons = '' -%}{%- endif -%}
+  {%- case block.type -%}
+    {%- when 'heading' -%}
+      {%- assign tag = block.settings.tag | default: 'h2' -%}
+      <{{ tag }} {{ block.shopify_attributes }}>{{ block.settings.heading }}</{{ tag }}>
+    {%- when 'subheading' -%}
+      <p class="costa-subheading" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+    {%- when 'text' -%}
+      <div class="costa-richtext" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+    {%- when 'quote' -%}
+      <blockquote class="costa-quote" {{ block.shopify_attributes }}>
+        {{ block.settings.text }}
+        {%- if block.settings.author != blank -%}<cite>{{ block.settings.author }}</cite>{%- endif -%}
+      </blockquote>
+  {%- endcase -%}
+{%- endfor -%}
+{%- if buttons != blank -%}<div class="costa-buttons">{{ buttons }}</div>{%- endif -%}

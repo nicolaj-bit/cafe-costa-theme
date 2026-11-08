@@ -1,0 +1,166 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  endif
+-%}
+
+{%- liquid
+  assign address = section.settings.address
+  if address == blank
+    assign address = settings.costa_street | append: ', ' | append: settings.costa_city
+  endif
+-%}
+{%- capture map_src -%}https://maps.google.com/maps?q={{ address | url_encode }}&z={{ section.settings.zoom }}&output=embed{%- endcapture -%}
+<section class="costa{{ color_class }}" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="costa__inner">
+    {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- render 'costa-block-content', blocks: section.blocks -%}
+    <div class="costa-map__frame" data-costa-map="{{ map_src | escape }}">
+      {%- if section.settings.load_on_click -%}
+        <div class="costa--center" style="position:absolute;inset:0;display:grid;place-items:center;padding:var(--costa-space-m);">
+          <div>
+            <p>{{ 'costa.map.consent' | t }}</p>
+            <button type="button" class="costa-button" data-costa-map-load>{{ 'costa.map.load' | t }}</button>
+            <p class="costa-muted"><a href="{{ settings.costa_route_url }}" target="_blank" rel="noopener">{{ 'costa.map.route' | t }}</a></p>
+          </div>
+        </div>
+      {%- else -%}
+        <iframe src="{{ map_src }}" title="{{ 'costa.map.title' | t: address: address }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{%- if section.settings.load_on_click -%}
+  <script>
+    document.querySelectorAll('[data-costa-map-load]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var frame = btn.closest('[data-costa-map]');
+        var iframe = document.createElement('iframe');
+        iframe.src = frame.getAttribute('data-costa-map');
+        iframe.title = {{ 'costa.map.title' | t: address: address | json }};
+        iframe.loading = 'lazy';
+        frame.innerHTML = '';
+        frame.appendChild(iframe);
+      });
+    });
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Costa: kort",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Find vej"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Adresse på kortet",
+      "info": "Tomt = adressen fra tema-indstillingerne."
+    },
+    {
+      "type": "range",
+      "id": "zoom",
+      "label": "Zoom",
+      "min": 10,
+      "max": 19,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "checkbox",
+      "id": "load_on_click",
+      "label": "Indlæs først kortet, når den besøgende klikker",
+      "default": true,
+      "info": "Google Maps sætter cookies. Med denne slået til hentes kortet først efter et klik."
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Lys"
+        },
+        {
+          "value": "surface",
+          "label": "Flade"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anker-id (til links som #morgenmad)",
+      "info": "Kun små bogstaver og bindestreger."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "<p>Skriv din tekst her.</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Knap",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Knaptekst",
+          "default": "Læs mere"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Udseende",
+          "default": "primary",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Udfyldt"
+            },
+            {
+              "value": "secondary",
+              "label": "Kant"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: kort"
+    }
+  ]
+}
+{% endschema %}

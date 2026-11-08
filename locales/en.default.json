@@ -274,7 +274,6 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
@@ -527,6 +526,30 @@
       "max_characters": "{{ max_chars }} characters max",
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
+    }
+  },
+  "costa": {
+    "contact": {
+      "phone": "Phone",
+      "email_cafe": "Café email",
+      "email_office": "Office email",
+      "cvr": "CVR",
+      "submit": "Send",
+      "success": "Thanks for your message. We will get back to you as soon as possible.",
+      "error": "Some fields are not filled in correctly."
+    },
+    "map": {
+      "consent": "The map is shown with Google Maps, which sets cookies.",
+      "load": "Show map",
+      "route": "Or get directions in Google Maps",
+      "title": "Map of {{ address }}"
+    },
+    "menu": {
+      "nav_label": "Menu shortcuts",
+      "to_top": "Back to top"
+    },
+    "footer": {
+      "findsmiley": "See our inspection report on Findsmiley.dk"
     }
   }
 }

@@ -1,0 +1,147 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  endif
+-%}
+
+<section class="costa costa--center{{ color_class }}{% if section.settings.background != blank %} costa-social--bg{% endif %}">
+  {%- if section.settings.background != blank -%}
+    {{ section.settings.background | image_url: width: 1600 | image_tag: class: 'costa-social__bg', loading: 'lazy', alt: '' }}
+  {%- endif -%}
+  <div class="costa__inner costa__inner--narrow">
+    {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+    {{ section.settings.text }}
+    <div class="costa-social__links">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign platform = block.settings.platform
+          assign url = block.settings.url
+          if url == blank
+            if platform == 'facebook'
+              assign url = settings.social_facebook_link
+            elsif platform == 'instagram'
+              assign url = settings.social_instagram_link
+            elsif platform == 'tiktok'
+              assign url = settings.social_tiktok_link
+            elsif platform == 'youtube'
+              assign url = settings.social_youtube_link
+            endif
+          endif
+        -%}
+        {%- if url != blank -%}
+          <a href="{{ url }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
+            {{- 'icon-' | append: platform | append: '.svg' | inline_asset_content -}}
+            <span class="visually-hidden">{{ platform | capitalize }}</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: sociale medier",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Følg os på de sociale medier"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst (valgfri)"
+    },
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Baggrundsbillede (valgfrit)"
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Lys"
+        },
+        {
+          "value": "surface",
+          "label": "Flade"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Socialt medie",
+      "settings": [
+        {
+          "type": "select",
+          "id": "platform",
+          "label": "Medie",
+          "default": "facebook",
+          "options": [
+            {
+              "value": "facebook",
+              "label": "Facebook"
+            },
+            {
+              "value": "instagram",
+              "label": "Instagram"
+            },
+            {
+              "value": "tiktok",
+              "label": "TikTok"
+            },
+            {
+              "value": "youtube",
+              "label": "YouTube"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link",
+          "info": "Tomt = linket fra Tema-indstillinger › Sociale medier."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: sociale medier",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "platform": "facebook"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "platform": "instagram"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

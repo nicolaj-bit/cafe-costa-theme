@@ -8,6 +8,332 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Costa – stil",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Al stil i Costa-sektionerne styres herfra via assets/costa-tokens.css. Skift farver, skrifter og former her – sektionerne skal ikke røres."
+      },
+      {
+        "type": "header",
+        "content": "Farver"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_bg",
+        "label": "Baggrund",
+        "default": "#F7F2EB"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_surface",
+        "label": "Flader (kort, bokse)",
+        "default": "#EFE6DA"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_text",
+        "label": "Tekst",
+        "default": "#2E2620"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_muted",
+        "label": "Dæmpet tekst",
+        "default": "#6E6258"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_accent",
+        "label": "Accent (knapper, links)",
+        "default": "#8A5A3C"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_accent_text",
+        "label": "Tekst på accent",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_dark",
+        "label": "Mørk flade (footer, topbjælke)",
+        "default": "#2E2620"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_dark_text",
+        "label": "Tekst på mørk flade",
+        "default": "#F7F2EB"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_border",
+        "label": "Streger",
+        "default": "#DCCFBF"
+      },
+      {
+        "type": "range",
+        "id": "costa_overlay_opacity",
+        "label": "Mørkt lag over hero-billeder",
+        "min": 0,
+        "max": 80,
+        "step": 5,
+        "unit": "%",
+        "default": 35
+      },
+      {
+        "type": "header",
+        "content": "Skrifttyper"
+      },
+      {
+        "type": "font_picker",
+        "id": "costa_font_heading",
+        "label": "Overskrifter",
+        "default": "lora_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "costa_font_body",
+        "label": "Brødtekst",
+        "default": "assistant_n4"
+      },
+      {
+        "type": "range",
+        "id": "costa_font_scale",
+        "label": "Tekststørrelse",
+        "min": 90,
+        "max": 120,
+        "step": 5,
+        "unit": "%",
+        "default": 100
+      },
+      {
+        "type": "select",
+        "id": "costa_heading_case",
+        "label": "Overskrifter med",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "Normale bogstaver"
+          },
+          {
+            "value": "uppercase",
+            "label": "Store bogstaver"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Afstande"
+      },
+      {
+        "type": "range",
+        "id": "costa_space_section",
+        "label": "Luft mellem sektioner",
+        "min": 24,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "default": 72
+      },
+      {
+        "type": "range",
+        "id": "costa_page_width",
+        "label": "Maks. sidebredde",
+        "min": 960,
+        "max": 1600,
+        "step": 20,
+        "unit": "px",
+        "default": 1200
+      },
+      {
+        "type": "range",
+        "id": "costa_gutter",
+        "label": "Sidemargen på mobil",
+        "min": 12,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "default": 16
+      },
+      {
+        "type": "header",
+        "content": "Hjørner"
+      },
+      {
+        "type": "range",
+        "id": "costa_radius",
+        "label": "Hjørner på kort og billeder",
+        "min": 0,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "default": 8
+      },
+      {
+        "type": "header",
+        "content": "Knapper"
+      },
+      {
+        "type": "range",
+        "id": "costa_button_radius",
+        "label": "Hjørner på knapper",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "costa_button_padding",
+        "label": "Knappernes højde (luft)",
+        "min": 8,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 14
+      },
+      {
+        "type": "select",
+        "id": "costa_button_case",
+        "label": "Knaptekst",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "Normale bogstaver"
+          },
+          {
+            "value": "uppercase",
+            "label": "Store bogstaver"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "costa_button_border",
+        "label": "Kantstreg på sekundær knap",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "unit": "px",
+        "default": 2
+      }
+    ]
+  },
+  {
+    "name": "Costa – virksomhed",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Bruges i topbjælken, footeren og på kontakt-sektionen. Ret ét sted, så slår det igennem overalt."
+      },
+      {
+        "type": "text",
+        "id": "costa_company",
+        "label": "Firmanavn (CVR-navn)",
+        "default": "Costa Kalundborg Kaffe ApS"
+      },
+      {
+        "type": "text",
+        "id": "costa_cafe_name",
+        "label": "Caféens navn",
+        "default": "Café Costa Kalundborg"
+      },
+      {
+        "type": "text",
+        "id": "costa_street",
+        "label": "Adresse",
+        "default": "Vestre Havneplads 3B"
+      },
+      {
+        "type": "text",
+        "id": "costa_city",
+        "label": "Postnr. og by",
+        "default": "4400 Kalundborg"
+      },
+      {
+        "type": "text",
+        "id": "costa_phone",
+        "label": "Telefon",
+        "default": "52 76 04 60"
+      },
+      {
+        "type": "text",
+        "id": "costa_email",
+        "label": "Café-mail",
+        "default": "cafe@costakalundborgkaffe.dk"
+      },
+      {
+        "type": "text",
+        "id": "costa_email_office",
+        "label": "Kontor-mail",
+        "default": "Kontakt@CostaKalundborgKaffe.dk"
+      },
+      {
+        "type": "text",
+        "id": "costa_cvr",
+        "label": "CVR-nummer",
+        "default": "40493484"
+      },
+      {
+        "type": "url",
+        "id": "costa_route_url",
+        "label": "Link til rutevejledning",
+        "default": "https://www.google.com/maps/dir//Vestre+Havneplads+3B,+4400+Kalundborg"
+      },
+      {
+        "type": "header",
+        "content": "Åbningstider"
+      },
+      {
+        "type": "text",
+        "id": "costa_hours_label",
+        "label": "Overskrift",
+        "default": "Åbningstider"
+      },
+      {
+        "type": "textarea",
+        "id": "costa_hours",
+        "label": "Åbningstider (én linje pr. dag/periode)",
+        "default": "Alle dage: 09.00–17.00"
+      },
+      {
+        "type": "header",
+        "content": "Links i footer"
+      },
+      {
+        "type": "url",
+        "id": "costa_findsmiley_url",
+        "label": "Findsmiley-link",
+        "default": "https://www.findsmiley.dk/921867"
+      },
+      {
+        "type": "url",
+        "id": "costa_lag_url",
+        "label": "LAG-link",
+        "default": "https://lag-midtnordvestsjaelland.dk/"
+      },
+      {
+        "type": "image_picker",
+        "id": "costa_lag_logo",
+        "label": "LAG-logo (tom = standardlogo)"
+      },
+      {
+        "type": "image_picker",
+        "id": "costa_footer_logo",
+        "label": "Logo i footer (tom = standardlogo)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Facebook og Instagram sættes under «Sociale medier»."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

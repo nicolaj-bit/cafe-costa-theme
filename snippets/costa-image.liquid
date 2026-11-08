@@ -1,0 +1,15 @@
+{% comment %}
+  Viser et billede fra Shopify Files – eller en pladsholder, hvis feltet er tomt.
+  Brug: render 'costa-image', image: block.settings.image, sizes: '50vw', class: ''
+{% endcomment %}
+{%- if image != blank -%}
+  {{ image | image_url: width: 2400 | image_tag:
+    loading: loading | default: 'lazy',
+    widths: '375, 550, 750, 1100, 1500, 1800, 2400',
+    sizes: sizes | default: '100vw',
+    class: class,
+    alt: image.alt | escape
+  }}
+{%- else -%}
+  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+{%- endif -%}

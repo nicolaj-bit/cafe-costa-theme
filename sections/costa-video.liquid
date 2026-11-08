@@ -1,0 +1,212 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  endif
+-%}
+
+<section class="costa{{ color_class }}">
+  <div class="costa__inner">
+    <div class="costa-split{% if section.settings.layout == 'side' %} costa-split--has-media{% endif %}">
+      <div class="costa-video">
+        {%- if section.settings.video != blank -%}
+          {{ section.settings.video | video_tag: autoplay: section.settings.autoplay, loop: section.settings.autoplay, muted: true, controls: true, playsinline: true, image_size: '1100x' }}
+        {%- elsif section.settings.video_url != blank -%}
+          <video controls playsinline preload="metadata" {% if section.settings.autoplay %}autoplay muted loop{% endif %} {% if section.settings.poster != blank %}poster="{{ section.settings.poster | image_url: width: 1100 }}"{% endif %}>
+            <source src="{{ section.settings.video_url }}" type="video/mp4">
+          </video>
+        {%- endif -%}
+      </div>
+      <div class="costa-split__text">
+        {%- render 'costa-block-content', blocks: section.blocks -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: video",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video (uploadet til Shopify)"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "…eller link til en MP4-fil",
+      "info": "Bruges kun, hvis der ikke er valgt en video ovenfor."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Forsidebillede til MP4-linket"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Afspil automatisk uden lyd",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "stack",
+      "options": [
+        {
+          "value": "stack",
+          "label": "Video over teksten"
+        },
+        {
+          "value": "side",
+          "label": "Video ved siden af teksten"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Lys"
+        },
+        {
+          "value": "surface",
+          "label": "Flade"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Overskrift",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Overskrift",
+          "default": "Overskrift"
+        },
+        {
+          "type": "select",
+          "id": "tag",
+          "label": "Niveau",
+          "default": "h2",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1 – sidens hovedoverskrift"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "p",
+              "label": "Almindelig tekst"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Underoverskrift",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Underoverskrift"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "<p>Skriv din tekst her.</p>"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Citat",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Citat",
+          "default": "<p>Citat</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Afsender"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Knap",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Knaptekst",
+          "default": "Læs mere"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Udseende",
+          "default": "primary",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Udfyldt"
+            },
+            {
+              "value": "secondary",
+              "label": "Kant"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: video"
+    }
+  ]
+}
+{% endschema %}
