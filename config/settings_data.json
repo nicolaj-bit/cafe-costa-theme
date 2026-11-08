@@ -7,46 +7,46 @@
       "color_schemes": {
         "scheme-1": {
           "settings": {
-            "background": "#F7F2EB",
+            "background": "#EFE8DC",
             "background_gradient": "",
-            "text": "#2E2620",
-            "button": "#8A5A3C",
+            "text": "#1C1A17",
+            "button": "#9A4421",
             "button_label": "#FFFFFF",
-            "secondary_button_label": "#8A5A3C",
-            "shadow": "#2E2620"
+            "secondary_button_label": "#1C1A17",
+            "shadow": "#1C1A17"
           }
         },
         "scheme-2": {
           "settings": {
-            "background": "#EFE6DA",
+            "background": "#F7F2E9",
             "background_gradient": "",
-            "text": "#2E2620",
-            "button": "#8A5A3C",
+            "text": "#1C1A17",
+            "button": "#9A4421",
             "button_label": "#FFFFFF",
-            "secondary_button_label": "#8A5A3C",
-            "shadow": "#2E2620"
+            "secondary_button_label": "#1C1A17",
+            "shadow": "#1C1A17"
           }
         },
         "scheme-3": {
           "settings": {
-            "background": "#2E2620",
+            "background": "#1C1A17",
             "background_gradient": "",
-            "text": "#F7F2EB",
-            "button": "#F7F2EB",
-            "button_label": "#2E2620",
-            "secondary_button_label": "#F7F2EB",
-            "shadow": "#121212"
+            "text": "#EFE8DC",
+            "button": "#EFE8DC",
+            "button_label": "#1C1A17",
+            "secondary_button_label": "#EFE8DC",
+            "shadow": "#1C1A17"
           }
         },
         "scheme-4": {
           "settings": {
-            "background": "#121212",
+            "background": "#1E3A4C",
             "background_gradient": "",
-            "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#121212",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "text": "#EFE8DC",
+            "button": "#EFE8DC",
+            "button_label": "#1E3A4C",
+            "secondary_button_label": "#EFE8DC",
+            "shadow": "#1C1A17"
           }
         },
         "scheme-5": {
@@ -71,21 +71,21 @@
       "spacing_grid_vertical": 8,
       "animations_reveal_on_scroll": true,
       "animations_hover_elements": "none",
-      "buttons_border_thickness": 1,
+      "buttons_border_thickness": 2,
       "buttons_border_opacity": 100,
-      "buttons_radius": 0,
+      "buttons_radius": 40,
       "buttons_shadow_opacity": 0,
       "buttons_shadow_horizontal_offset": 0,
       "buttons_shadow_vertical_offset": 4,
       "buttons_shadow_blur": 5,
-      "variant_pills_border_thickness": 1,
+      "variant_pills_border_thickness": 2,
       "variant_pills_border_opacity": 55,
       "variant_pills_radius": 40,
       "variant_pills_shadow_opacity": 0,
       "variant_pills_shadow_horizontal_offset": 0,
       "variant_pills_shadow_vertical_offset": 4,
       "variant_pills_shadow_blur": 5,
-      "inputs_border_thickness": 1,
+      "inputs_border_thickness": 2,
       "inputs_border_opacity": 55,
       "inputs_radius": 0,
       "inputs_shadow_opacity": 0,
@@ -142,7 +142,7 @@
       "popup_border_thickness": 1,
       "popup_border_opacity": 10,
       "popup_corner_radius": 0,
-      "popup_shadow_opacity": 5,
+      "popup_shadow_opacity": 0,
       "popup_shadow_horizontal_offset": 0,
       "popup_shadow_vertical_offset": 4,
       "popup_shadow_blur": 5,
@@ -172,7 +172,7 @@
       "predictive_search_show_vendor": false,
       "predictive_search_show_price": false,
       "currency_code_enabled": true,
-      "cart_type": "notification",
+      "cart_type": "page",
       "show_vendor": false,
       "show_cart_note": false,
       "cart_drawer_collection": "",
@@ -192,7 +192,10 @@
         }
       },
       "logo": "shopify://shop_images/costa-logo.png",
-      "favicon": "shopify://shop_images/costa-logo.png"
+      "favicon": "shopify://shop_images/costa-logo.png",
+      "blog_cards_shadow_opacity": 0,
+      "collection_cards_shadow_opacity": 0,
+      "product_cards_shadow_opacity": 0
     }
   }
 }

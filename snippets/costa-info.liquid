@@ -1,0 +1,21 @@
+{% comment %} Åbningstider, adresse og telefon fra tema-indstillingerne. render 'costa-info', block: block {% endcomment %}
+<dl class="costa-info" {{ block.shopify_attributes }}>
+  {%- if block.settings.show_hours -%}
+    <div>
+      <dt class="costa-label">{{ settings.costa_hours_label }}</dt>
+      <dd>{{ settings.costa_hours }}</dd>
+    </div>
+  {%- endif -%}
+  {%- if block.settings.show_address -%}
+    <div>
+      <dt class="costa-label">{{ 'costa.contact.address' | t }}</dt>
+      <dd><a href="{{ settings.costa_route_url }}" target="_blank" rel="noopener">{{ settings.costa_street }}<br>{{ settings.costa_city }}</a></dd>
+    </div>
+  {%- endif -%}
+  {%- if block.settings.show_phone and settings.costa_phone != blank -%}
+    <div>
+      <dt class="costa-label">{{ 'costa.contact.phone' | t }}</dt>
+      <dd><a href="tel:{{ settings.costa_phone | remove: ' ' }}">{{ settings.costa_phone }}</a></dd>
+    </div>
+  {%- endif -%}
+</dl>

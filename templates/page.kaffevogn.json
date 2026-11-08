@@ -12,7 +12,7 @@
         "logo_width": 180
       },
       "blocks": {
-        "heading_152": {
+        "heading_159": {
           "type": "heading",
           "settings": {
             "heading": "Kaffevogn",
@@ -21,7 +21,7 @@
         }
       },
       "block_order": [
-        "heading_152"
+        "heading_159"
       ]
     },
     "video": {
@@ -33,14 +33,14 @@
         "color": "bg"
       },
       "blocks": {
-        "heading_153": {
+        "heading_160": {
           "type": "heading",
           "settings": {
             "heading": "Skab en speciel stemning ved dit næste arrangement med vores super hyggelige el-Kaffe Knallert",
             "tag": "h2"
           }
         },
-        "text_154": {
+        "text_161": {
           "type": "text",
           "settings": {
             "text": "<p>Vores Kaffe Knallert er en klassisk italiensk Piaggio Ape 50 moderniseret til at køre med el (ingen 2 takts røg), så den kan også bruges indendørs.</p><p>Den er fuldt selvforsynende med egen vand / gas og elforsyning.</p><p>Vores Kaffe Knallert er udstyret med:</p><ul><li>en professionel espressomaskine</li><li>Costa Kalundborg Kaffes friskristede 'Kiwi' espressobønner</li><li>en erfaren barista</li></ul><p>Med i prisen er:</p><ul><li>Uddannet barista</li><li>Lokal ristet kaffe (Costa Kalundborg Kaffe 'Kiwi' espresso)</li><li>Alle typer espressobaserede drikkevarer f.eks. Latte, Cappuccino, Flat White, Americano osv</li><li>Varm chokolade &amp; Økologisk Chai Latte</li><li>Økologisk mælk &amp; plantemælk</li><li>Tilbehør f.eks. sirup, sukker</li><li>Kopper / låg, rørpinde osv</li></ul><p>Ekstra tilkøb:</p><ul><li>Ekstra Barista (for eks. 50+ gæster i timen, giv god flow)</li><li>Baileys / Irish coffee</li><li>Cookies / snitter</li></ul>"
@@ -48,8 +48,8 @@
         }
       },
       "block_order": [
-        "heading_153",
-        "text_154"
+        "heading_160",
+        "text_161"
       ]
     },
     "bestil": {
@@ -61,16 +61,17 @@
         "show_form": true,
         "form_name": "Kaffevogn",
         "submit_label": "Send",
-        "color": "surface"
+        "color": "surface",
+        "anchor": "bestil"
       },
       "blocks": {
-        "text_155": {
+        "text_162": {
           "type": "text",
           "settings": {
             "text": "<p>Hvis du er interesseret i at leje vores kaffeknallert til et arrangement, bedes du venligst udfylde formularen, så vi hurtigst muligt kan vende tilbage og skræddersy et tilbud til din dag sammen med dig.</p>"
           }
         },
-        "field_156": {
+        "field_163": {
           "type": "field",
           "settings": {
             "label": "Navn",
@@ -79,7 +80,7 @@
             "required": true
           }
         },
-        "field_157": {
+        "field_164": {
           "type": "field",
           "settings": {
             "label": "Telefon",
@@ -88,7 +89,7 @@
             "required": true
           }
         },
-        "field_158": {
+        "field_165": {
           "type": "field",
           "settings": {
             "label": "E-mail",
@@ -97,7 +98,7 @@
             "required": true
           }
         },
-        "field_159": {
+        "field_166": {
           "type": "field",
           "settings": {
             "label": "Arrangement type",
@@ -106,7 +107,7 @@
             "required": true
           }
         },
-        "field_160": {
+        "field_167": {
           "type": "field",
           "settings": {
             "label": "Dato og tidspunkt for arrangement",
@@ -115,7 +116,7 @@
             "required": true
           }
         },
-        "field_161": {
+        "field_168": {
           "type": "field",
           "settings": {
             "label": "Antal gæster",
@@ -124,7 +125,7 @@
             "required": true
           }
         },
-        "field_162": {
+        "field_169": {
           "type": "field",
           "settings": {
             "label": "Adresse for arrangementet",
@@ -133,7 +134,7 @@
             "required": true
           }
         },
-        "field_163": {
+        "field_170": {
           "type": "field",
           "settings": {
             "label": "Beskriv dine behov til arrangementet? Hvor mange timer osv...",
@@ -144,15 +145,15 @@
         }
       },
       "block_order": [
-        "text_155",
-        "field_156",
-        "field_157",
-        "field_158",
-        "field_159",
-        "field_160",
-        "field_161",
-        "field_162",
-        "field_163"
+        "text_162",
+        "field_163",
+        "field_164",
+        "field_165",
+        "field_166",
+        "field_167",
+        "field_168",
+        "field_169",
+        "field_170"
       ]
     },
     "kaffevogn_billeder": {
@@ -164,7 +165,7 @@
         "color": "bg"
       },
       "blocks": {
-        "image_164": {
+        "image_171": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-kaffevogn-1.jpg",
@@ -172,7 +173,7 @@
             "link": ""
           }
         },
-        "image_165": {
+        "image_172": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-kaffevogn-2.jpg",
@@ -180,7 +181,7 @@
             "link": ""
           }
         },
-        "image_166": {
+        "image_173": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-kaffevogn-3.jpg",
@@ -188,7 +189,7 @@
             "link": ""
           }
         },
-        "image_167": {
+        "image_174": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-kaffevogn-4.jpg",
@@ -198,10 +199,10 @@
         }
       },
       "block_order": [
-        "image_164",
-        "image_165",
-        "image_166",
-        "image_167"
+        "image_171",
+        "image_172",
+        "image_173",
+        "image_174"
       ]
     },
     "social": {
@@ -212,14 +213,14 @@
         "color": "surface"
       },
       "blocks": {
-        "link_168": {
+        "link_175": {
           "type": "link",
           "settings": {
             "platform": "facebook",
             "url": ""
           }
         },
-        "link_169": {
+        "link_176": {
           "type": "link",
           "settings": {
             "platform": "instagram",
@@ -228,8 +229,8 @@
         }
       },
       "block_order": [
-        "link_168",
-        "link_169"
+        "link_175",
+        "link_176"
       ]
     },
     "galleri": {
@@ -241,7 +242,7 @@
         "color": "bg"
       },
       "blocks": {
-        "image_170": {
+        "image_177": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
@@ -249,7 +250,7 @@
             "link": ""
           }
         },
-        "image_171": {
+        "image_178": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-2.jpg",
@@ -257,7 +258,7 @@
             "link": ""
           }
         },
-        "image_172": {
+        "image_179": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
@@ -265,7 +266,7 @@
             "link": ""
           }
         },
-        "image_173": {
+        "image_180": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
@@ -273,7 +274,7 @@
             "link": ""
           }
         },
-        "image_174": {
+        "image_181": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-5.jpg",
@@ -281,7 +282,7 @@
             "link": ""
           }
         },
-        "image_175": {
+        "image_182": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
@@ -291,12 +292,12 @@
         }
       },
       "block_order": [
-        "image_170",
-        "image_171",
-        "image_172",
-        "image_173",
-        "image_174",
-        "image_175"
+        "image_177",
+        "image_178",
+        "image_179",
+        "image_180",
+        "image_181",
+        "image_182"
       ]
     }
   },

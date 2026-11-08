@@ -174,6 +174,26 @@
           "default": "Læs mere"
         },
         {
+          "type": "select",
+          "id": "link_type",
+          "label": "Linker til",
+          "default": "custom",
+          "options": [
+            {
+              "value": "custom",
+              "label": "Linket herunder"
+            },
+            {
+              "value": "route",
+              "label": "Rutevejledning (fra tema-indstillinger)"
+            },
+            {
+              "value": "phone",
+              "label": "Ring op (fra tema-indstillinger)"
+            }
+          ]
+        },
+        {
           "type": "url",
           "id": "link",
           "label": "Link"
@@ -191,6 +211,10 @@
             {
               "value": "secondary",
               "label": "Kant"
+            },
+            {
+              "value": "buy",
+              "label": "Køb (ristet rød)"
             }
           ]
         }

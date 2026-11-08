@@ -2,38 +2,12 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "header": {
-      "type": "header",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
-        "logo_position": "middle-left",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
     "costa_topbar": {
       "type": "costa-topbar",
       "blocks": {
-        "route": {
-          "type": "route",
-          "settings": {
-            "label": "Find vej"
-          }
-        },
-        "phone": {
-          "type": "phone",
-          "settings": {
-            "prefix": "Tlf. "
-          }
+        "shipping": {
+          "type": "shipping",
+          "settings": {}
         },
         "hours": {
           "type": "hours",
@@ -43,15 +17,24 @@
         }
       },
       "block_order": [
-        "route",
-        "phone",
+        "shipping",
         "hours"
       ],
       "settings": {}
+    },
+    "costa_header": {
+      "type": "costa-header",
+      "settings": {
+        "logo_name": "Café Costa",
+        "logo_sub": "Kafferisteri · Kalundborg",
+        "menu": "main-menu",
+        "show_account": true,
+        "account_label": "Erhvervslogin"
+      }
     }
   },
   "order": [
     "costa_topbar",
-    "header"
+    "costa_header"
   ]
 }

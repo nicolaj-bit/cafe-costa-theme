@@ -1,36 +1,60 @@
+/*
+ * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ */
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "produkter": {
+      "type": "costa-product-grid",
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
-      }
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "enable_filtering": true,
-        "filter_type": "horizontal",
-        "enable_sorting": true,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+        "label": "Webshop",
+        "heading": "",
+        "use_page_collection": true,
+        "products_limit": 12,
+        "columns": 3,
+        "view_all_label": "",
+        "show_filters": true,
+        "all_label": "Alle",
+        "color": "bg"
+      },
+      "blocks": {
+        "filter_269": {
+          "type": "filter",
+          "settings": {
+            "label": "Espresso",
+            "tag": "espresso"
+          }
+        },
+        "filter_270": {
+          "type": "filter",
+          "settings": {
+            "label": "Filter",
+            "tag": "filter"
+          }
+        },
+        "filter_271": {
+          "type": "filter",
+          "settings": {
+            "label": "Single origin",
+            "tag": "single-origin"
+          }
+        },
+        "filter_272": {
+          "type": "filter",
+          "settings": {
+            "label": "Gaver",
+            "tag": "gaver"
+          }
+        }
+      },
+      "block_order": [
+        "filter_269",
+        "filter_270",
+        "filter_271",
+        "filter_272"
+      ]
     }
   },
   "order": [
-    "banner",
-    "product-grid"
+    "produkter"
   ]
 }

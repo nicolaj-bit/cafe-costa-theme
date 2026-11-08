@@ -1,0 +1,17 @@
+{% comment %}
+  Kaffedata fra produktets metafelter (custom.oprindelse, custom.proces, custom.ristning).
+  render 'costa-coffee-data', product: product
+{% endcomment %}
+{%- liquid
+  assign m = product.metafields.custom
+  assign oprindelse = m.oprindelse.value
+  assign proces = m.proces.value
+  assign ristning = m.ristning.value
+-%}
+{%- if oprindelse != blank or proces != blank or ristning != blank -%}
+  <dl class="costa-data">
+    {%- if oprindelse != blank -%}<dt>{{ 'costa.coffee.origin' | t }}</dt><dd>{{ oprindelse | escape }}</dd>{%- endif -%}
+    {%- if proces != blank -%}<dt>{{ 'costa.coffee.process' | t }}</dt><dd>{{ proces | escape }}</dd>{%- endif -%}
+    {%- if ristning != blank -%}<dt>{{ 'costa.coffee.roast' | t }}</dt><dd>{{ ristning | escape }}</dd>{%- endif -%}
+  </dl>
+{%- endif -%}

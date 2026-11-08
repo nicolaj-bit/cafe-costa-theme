@@ -536,7 +536,8 @@
       "cvr": "CVR",
       "submit": "Send",
       "success": "Thanks for your message. We will get back to you as soon as possible.",
-      "error": "Some fields are not filled in correctly."
+      "error": "Some fields are not filled in correctly.",
+      "address": "Address"
     },
     "map": {
       "consent": "The map is shown with Google Maps, which sets cookies.",
@@ -550,6 +551,29 @@
     },
     "footer": {
       "findsmiley": "See our inspection report on Findsmiley.dk"
+    },
+    "header": {
+      "menu": "Menu",
+      "cart": "Cart"
+    },
+    "coffee": {
+      "origin": "Origin",
+      "process": "Process",
+      "roast": "Roast",
+      "notes": "Tasting notes"
+    },
+    "shop": {
+      "all": "All",
+      "filter_label": "Filter coffee",
+      "empty": "No coffee matches this filter right now.",
+      "no_collection": "Choose a collection in the Theme Editor.",
+      "add": "Add to cart",
+      "adding": "Adding …",
+      "added": "Added to cart ✓",
+      "error": "That didn't work. Please try again.",
+      "sold_out": "Sold out",
+      "variant": "Choose variant",
+      "roastery": "Coffee roastery · Kalundborg"
     }
   }
 }

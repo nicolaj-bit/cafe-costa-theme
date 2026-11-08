@@ -7,11 +7,17 @@
       "blocks": {
         "logo": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "style": "wordmark",
+            "name": "Café Costa",
+            "sub": "Kafferisteri · Kalundborg",
+            "text": "<p>Café, spisested og lokalt kafferisteri, med et unikt strejf af New Zealand - midt på havnen.</p>"
+          }
         },
         "address": {
           "type": "address",
           "settings": {
+            "title": "Find os",
             "route_label": "Klik her for rutevejledning"
           }
         },

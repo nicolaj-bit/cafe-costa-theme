@@ -11,6 +11,10 @@
   {%- endif -%}
   {%- if buttons != blank -%}<div class="costa-buttons">{{ buttons }}</div>{%- assign buttons = '' -%}{%- endif -%}
   {%- case block.type -%}
+    {%- when 'label' -%}
+      <p class="costa-label" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+    {%- when 'info' -%}
+      {%- render 'costa-info', block: block -%}
     {%- when 'heading' -%}
       {%- assign tag = block.settings.tag | default: 'h2' -%}
       <{{ tag }} {{ block.shopify_attributes }}>{{ block.settings.heading }}</{{ tag }}>

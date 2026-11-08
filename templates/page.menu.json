@@ -12,7 +12,7 @@
         "logo_width": 180
       },
       "blocks": {
-        "heading_26": {
+        "heading_33": {
           "type": "heading",
           "settings": {
             "heading": "Menu",
@@ -21,7 +21,7 @@
         }
       },
       "block_order": [
-        "heading_26"
+        "heading_33"
       ]
     },
     "menu_1": {
@@ -32,13 +32,13 @@
         "color": "bg"
       },
       "blocks": {
-        "text_27": {
+        "text_34": {
           "type": "text",
           "settings": {
             "text": "<p><a href=\"#morgenmad\">Morgenmad</a> · <a href=\"#frokost\">Frokost</a> · <a href=\"#soedesager\">Søde sager</a> · <a href=\"#boernemenu\">Børnevenlige retter</a> · <a href=\"#saesonmenu\">Sæsonmenu</a></p><p><a href=\"#kaffe\">Kaffe / Varme drikke</a> · <a href=\"#iced\">Iced / Kolde drikke</a> · <a href=\"#oel\">Øl, Vin, Cocktails</a></p>"
           }
         },
-        "category_28": {
+        "category_35": {
           "type": "category",
           "settings": {
             "title": "SÆSONMENU Vinter 2026",
@@ -47,14 +47,14 @@
             "note": ""
           }
         },
-        "group_29": {
+        "group_36": {
           "type": "group",
           "settings": {
             "title": "SÆSONENS PIE - kommer midt November",
             "note": ""
           }
         },
-        "item_30": {
+        "item_37": {
           "type": "item",
           "settings": {
             "name": "AND",
@@ -62,14 +62,14 @@
             "description": "<p>En klassisk butterdejstærte med mørt andekød, søde æbler og svesker.</p><p>- serveres med frisk julesalat & håndlavet appelsinvinagrette.</p><p>Fra Wild Kiwi Pies.</p>"
           }
         },
-        "group_31": {
+        "group_38": {
           "type": "group",
           "settings": {
             "title": "SÆSONENS SØDE",
             "note": ""
           }
         },
-        "item_32": {
+        "item_39": {
           "type": "item",
           "settings": {
             "name": "ÆBLESKIVER med tilbehør",
@@ -77,14 +77,14 @@
             "description": "<p>3stks lune æbleskiver serveret med et drys flormelis og sød jordbærsyltetøj - en ægte dansk juleklassiker, der spreder julestemning og hygge.</p>"
           }
         },
-        "group_33": {
+        "group_40": {
           "type": "group",
           "settings": {
             "title": "SÆSONENS DRIK",
             "note": ""
           }
         },
-        "item_34": {
+        "item_41": {
           "type": "item",
           "settings": {
             "name": "WINTER LATTE",
@@ -92,7 +92,7 @@
             "description": "<p>Din klassiske lækre latte med et twist af honningkage, varme krydderier og sødme, der smager bare af jul. Den perfekte vinterfavorit til dig, der elsker hygge i en kop.</p>"
           }
         },
-        "item_35": {
+        "item_42": {
           "type": "item",
           "settings": {
             "name": "GLØGG",
@@ -100,7 +100,7 @@
             "description": "<p>En ægte juleklassiker, med en krydderiblanding af kanel, nelliker og kardemomme, det giver den harmoniske og dybe smagsoplevelse. Serveret med rosiner og mandel splitter.</p><p>10% alkohol.</p>"
           }
         },
-        "item_36": {
+        "item_43": {
           "type": "item",
           "settings": {
             "name": "GØR DET TIL EN MENU...",
@@ -108,7 +108,7 @@
             "description": "<p>Winter Latte eller Gløgg med 3 stks lune æbleskiver og tilbehør</p>"
           }
         },
-        "category_37": {
+        "category_44": {
           "type": "category",
           "settings": {
             "title": "MORGENMAD",
@@ -117,7 +117,7 @@
             "note": "(serveres hele dagen)"
           }
         },
-        "item_38": {
+        "item_45": {
           "type": "item",
           "settings": {
             "name": "BMO Breakfast",
@@ -125,7 +125,7 @@
             "description": "<p>Surdejsbolle med specialost/gammel knas + appelsin juice/æblemost + filter kaffe.</p><p>- man må upgrade til valgfri kaffetype til et lille beløb.</p><p>- Glutenfri bolle +10 kr.</p>"
           }
         },
-        "item_39": {
+        "item_46": {
           "type": "item",
           "settings": {
             "name": "CCK Brunch",
@@ -133,7 +133,7 @@
             "description": "<p>BMO+ crunchy yoghurt cup + appelsin juice/æblemost + filter kaffe.</p><p>- men man må upgrade til valgfri kaffetype til et lille beløb.</p><p>- Glutenfri Bolle +10 kr</p>"
           }
         },
-        "item_40": {
+        "item_47": {
           "type": "item",
           "settings": {
             "name": "BMO - Bolle Med Ost",
@@ -141,7 +141,7 @@
             "description": "<p>Surdejsbolle med specialost/Gammel Knas og sydesaltet smør.</p><p>- Glutenfri Bolle +10 kr</p>"
           }
         },
-        "item_41": {
+        "item_48": {
           "type": "item",
           "settings": {
             "name": "Croissant",
@@ -149,7 +149,7 @@
             "description": "<p>Økologisk, smørbagt og sprød.</p>"
           }
         },
-        "item_42": {
+        "item_49": {
           "type": "item",
           "settings": {
             "name": "Crunchy Yoghurt Cup",
@@ -157,7 +157,7 @@
             "description": "<p>Laktosefri græsk yoghurt, håndlavet frugtkompot, sprød granola & et strejf af honning.</p><p>- Glutenfri = minus granola.</p>"
           }
         },
-        "item_43": {
+        "item_50": {
           "type": "item",
           "settings": {
             "name": "Scone",
@@ -165,14 +165,14 @@
             "description": "<p>New Zealandsk dadel- eller ostescone, serveret varm med smør.</p><p>- 2 skiver mild ost +10 kr. / Jordbærsyltetøj +5 kr</p>"
           }
         },
-        "image_44": {
+        "image_51": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-menu-morgenmad-1.jpg",
             "image_2": "shopify://shop_images/costa-menu-morgenmad-2.png"
           }
         },
-        "category_45": {
+        "category_52": {
           "type": "category",
           "settings": {
             "title": "FROKOST",
@@ -181,14 +181,14 @@
             "note": "(serveres hele dagen)"
           }
         },
-        "group_46": {
+        "group_53": {
           "type": "group",
           "settings": {
             "title": "Sandwiches",
             "note": "- håndlavet på økologisk ciabattabrød"
           }
         },
-        "item_47": {
+        "item_54": {
           "type": "item",
           "settings": {
             "name": "Kylling",
@@ -196,7 +196,7 @@
             "description": "<p>Dansk kylling, babyspinat, håndlavet syltet rødløg, kimchi-mayo, ajvar (halal).</p>"
           }
         },
-        "item_48": {
+        "item_55": {
           "type": "item",
           "settings": {
             "name": "Prosciutto & ost",
@@ -204,7 +204,7 @@
             "description": "<p>Prosciutto, Efterglød & Koryfe ost, babyspinat, håndlavet syltet rødløg, grov sennepsmayo, kimchi-mayo.</p>"
           }
         },
-        "item_49": {
+        "item_56": {
           "type": "item",
           "settings": {
             "name": "Ham & Cheese",
@@ -212,7 +212,7 @@
             "description": "<p>Prosciutto, Efterglød & Koryfe ost, dijonnaise & mayo.</p>"
           }
         },
-        "item_50": {
+        "item_57": {
           "type": "item",
           "settings": {
             "name": "Falafel",
@@ -220,14 +220,14 @@
             "description": "<p>Falafel, babyspinat, håndlavet syltet rødløg, kimchi-mayo, ajvar. (V)</p>"
           }
         },
-        "group_51": {
+        "group_58": {
           "type": "group",
           "settings": {
             "title": "Hot Pies - New Zealandske specialitet",
             "note": "Madtærter af sprød butterdej med forskellige smage - serveret varm med salat & dressing. Varianter kan varierer, kom forbi og se hvad vi har at tilbyde."
           }
         },
-        "item_52": {
+        "item_59": {
           "type": "item",
           "settings": {
             "name": "HIKER",
@@ -235,7 +235,7 @@
             "description": "<p>En cremet sennepssauce omfavner møre økologisk kyllingestykker, sammen med små tern af bacon og svampe samt sæsonens grønne ærter vil denne pie slå den klassiske tartelet af banen.</p>"
           }
         },
-        "item_53": {
+        "item_60": {
           "type": "item",
           "settings": {
             "name": "HUNTSMAN",
@@ -243,7 +243,7 @@
             "description": "<p>Mørt økologiske oksekød steak stykker og smeltet ost – en saftig, krydret klassisk New Zealand Steak and Cheese pie.</p>"
           }
         },
-        "item_54": {
+        "item_61": {
           "type": "item",
           "settings": {
             "name": "TACO",
@@ -251,7 +251,7 @@
             "description": "<p>Spicy Tex Mex økologisk hakket oksekød, jalapeños og smeltet cheddar.</p>"
           }
         },
-        "item_55": {
+        "item_62": {
           "type": "item",
           "settings": {
             "name": "CAULIWOOD",
@@ -259,7 +259,7 @@
             "description": "<p>Knasende blomkålsstykker, blandet med bløde kikærter i en lækker kokosmælkssovs (V)</p>"
           }
         },
-        "item_56": {
+        "item_63": {
           "type": "item",
           "settings": {
             "name": "Sausage Roll – En New Zealandsk klassiker",
@@ -267,7 +267,7 @@
             "description": "<p>Hakket griskød med urter, svøbt i sprød butterdej, serveret med salat & ketchup.</p>"
           }
         },
-        "item_57": {
+        "item_64": {
           "type": "item",
           "settings": {
             "name": "Chicken Roll",
@@ -277,37 +277,37 @@
         }
       },
       "block_order": [
-        "text_27",
-        "category_28",
-        "group_29",
-        "item_30",
-        "group_31",
-        "item_32",
-        "group_33",
-        "item_34",
-        "item_35",
-        "item_36",
-        "category_37",
-        "item_38",
+        "text_34",
+        "category_35",
+        "group_36",
+        "item_37",
+        "group_38",
         "item_39",
-        "item_40",
+        "group_40",
         "item_41",
         "item_42",
         "item_43",
-        "image_44",
-        "category_45",
-        "group_46",
+        "category_44",
+        "item_45",
+        "item_46",
         "item_47",
         "item_48",
         "item_49",
         "item_50",
-        "group_51",
-        "item_52",
-        "item_53",
+        "image_51",
+        "category_52",
+        "group_53",
         "item_54",
         "item_55",
         "item_56",
-        "item_57"
+        "item_57",
+        "group_58",
+        "item_59",
+        "item_60",
+        "item_61",
+        "item_62",
+        "item_63",
+        "item_64"
       ]
     },
     "nz_pie": {
@@ -319,20 +319,20 @@
         "color": "surface"
       },
       "blocks": {
-        "heading_58": {
+        "heading_65": {
           "type": "heading",
           "settings": {
             "heading": "The New Zealand Pie",
             "tag": "h2"
           }
         },
-        "text_59": {
+        "text_66": {
           "type": "text",
           "settings": {
             "text": "<p>Vi vil gerne præsentere dig for den autentiske New Zealandske Pie. – En hjørnesten i vores kultur. En pie er for de fleste forbundet med den Engelske Shepherd's pie eller den Amerikanske ikoniske Apple pie, der står og trækker i vindueskarmen. Den New Zealandske variant består af en sprød smørdej med dejlig varmt fyld og serveres i en størrelse som du kan have i den ene hånd, mens du nyder en kold drik i den anden.</p>"
           }
         },
-        "quote_60": {
+        "quote_67": {
           "type": "quote",
           "settings": {
             "text": "<p>\"Den New Zealandske pie, er for mig mindet om min barndom, hvor jeg cyklede af sted ned mod stranden med én hånd på styret og med en Pie i den anden hånd.''</p>",
@@ -341,9 +341,9 @@
         }
       },
       "block_order": [
-        "heading_58",
-        "text_59",
-        "quote_60"
+        "heading_65",
+        "text_66",
+        "quote_67"
       ]
     },
     "menu_2": {
@@ -354,21 +354,21 @@
         "color": "bg"
       },
       "blocks": {
-        "image_61": {
+        "image_68": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-menu-frokost-1.png",
             "image_2": "shopify://shop_images/costa-menu-frokost-2.png"
           }
         },
-        "image_62": {
+        "image_69": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-menu-frokost-3.png",
             "image_2": "shopify://shop_images/costa-menu-frokost-4.jpg"
           }
         },
-        "category_63": {
+        "category_70": {
           "type": "category",
           "settings": {
             "title": "SØDE SAGER",
@@ -377,7 +377,7 @@
             "note": ""
           }
         },
-        "item_64": {
+        "item_71": {
           "type": "item",
           "settings": {
             "name": "Kanelsnurrer",
@@ -385,7 +385,7 @@
             "description": "<p>Lune kanelsnurrer toppet med perlesukker & hakket hasselnødder</p>"
           }
         },
-        "item_65": {
+        "item_72": {
           "type": "item",
           "settings": {
             "name": "Chocolate Caramel Slice",
@@ -393,7 +393,7 @@
             "description": "<p>Kiksebund med et lag gooey caramel med knasende chokolade glasur.</p>"
           }
         },
-        "item_66": {
+        "item_73": {
           "type": "item",
           "settings": {
             "name": "Chocolade Fudge Brownie",
@@ -401,7 +401,7 @@
             "description": "<p>Med store stykker chokolade i en blød, chewy browniekage.</p>"
           }
         },
-        "item_67": {
+        "item_74": {
           "type": "item",
           "settings": {
             "name": "Ginger Crunch",
@@ -409,14 +409,14 @@
             "description": "<p>Havre-kiksebund med ingefærglasur og drys af hakket pistacienødder. (V)</p>"
           }
         },
-        "group_68": {
+        "group_75": {
           "type": "group",
           "settings": {
             "title": "Cookies",
             "note": ""
           }
         },
-        "item_69": {
+        "item_76": {
           "type": "item",
           "settings": {
             "name": "Chokolade chip cookie",
@@ -424,7 +424,7 @@
             "description": ""
           }
         },
-        "item_70": {
+        "item_77": {
           "type": "item",
           "settings": {
             "name": "ANZAC cookie – havre og kokos, en New Zealandsk favorit (V)",
@@ -432,7 +432,7 @@
             "description": ""
           }
         },
-        "item_71": {
+        "item_78": {
           "type": "item",
           "settings": {
             "name": "Waffles – varm belgisk waffle med toppingvalg",
@@ -440,7 +440,7 @@
             "description": "<p>Nutella & sæsonens frugt.</p><p>Håndlavet frugtkompot & creme fraiche.</p><p>Caféens Favorit – Vaffel med Kastbergs gourmet flødeis & flormelis.</p>"
           }
         },
-        "item_72": {
+        "item_79": {
           "type": "item",
           "settings": {
             "name": "Flødeis & Sorbet",
@@ -448,7 +448,7 @@
             "description": "<p>Kastbergs gourmet flødeis & sorbet - kugler i bæger</p>"
           }
         },
-        "item_73": {
+        "item_80": {
           "type": "item",
           "settings": {
             "name": "Affogato",
@@ -456,13 +456,13 @@
             "description": "<p>Kastbergs gourmet vaniljeis hældt over vores egne håndristet dobbelt shot espresso.</p>"
           }
         },
-        "text_74": {
+        "text_81": {
           "type": "text",
           "settings": {
             "text": "<p>(V) = Vegansk</p>"
           }
         },
-        "category_75": {
+        "category_82": {
           "type": "category",
           "settings": {
             "title": "TIL BØRNENE",
@@ -471,7 +471,7 @@
             "note": ""
           }
         },
-        "item_76": {
+        "item_83": {
           "type": "item",
           "settings": {
             "name": "Ham og cheese toastie",
@@ -479,7 +479,7 @@
             "description": ""
           }
         },
-        "item_77": {
+        "item_84": {
           "type": "item",
           "settings": {
             "name": "Hiker - Hot Pie",
@@ -487,7 +487,7 @@
             "description": "<p>Varm kylling madtærte i sprødt butterdej, kan serveres med eller uden salat & dressing.</p>"
           }
         },
-        "item_78": {
+        "item_85": {
           "type": "item",
           "settings": {
             "name": "New Zealandske Pølsehorn aka the Sausage Roll",
@@ -495,7 +495,7 @@
             "description": "<p>Hakket svinekød og urter, svøbt i sprød butterdej. Kan serveres med eller uden salat & dressing.</p>"
           }
         },
-        "item_79": {
+        "item_86": {
           "type": "item",
           "settings": {
             "name": "Chicken Roll - en sausage roll, bare med kylling",
@@ -503,7 +503,7 @@
             "description": "<p>Hakket kyllingkød og urter, svøbt i sprød butterdej. Kan serveres med eller uden salat & dressing.</p>"
           }
         },
-        "item_80": {
+        "item_87": {
           "type": "item",
           "settings": {
             "name": "Waffles – varm belgisk vaffel med toppingvalg",
@@ -511,14 +511,14 @@
             "description": "<p>Nutella & frugt – sæsonens frugt og nutella.</p><p>Caféens Favorit – varme belgiske vaffel med Kastbergs gourmetis og flormelis.</p>"
           }
         },
-        "group_81": {
+        "group_88": {
           "type": "group",
           "settings": {
             "title": "Cookies",
             "note": ""
           }
         },
-        "item_82": {
+        "item_89": {
           "type": "item",
           "settings": {
             "name": "Chokolade chip cookie",
@@ -526,7 +526,7 @@
             "description": ""
           }
         },
-        "item_83": {
+        "item_90": {
           "type": "item",
           "settings": {
             "name": "ANZAC cookie – havre og kokos, en New Zealandsk favorit",
@@ -534,7 +534,7 @@
             "description": ""
           }
         },
-        "category_84": {
+        "category_91": {
           "type": "category",
           "settings": {
             "title": "DRIKKELSE TIL BØRNENE",
@@ -543,7 +543,7 @@
             "note": ""
           }
         },
-        "item_85": {
+        "item_92": {
           "type": "item",
           "settings": {
             "name": "Lys varm kakao med flødeskum og skumfiduser",
@@ -551,7 +551,7 @@
             "description": ""
           }
         },
-        "item_86": {
+        "item_93": {
           "type": "item",
           "settings": {
             "name": "Fluffy/Babyccino",
@@ -559,7 +559,7 @@
             "description": "<p>Steamed sødmælk, en skvis vaniljesirup & skumfiduser.</p>"
           }
         },
-        "item_87": {
+        "item_94": {
           "type": "item",
           "settings": {
             "name": "Craft økologisk lemonade",
@@ -567,7 +567,7 @@
             "description": ""
           }
         },
-        "item_88": {
+        "item_95": {
           "type": "item",
           "settings": {
             "name": "Sodavand",
@@ -575,7 +575,7 @@
             "description": "<p>Flere varianter</p>"
           }
         },
-        "item_89": {
+        "item_96": {
           "type": "item",
           "settings": {
             "name": "Glas mælk",
@@ -583,7 +583,7 @@
             "description": ""
           }
         },
-        "item_90": {
+        "item_97": {
           "type": "item",
           "settings": {
             "name": "Postevand",
@@ -593,36 +593,36 @@
         }
       },
       "block_order": [
-        "image_61",
-        "image_62",
-        "category_63",
-        "item_64",
-        "item_65",
-        "item_66",
-        "item_67",
-        "group_68",
-        "item_69",
-        "item_70",
+        "image_68",
+        "image_69",
+        "category_70",
         "item_71",
         "item_72",
         "item_73",
-        "text_74",
-        "category_75",
+        "item_74",
+        "group_75",
         "item_76",
         "item_77",
         "item_78",
         "item_79",
         "item_80",
-        "group_81",
-        "item_82",
+        "text_81",
+        "category_82",
         "item_83",
-        "category_84",
+        "item_84",
         "item_85",
         "item_86",
         "item_87",
-        "item_88",
+        "group_88",
         "item_89",
-        "item_90"
+        "item_90",
+        "category_91",
+        "item_92",
+        "item_93",
+        "item_94",
+        "item_95",
+        "item_96",
+        "item_97"
       ]
     },
     "menu_3": {
@@ -634,7 +634,7 @@
         "footnote": "<p>Cafe Costa Kalundborg prioriterer at købe økologiske og danske producerede fødevarer, hvor det er muligt.</p>"
       },
       "blocks": {
-        "category_91": {
+        "category_98": {
           "type": "category",
           "settings": {
             "title": "KAFFE",
@@ -643,7 +643,7 @@
             "note": "fra vores eget risteri - Alt er lavet på dobbeltshot & alt kan laves To Go"
           }
         },
-        "item_92": {
+        "item_99": {
           "type": "item",
           "settings": {
             "name": "Latte",
@@ -651,7 +651,7 @@
             "description": ""
           }
         },
-        "item_93": {
+        "item_100": {
           "type": "item",
           "settings": {
             "name": "Cappuccino",
@@ -659,7 +659,7 @@
             "description": ""
           }
         },
-        "item_94": {
+        "item_101": {
           "type": "item",
           "settings": {
             "name": "Flat White",
@@ -667,7 +667,7 @@
             "description": ""
           }
         },
-        "item_95": {
+        "item_102": {
           "type": "item",
           "settings": {
             "name": "Americano",
@@ -675,7 +675,7 @@
             "description": ""
           }
         },
-        "item_96": {
+        "item_103": {
           "type": "item",
           "settings": {
             "name": "Cortado",
@@ -683,7 +683,7 @@
             "description": ""
           }
         },
-        "item_97": {
+        "item_104": {
           "type": "item",
           "settings": {
             "name": "Espresso",
@@ -691,7 +691,7 @@
             "description": ""
           }
         },
-        "item_98": {
+        "item_105": {
           "type": "item",
           "settings": {
             "name": "Baileys Latte",
@@ -699,7 +699,7 @@
             "description": ""
           }
         },
-        "item_99": {
+        "item_106": {
           "type": "item",
           "settings": {
             "name": "Irish Coffee",
@@ -707,7 +707,7 @@
             "description": ""
           }
         },
-        "item_100": {
+        "item_107": {
           "type": "item",
           "settings": {
             "name": "Dagens filter kaffe",
@@ -715,13 +715,13 @@
             "description": "<p>- prøv vores sortiment af kaffe bønner på kanden</p>"
           }
         },
-        "text_101": {
+        "text_108": {
           "type": "text",
           "settings": {
             "text": "<p>- Havre-/ laktosefri mælk / sirup +5 kr</p>"
           }
         },
-        "category_102": {
+        "category_109": {
           "type": "category",
           "settings": {
             "title": "VARME DRIKKE",
@@ -730,7 +730,7 @@
             "note": ""
           }
         },
-        "item_103": {
+        "item_110": {
           "type": "item",
           "settings": {
             "name": "Varm kakao",
@@ -738,7 +738,7 @@
             "description": "<p>– med flødeskum og skumfiduser</p><p>Lys blanding</p><p>Mørk (70% Callebaut chokoladeknapper)</p>"
           }
         },
-        "item_104": {
+        "item_111": {
           "type": "item",
           "settings": {
             "name": "Øko Chai Latte",
@@ -746,7 +746,7 @@
             "description": "<p>Black Sense Chai essence.</p>"
           }
         },
-        "item_105": {
+        "item_112": {
           "type": "item",
           "settings": {
             "name": "Matcha Latte",
@@ -754,7 +754,7 @@
             "description": "<p>- med en pump vanilje sirup, på havremælk</p>"
           }
         },
-        "item_106": {
+        "item_113": {
           "type": "item",
           "settings": {
             "name": "Øko Te",
@@ -762,7 +762,7 @@
             "description": ""
           }
         },
-        "category_107": {
+        "category_114": {
           "type": "category",
           "settings": {
             "title": "ICED & KOLDE DRIKKE",
@@ -771,7 +771,7 @@
             "note": ""
           }
         },
-        "item_108": {
+        "item_115": {
           "type": "item",
           "settings": {
             "name": "Iced kaffe med valgfri sirup",
@@ -779,7 +779,7 @@
             "description": "<p>- vælg imellem vanilje, karamel, salt karamel, eller hasselnød sirup</p>"
           }
         },
-        "item_109": {
+        "item_116": {
           "type": "item",
           "settings": {
             "name": "Iced Baileys Latte",
@@ -787,7 +787,7 @@
             "description": ""
           }
         },
-        "item_110": {
+        "item_117": {
           "type": "item",
           "settings": {
             "name": "Iced Kakao",
@@ -795,7 +795,7 @@
             "description": "<p>– med flødeskum og skumfiduser</p>"
           }
         },
-        "item_111": {
+        "item_118": {
           "type": "item",
           "settings": {
             "name": "Iced Chai",
@@ -803,7 +803,7 @@
             "description": ""
           }
         },
-        "item_112": {
+        "item_119": {
           "type": "item",
           "settings": {
             "name": "Iced Matcha",
@@ -811,7 +811,7 @@
             "description": "<p>- med en pump vanilje sirup, på havremælk</p>"
           }
         },
-        "item_113": {
+        "item_120": {
           "type": "item",
           "settings": {
             "name": "Iced Americano",
@@ -819,14 +819,14 @@
             "description": ""
           }
         },
-        "group_114": {
+        "group_121": {
           "type": "group",
           "settings": {
             "title": "KOLDE DRIKKE",
             "note": ""
           }
         },
-        "item_115": {
+        "item_122": {
           "type": "item",
           "settings": {
             "name": "Craft øko Lemonade",
@@ -834,7 +834,7 @@
             "description": "<p>Flere varianter, fra Tuxen Brewing.</p>"
           }
         },
-        "item_116": {
+        "item_123": {
           "type": "item",
           "settings": {
             "name": "Craft øko Soda",
@@ -842,7 +842,7 @@
             "description": "<p>Flere varianter, fra Tuxen Brewing.</p>"
           }
         },
-        "item_117": {
+        "item_124": {
           "type": "item",
           "settings": {
             "name": "Valsølille Appelsinjuice",
@@ -850,7 +850,7 @@
             "description": "<p>Dansk friskpresset øko</p>"
           }
         },
-        "item_118": {
+        "item_125": {
           "type": "item",
           "settings": {
             "name": "Naturfrisk Æblemost",
@@ -858,7 +858,7 @@
             "description": "<p>Dansk økologisk - på flaske.</p>"
           }
         },
-        "item_119": {
+        "item_126": {
           "type": "item",
           "settings": {
             "name": "Naturfrisk Danskvand",
@@ -866,7 +866,7 @@
             "description": "<p>På flaske, neutral eller med citrus.</p>"
           }
         },
-        "item_120": {
+        "item_127": {
           "type": "item",
           "settings": {
             "name": "Postevand",
@@ -874,7 +874,7 @@
             "description": "<p>0,5l karton.</p>"
           }
         },
-        "category_121": {
+        "category_128": {
           "type": "category",
           "settings": {
             "title": "ØL • VIN • COCKTAILS",
@@ -883,7 +883,7 @@
             "note": ""
           }
         },
-        "item_122": {
+        "item_129": {
           "type": "item",
           "settings": {
             "name": "Øl",
@@ -891,7 +891,7 @@
             "description": "<p>Håndbrygget øl fra Kalundborgs egne SKØL Brewing Co.</p>"
           }
         },
-        "item_123": {
+        "item_130": {
           "type": "item",
           "settings": {
             "name": "Fadøl fra SKØL",
@@ -899,7 +899,7 @@
             "description": ""
           }
         },
-        "item_124": {
+        "item_131": {
           "type": "item",
           "settings": {
             "name": "Alkoholfri øl fra SKØL",
@@ -907,7 +907,7 @@
             "description": ""
           }
         },
-        "item_125": {
+        "item_132": {
           "type": "item",
           "settings": {
             "name": "Hvidvin og rosé",
@@ -915,7 +915,7 @@
             "description": "<p>Fra New Zealand og Røsnæs.</p>"
           }
         },
-        "item_126": {
+        "item_133": {
           "type": "item",
           "settings": {
             "name": "Cocktails – sæsonens udvalg",
@@ -925,42 +925,42 @@
         }
       },
       "block_order": [
-        "category_91",
-        "item_92",
-        "item_93",
-        "item_94",
-        "item_95",
-        "item_96",
-        "item_97",
-        "item_98",
+        "category_98",
         "item_99",
         "item_100",
-        "text_101",
-        "category_102",
+        "item_101",
+        "item_102",
         "item_103",
         "item_104",
         "item_105",
         "item_106",
-        "category_107",
-        "item_108",
-        "item_109",
+        "item_107",
+        "text_108",
+        "category_109",
         "item_110",
         "item_111",
         "item_112",
         "item_113",
-        "group_114",
+        "category_114",
         "item_115",
         "item_116",
         "item_117",
         "item_118",
         "item_119",
         "item_120",
-        "category_121",
+        "group_121",
         "item_122",
         "item_123",
         "item_124",
         "item_125",
-        "item_126"
+        "item_126",
+        "item_127",
+        "category_128",
+        "item_129",
+        "item_130",
+        "item_131",
+        "item_132",
+        "item_133"
       ]
     },
     "social": {
@@ -971,14 +971,14 @@
         "color": "surface"
       },
       "blocks": {
-        "link_127": {
+        "link_134": {
           "type": "link",
           "settings": {
             "platform": "facebook",
             "url": ""
           }
         },
-        "link_128": {
+        "link_135": {
           "type": "link",
           "settings": {
             "platform": "instagram",
@@ -987,8 +987,8 @@
         }
       },
       "block_order": [
-        "link_127",
-        "link_128"
+        "link_134",
+        "link_135"
       ]
     },
     "galleri": {
@@ -1000,7 +1000,7 @@
         "color": "bg"
       },
       "blocks": {
-        "image_129": {
+        "image_136": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
@@ -1008,7 +1008,7 @@
             "link": ""
           }
         },
-        "image_130": {
+        "image_137": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-2.jpg",
@@ -1016,7 +1016,7 @@
             "link": ""
           }
         },
-        "image_131": {
+        "image_138": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
@@ -1024,7 +1024,7 @@
             "link": ""
           }
         },
-        "image_132": {
+        "image_139": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
@@ -1032,7 +1032,7 @@
             "link": ""
           }
         },
-        "image_133": {
+        "image_140": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-5.jpg",
@@ -1040,7 +1040,7 @@
             "link": ""
           }
         },
-        "image_134": {
+        "image_141": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
@@ -1050,12 +1050,12 @@
         }
       },
       "block_order": [
-        "image_129",
-        "image_130",
-        "image_131",
-        "image_132",
-        "image_133",
-        "image_134"
+        "image_136",
+        "image_137",
+        "image_138",
+        "image_139",
+        "image_140",
+        "image_141"
       ]
     }
   },

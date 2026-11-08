@@ -4,6 +4,8 @@
     assign color_class = ' costa--surface'
   elsif section.settings.color == 'dark'
     assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
   endif
 -%}
 
@@ -78,15 +80,19 @@
       "options": [
         {
           "value": "bg",
-          "label": "Lys"
+          "label": "Papir"
         },
         {
           "value": "surface",
-          "label": "Flade"
+          "label": "Kort (lysere papir)"
         },
         {
           "value": "dark",
           "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
         }
       ]
     }

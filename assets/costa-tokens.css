@@ -1,56 +1,116 @@
 /*
   Café Costa – al stil for costa-sektionerne.
-  Værdierne kommer fra tema-indstillingerne (Costa – stil) via
-  snippets/costa-token-settings.liquid. Standardværdierne herunder bruges,
-  hvis en indstilling mangler. Sektionerne må kun bruge variablerne – ingen
-  faste farver eller størrelser i sektionsfilerne.
+
+  Udtryk: et rigtigt risteri. Varmt papir som bund, sort tryk, kraftige
+  linjer, runde pilleknapper og kort der ligner kaffeposer med etiket.
+  Ingen gradienter, skygger eller pynt.
+
+  Værdierne kan skiftes i Theme Editor (Tema-indstillinger › Costa – stil)
+  via snippets/costa-token-settings.liquid. Standardværdierne herunder
+  bruges, hvis en indstilling mangler. Sektionerne bruger kun variablerne.
+
+  Kontrast (WCAG): tryk på papir 14,3:1 · brødtekst på papir 7,8:1 ·
+  hvid på ristet rød 6,5:1 · papir på havneblå 9,8:1 · papir på tryk 14,3:1.
+  Ristet rød bruges aldrig som tekst på mørk eller blå bund (under 4,5:1).
 */
 
-/* ---------- 1. Tokens (standard: neutral og varm) ---------- */
+/* ---------- 0. Skrifter (OFL, ligger i assets) ---------- */
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 800; font-display: swap; src: url('costa-bricolage-grotesque-800.woff2') format('woff2'); }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('costa-instrument-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'Instrument Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url('costa-instrument-sans-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url('costa-instrument-sans-500.woff2') format('woff2'); }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('costa-instrument-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url('costa-instrument-sans-700.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('costa-jetbrains-mono-400.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('costa-jetbrains-mono-500.woff2') format('woff2'); }
+
+/* ---------- 1. Tokens ---------- */
 :root {
-  --costa-color-bg: #f7f2eb;
-  --costa-color-surface: #efe6da;
-  --costa-color-text: #2e2620;
-  --costa-color-muted: #6e6258;
-  --costa-color-accent: #8a5a3c;
+  /* Farver */
+  --costa-color-bg: #efe8dc;          /* papir */
+  --costa-color-surface: #f7f2e9;     /* kort */
+  --costa-color-text: #1c1a17;        /* tryk */
+  --costa-color-muted: #4a453d;       /* brødtekst */
+  --costa-color-accent: #9a4421;      /* ristet rød – køb */
   --costa-color-accent-text: #ffffff;
-  --costa-color-dark: #2e2620;
-  --costa-color-dark-text: #f7f2eb;
-  --costa-color-border: #dccfbf;
+  --costa-color-harbor: #1e3a4c;      /* havneblå – erhverv */
+  --costa-color-harbor-text: #efe8dc;
+  --costa-color-dark: #1c1a17;
+  --costa-color-dark-text: #efe8dc;
+  --costa-color-border: #1c1a17;
   --costa-overlay-opacity: 0.35;
 
-  --costa-font-heading: Georgia, serif;
-  --costa-font-heading-weight: 400;
-  --costa-font-body: -apple-system, 'Segoe UI', sans-serif;
+  /* Skrifter */
+  --costa-font-heading: 'Bricolage Grotesque', 'Arial Black', sans-serif;
+  --costa-font-heading-weight: 800;
+  --costa-font-body: 'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
   --costa-font-body-weight: 400;
+  --costa-font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   --costa-font-scale: 1;
   --costa-heading-case: none;
 
-  --costa-text-base: calc(1.6rem * var(--costa-font-scale));
-  --costa-text-small: calc(1.4rem * var(--costa-font-scale));
-  --costa-text-h1: calc(clamp(3rem, 5vw, 5rem) * var(--costa-font-scale));
-  --costa-text-h2: calc(clamp(2.4rem, 3.4vw, 3.6rem) * var(--costa-font-scale));
-  --costa-text-h3: calc(clamp(1.9rem, 2.2vw, 2.4rem) * var(--costa-font-scale));
-  --costa-line-height: 1.6;
+  --costa-text-base: calc(1.7rem * var(--costa-font-scale));
+  --costa-text-small: calc(1.5rem * var(--costa-font-scale));
+  --costa-text-label: calc(1.25rem * var(--costa-font-scale));
+  --costa-text-display: calc(clamp(4.4rem, 8vw, 9.6rem) * var(--costa-font-scale));
+  --costa-text-h1: calc(clamp(3.6rem, 5.6vw, 6.4rem) * var(--costa-font-scale));
+  --costa-text-h2: calc(clamp(2.8rem, 4vw, 4.4rem) * var(--costa-font-scale));
+  --costa-text-h3: calc(clamp(2rem, 2.4vw, 2.6rem) * var(--costa-font-scale));
+  --costa-line-height: 1.55;
 
+  /* Linjer */
+  --costa-line-width: 1.5px;
+  --costa-line: var(--costa-line-width) solid var(--costa-color-border);
+
+  /* Afstande */
   --costa-space-xs: 0.4rem;
   --costa-space-s: 0.8rem;
   --costa-space-m: 1.6rem;
   --costa-space-l: 3.2rem;
-  --costa-space-xl: 4.8rem;
-  --costa-space-section: 72px;
-  --costa-page-width: 1200px;
+  --costa-space-xl: 5.6rem;
+  --costa-space-section: 88px;
+  --costa-page-width: 1320px;
   --costa-gutter: 16px;
 
-  --costa-radius: 8px;
-  --costa-button-radius: 4px;
-  --costa-button-padding: 14px;
+  /* Hjørner og knapper */
+  --costa-radius: 6px;
+  --costa-button-radius: 999px;
+  --costa-button-padding: 13px;
   --costa-button-case: none;
-  --costa-button-border: 2px;
-  --costa-shadow: 0 6px 24px rgb(0 0 0 / 0.08);
+  --costa-button-border: 1.5px;
 }
 
-/* ---------- 2. Grundlag ---------- */
+/* ---------- 2. Dawn i samme stil ---------- */
+:root {
+  --font-body-family: var(--costa-font-body);
+  --font-body-weight: 400;
+  --font-heading-family: var(--costa-font-heading);
+  --font-heading-weight: 800;
+  --font-heading-style: normal;
+  --buttons-radius: 999px;
+  --buttons-radius-outset: 999px;
+  --buttons-border-width: 1.5px;
+  --buttons-shadow-opacity: 0;
+  --inputs-radius: var(--costa-radius);
+  --inputs-border-width: 1.5px;
+  --variant-pills-radius: 999px;
+  --variant-pills-border-width: 1.5px;
+  --product-card-shadow-opacity: 0;
+  --card-shadow-opacity: 0;
+  --popup-shadow-opacity: 0;
+  --drawer-shadow-opacity: 0;
+  --media-shadow-opacity: 0;
+}
+body {
+  background: var(--costa-color-bg);
+  color: var(--costa-color-text);
+  font-family: var(--costa-font-body);
+}
+h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--costa-font-heading); font-weight: 800; letter-spacing: -0.01em; }
+.button, .shopify-payment-button__button--unbranded { border-radius: 999px; }
+.button::after, .button::before { box-shadow: 0 0 0 var(--costa-line-width) currentColor !important; border-radius: 999px; }
+
+/* ---------- 3. Grundlag ---------- */
 .costa {
   background: var(--costa-color-bg);
   color: var(--costa-color-text);
@@ -59,181 +119,357 @@
   font-size: var(--costa-text-base);
   line-height: var(--costa-line-height);
   padding-block: var(--costa-space-section);
+  border-top: var(--costa-line);
 }
 .costa--surface { background: var(--costa-color-surface); }
-.costa--dark { background: var(--costa-color-dark); color: var(--costa-color-dark-text); }
+.costa--dark { background: var(--costa-color-dark); color: var(--costa-color-dark-text); --costa-color-border: var(--costa-color-dark-text); }
+.costa--harbor { background: var(--costa-color-harbor); color: var(--costa-color-harbor-text); --costa-color-border: var(--costa-color-harbor-text); }
 .costa--tight { padding-block: calc(var(--costa-space-section) / 2); }
-.costa__inner {
-  max-width: var(--costa-page-width);
-  margin-inline: auto;
-  padding-inline: var(--costa-gutter);
-}
+.costa__inner { max-width: var(--costa-page-width); margin-inline: auto; padding-inline: var(--costa-gutter); }
 @media (min-width: 750px) { .costa__inner { padding-inline: calc(var(--costa-gutter) * 2); } }
-.costa__inner--narrow { max-width: 820px; }
+.costa__inner--narrow { max-width: 860px; }
 .costa--center { text-align: center; }
 
-.costa h1, .costa h2, .costa h3, .costa h4, .costa .costa-h {
+.costa h1, .costa h2, .costa h3, .costa .costa-h {
   font-family: var(--costa-font-heading);
   font-weight: var(--costa-font-heading-weight);
   text-transform: var(--costa-heading-case);
   color: inherit;
-  line-height: 1.2;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   margin: 0 0 var(--costa-space-m);
-  letter-spacing: 0;
 }
 .costa h1 { font-size: var(--costa-text-h1); }
 .costa h2 { font-size: var(--costa-text-h2); }
-.costa h3 { font-size: var(--costa-text-h3); }
-.costa h4 { font-size: var(--costa-text-base); font-family: var(--costa-font-body); font-weight: 700; }
+.costa h3 { font-size: var(--costa-text-h3); line-height: 1.1; }
+.costa h4 { font-size: var(--costa-text-base); font-family: var(--costa-font-body); font-weight: 700; margin: 0 0 var(--costa-space-s); }
 .costa p { margin: 0 0 var(--costa-space-m); }
 .costa p:empty { display: none; }
-.costa a:not(.costa-button) { color: var(--costa-color-accent); text-underline-offset: 0.2em; }
-.costa--dark a:not(.costa-button) { color: inherit; }
+.costa-richtext { color: var(--costa-color-muted); }
+.costa-label { color: inherit; }
+.costa .costa-promises__list, .costa .costa-shop__grid, .costa .costa-steps { margin-bottom: 0; }
+.costa--dark .costa-richtext, .costa--harbor .costa-richtext { color: inherit; }
+.costa a:not(.costa-button) { color: inherit; text-decoration: underline; text-decoration-thickness: var(--costa-line-width); text-underline-offset: 0.2em; }
 .costa ul { padding-left: 2rem; margin: 0 0 var(--costa-space-m); }
 .costa img { max-width: 100%; height: auto; display: block; }
-.costa-subheading { font-size: var(--costa-text-h3); color: var(--costa-color-muted); }
-.costa--dark .costa-subheading { color: inherit; opacity: 0.85; }
+.costa-subheading { font-size: var(--costa-text-h3); font-family: var(--costa-font-body); font-weight: 500; }
 .costa-muted { color: var(--costa-color-muted); font-size: var(--costa-text-small); }
+.costa--dark .costa-muted, .costa--harbor .costa-muted { color: inherit; }
 
-/* ---------- 3. Knapper ---------- */
-.costa-buttons { display: flex; flex-wrap: wrap; gap: var(--costa-space-m); margin-top: var(--costa-space-l); }
+/* Små etiketter og kaffedata */
+.costa-label {
+  display: inline-block;
+  font-family: var(--costa-font-mono);
+  font-size: var(--costa-text-label);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 var(--costa-space-m);
+}
+.costa-data { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); margin: 0; display: grid; grid-template-columns: auto 1fr; border-top: var(--costa-line); }
+.costa-data dt, .costa-data dd { margin: 0; padding: 0.6rem 0; border-bottom: var(--costa-line); }
+.costa-data dt { text-transform: uppercase; letter-spacing: 0.06em; padding-right: var(--costa-space-m); }
+.costa-data dd { text-align: right; }
+
+/* ---------- 4. Knapper (piller) ---------- */
+.costa-buttons { display: flex; flex-wrap: wrap; gap: var(--costa-space-s); margin-top: var(--costa-space-l); }
 .costa--center .costa-buttons, .costa-buttons--center { justify-content: center; }
 .costa-button {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 44px;
-  padding: var(--costa-button-padding) calc(var(--costa-button-padding) * 2);
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 46px;
+  padding: var(--costa-button-padding) calc(var(--costa-button-padding) * 1.8);
   border-radius: var(--costa-button-radius);
-  border: var(--costa-button-border) solid var(--costa-color-accent);
-  background: var(--costa-color-accent);
-  color: var(--costa-color-accent-text);
+  border: var(--costa-button-border) solid currentColor;
+  background: transparent;
+  color: inherit;
   font-family: var(--costa-font-body);
   font-size: var(--costa-text-base);
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1;
   text-transform: var(--costa-button-case);
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s, background 0.2s, color 0.2s;
+  transition: background 0.15s, color 0.15s;
 }
-.costa-button:hover { opacity: 0.88; }
-.costa-button--secondary { background: transparent; color: var(--costa-color-accent); }
-.costa-button--secondary:hover { background: var(--costa-color-accent); color: var(--costa-color-accent-text); opacity: 1; }
-.costa--dark .costa-button--secondary, .costa-hero .costa-button--secondary { color: var(--costa-color-dark-text); border-color: currentColor; }
+.costa-button:hover { background: var(--costa-color-text); color: var(--costa-color-bg); }
+.costa--dark .costa-button:hover { background: var(--costa-color-dark-text); color: var(--costa-color-dark); }
+.costa--harbor .costa-button:hover { background: var(--costa-color-harbor-text); color: var(--costa-color-harbor); }
+.costa-button--primary { background: var(--costa-color-text); color: var(--costa-color-bg); border-color: var(--costa-color-text); }
+.costa-button--primary:hover { background: transparent; color: var(--costa-color-text); }
+.costa--dark .costa-button--primary { background: var(--costa-color-dark-text); color: var(--costa-color-dark); border-color: var(--costa-color-dark-text); }
+.costa--harbor .costa-button--primary { background: var(--costa-color-harbor-text); color: var(--costa-color-harbor); border-color: var(--costa-color-harbor-text); }
+.costa--dark .costa-button--primary:hover, .costa--harbor .costa-button--primary:hover { background: transparent; color: inherit; }
+/* Køb: altid ristet rød med hvid tekst */
+.costa-button--buy { background: var(--costa-color-accent); color: var(--costa-color-accent-text); border-color: var(--costa-color-accent); }
+.costa-button--buy:hover { background: var(--costa-color-text); border-color: var(--costa-color-text); color: var(--costa-color-bg); }
+.costa-button[disabled], .costa-button[aria-busy='true'] { opacity: 0.6; cursor: progress; }
+.costa-button--small { min-height: 40px; padding: 0.9rem 1.6rem; font-size: var(--costa-text-small); }
 
-/* ---------- 4. Topbjælke (header) ---------- */
-.costa-topbar { background: var(--costa-color-dark); color: var(--costa-color-dark-text); font-family: var(--costa-font-body); font-size: var(--costa-text-small); }
-.costa-topbar__inner { max-width: var(--costa-page-width); margin-inline: auto; padding: var(--costa-space-s) var(--costa-gutter); display: flex; flex-wrap: wrap; gap: var(--costa-space-xs) var(--costa-space-l); justify-content: center; align-items: center; }
+/* Pille-vælger (malning, filtre, varianter) */
+.costa-pills { display: flex; flex-wrap: wrap; gap: var(--costa-space-xs); border: 0; padding: 0; margin: 0; }
+.costa-pill { position: relative; }
+.costa-pill input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.costa-pill span, .costa-filter {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0.6rem 1.4rem;
+  border: var(--costa-line); border-radius: 999px; background: transparent; color: inherit;
+  font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; cursor: pointer;
+}
+.costa-pill input:checked + span, .costa-filter[aria-pressed='true'] { background: var(--costa-color-text); color: var(--costa-color-bg); }
+.costa-pill input:focus-visible + span, .costa-filter:focus-visible, .costa-button:focus-visible { outline: 2px solid var(--costa-color-accent); outline-offset: 2px; }
+.costa-pill input:disabled + span { text-decoration: line-through; opacity: 0.55; cursor: not-allowed; }
+
+/* ---------- 5. Topbjælke og header ---------- */
+.costa-topbar { background: var(--costa-color-dark); color: var(--costa-color-dark-text); font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; }
+.costa-topbar__inner { max-width: var(--costa-page-width); margin-inline: auto; padding: 0.9rem var(--costa-gutter); display: flex; flex-wrap: wrap; gap: 0.4rem var(--costa-space-l); justify-content: center; align-items: center; text-align: center; }
+@media (min-width: 990px) { .costa-topbar__inner { justify-content: space-between; } }
 .costa-topbar a { color: inherit; text-decoration: none; }
 .costa-topbar a:hover { text-decoration: underline; }
-.costa-topbar__hours { white-space: pre-line; text-align: center; }
-@media (max-width: 749px) { .costa-topbar__hours--long { display: none; } }
+.costa-topbar__hours { white-space: pre-line; }
+@media (max-width: 749px) { .costa-topbar__hide-mobile { display: none; } }
 
-/* ---------- 5. Hero ---------- */
+.costa-header { position: sticky; top: 0; z-index: 20; background: var(--costa-color-bg); color: var(--costa-color-text); border-bottom: var(--costa-line); font-family: var(--costa-font-body); }
+.costa-header__inner { max-width: var(--costa-page-width); margin-inline: auto; padding: 1.2rem var(--costa-gutter); display: flex; align-items: center; gap: var(--costa-space-m); }
+@media (min-width: 750px) { .costa-header__inner { padding-inline: calc(var(--costa-gutter) * 2); } }
+.costa-logo { display: inline-flex; flex-direction: column; color: inherit; text-decoration: none; line-height: 1; margin-right: auto; }
+.costa-logo__name { font-family: var(--costa-font-heading); font-weight: 800; font-size: 2.6rem; letter-spacing: -0.02em; }
+.costa-logo__sub { font-family: var(--costa-font-mono); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.5rem; }
+.costa-nav { display: none; }
+@media (min-width: 990px) {
+  .costa-nav { display: block; }
+  .costa-nav > ul { display: flex; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+}
+.costa-nav a, .costa-nav summary { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.8rem 1.2rem; border-radius: 999px; color: inherit; text-decoration: none; font-weight: 500; font-size: var(--costa-text-base); cursor: pointer; list-style: none; border: var(--costa-line-width) solid transparent; }
+.costa-nav summary::-webkit-details-marker { display: none; }
+.costa-nav a:hover, .costa-nav summary:hover, .costa-nav a[aria-current='page'] { border-color: currentColor; }
+.costa-nav details { position: relative; }
+.costa-nav details > ul { position: absolute; top: calc(100% + 0.6rem); left: 0; min-width: 22rem; list-style: none; margin: 0; padding: 0.6rem; background: var(--costa-color-surface); border: var(--costa-line); border-radius: var(--costa-radius); z-index: 5; }
+.costa-nav details > ul a { display: flex; width: 100%; box-sizing: border-box; }
+.costa-header__icons { display: flex; align-items: center; gap: 0.4rem; }
+.costa-icon-link { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; color: inherit; border: var(--costa-line-width) solid transparent; }
+.costa-icon-link:hover { border-color: currentColor; }
+.costa-icon-link svg { width: 2.2rem; height: 2.2rem; }
+.costa-cart-count { position: absolute; top: 2px; right: 0; min-width: 1.9rem; height: 1.9rem; padding: 0 0.4rem; box-sizing: border-box; border-radius: 999px; background: var(--costa-color-accent); color: var(--costa-color-accent-text); font-family: var(--costa-font-mono); font-size: 1.1rem; display: grid; place-items: center; }
+.costa-cart-count[hidden] { display: none; }
+.costa-mobile-menu { display: block; }
+@media (min-width: 990px) { .costa-mobile-menu { display: none; } }
+.costa-mobile-menu > summary { list-style: none; }
+.costa-mobile-menu > summary::-webkit-details-marker { display: none; }
+.costa-mobile-menu .icon-close { display: none; }
+.costa-mobile-menu[open] .icon-hamburger { display: none; }
+.costa-mobile-menu[open] .icon-close { display: block; }
+.costa-mobile-menu__panel { position: absolute; left: 0; right: 0; top: 100%; background: var(--costa-color-bg); border-bottom: var(--costa-line); max-height: calc(100vh - 120px); overflow-y: auto; }
+.costa-mobile-menu__panel ul { list-style: none; margin: 0; padding: 0 var(--costa-gutter) var(--costa-space-m); }
+.costa-mobile-menu__panel li { border-bottom: var(--costa-line); }
+.costa-mobile-menu__panel a { display: flex; padding: 1.4rem 0; color: inherit; text-decoration: none; font-family: var(--costa-font-heading); font-weight: 800; font-size: 2.4rem; }
+.costa-mobile-menu__panel ul ul { padding: 0 0 0.8rem 1.6rem; }
+.costa-mobile-menu__panel ul ul li { border: 0; }
+.costa-mobile-menu__panel ul ul a { font-family: var(--costa-font-body); font-weight: 500; font-size: var(--costa-text-base); padding: 0.8rem 0; }
+
+/* ---------- 6. Hero ---------- */
 .costa-hero { position: relative; display: grid; place-items: center; min-height: var(--costa-hero-height, 60vh); padding-block: var(--costa-space-xl); overflow: hidden; color: var(--costa-color-dark-text); background: var(--costa-color-dark); text-align: center; }
 .costa-hero--small { --costa-hero-height: 36vh; }
 .costa-hero--large { --costa-hero-height: 80vh; }
 .costa-hero__media, .costa-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .costa-hero__media::after { content: ''; position: absolute; inset: 0; background: #000; opacity: var(--costa-overlay-opacity); }
-.costa-hero__content { position: relative; z-index: 1; max-width: 820px; padding-inline: var(--costa-gutter); }
+.costa-hero__content { position: relative; z-index: 1; max-width: 860px; padding-inline: var(--costa-gutter); }
+.costa-hero__content.costa { background: transparent; color: inherit; padding-block: 0; border: 0; }
 .costa-hero__logo { margin: 0 auto var(--costa-space-l); width: var(--costa-logo-width, 160px); max-width: 60vw; }
 .costa-hero__title { font-size: var(--costa-text-h1); }
 .costa-hero__tagline { font-size: var(--costa-text-h3); margin-bottom: var(--costa-space-s); }
 .costa-hero .costa-buttons { justify-content: center; }
 
-/* ---------- 6. Tekst med billede ---------- */
+/* Hero: tekst + foto med mærke (forside) */
+.costa-hero-split { border-top: 0; padding-block: var(--costa-space-l) var(--costa-space-xl); }
+.costa-hero-split__grid { display: grid; gap: var(--costa-space-l); align-items: center; }
+@media (min-width: 990px) { .costa-hero-split__grid { grid-template-columns: 1.1fr 1fr; gap: var(--costa-space-xl); } }
+.costa-hero-split h1 { font-size: var(--costa-text-display); line-height: 0.92; letter-spacing: -0.035em; }
+.costa-hero-split__text .costa-richtext { font-size: calc(var(--costa-text-base) * 1.12); max-width: 46ch; }
+.costa-hero-split__media { position: relative; }
+.costa-hero-split__media img, .costa-hero-split__media .placeholder-svg { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: var(--costa-line); border-radius: var(--costa-radius); display: block; }
+.costa-badge {
+  position: absolute; left: var(--costa-space-m); bottom: var(--costa-space-m);
+  background: var(--costa-color-surface); color: var(--costa-color-text);
+  border: var(--costa-line); border-radius: 999px; padding: 1rem 1.8rem;
+  display: flex; flex-direction: column; gap: 0.2rem; max-width: calc(100% - 2 * var(--costa-space-m));
+}
+.costa-badge__label { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); text-transform: uppercase; letter-spacing: 0.08em; display: flex; align-items: center; gap: 0.6rem; }
+.costa-badge__label::before { content: ''; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--costa-color-accent); }
+.costa-badge__text { font-family: var(--costa-font-heading); font-weight: 800; font-size: 2rem; line-height: 1.1; }
+
+/* ---------- 7. Løfter ---------- */
+.costa-promises { padding-block: 0; }
+.costa-promises__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; }
+@media (min-width: 990px) { .costa-promises__list { grid-template-columns: repeat(4, 1fr); } }
+.costa-promise { padding: var(--costa-space-l) var(--costa-space-m); border-right: var(--costa-line); border-bottom: var(--costa-line); }
+.costa-promise:nth-child(2n) { border-right: 0; }
+@media (min-width: 990px) { .costa-promise { border-bottom: 0; } .costa-promise:nth-child(2n) { border-right: var(--costa-line); } .costa-promise:last-child { border-right: 0; } }
+.costa-promise .costa-label { margin-bottom: var(--costa-space-s); }
+.costa-promise__title { font-family: var(--costa-font-heading); font-weight: 800; font-size: 2rem; line-height: 1.1; margin: 0 0 var(--costa-space-xs); }
+.costa-promise__text { color: var(--costa-color-muted); font-size: var(--costa-text-small); margin: 0; }
+
+/* ---------- 8. Produktgitter og kaffeposer ---------- */
+.costa-shop { padding-block: var(--costa-space-xl); }
+.costa-shop__head { display: flex; flex-wrap: wrap; gap: var(--costa-space-m); align-items: end; justify-content: space-between; margin-bottom: var(--costa-space-l); }
+.costa-shop__head h2 { font-size: var(--costa-text-h1); margin: 0; }
+.costa-shop__filters { margin-bottom: var(--costa-space-l); }
+.costa-shop__grid { display: grid; gap: var(--costa-space-l) var(--costa-space-m); grid-template-columns: 1fr; list-style: none; margin: 0; padding: 0; }
+@media (min-width: 600px) { .costa-shop__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 990px) { .costa-shop__grid { grid-template-columns: repeat(var(--costa-shop-columns, 3), 1fr); } }
+.costa-shop__item[hidden] { display: none; }
+.costa-shop__empty { padding: var(--costa-space-l); border: var(--costa-line); border-radius: var(--costa-radius); text-align: center; }
+.costa-shop__more { margin-top: var(--costa-space-l); text-align: center; }
+
+.costa-bag { height: 100%; display: flex; flex-direction: column; background: var(--costa-color-surface); color: var(--costa-color-text); border: var(--costa-line); border-radius: 2px 2px 14px 14px; }
+.costa-bag__seal { height: 22px; border-bottom: var(--costa-line); display: flex; align-items: center; justify-content: center; }
+.costa-bag__seal::before { content: ''; width: 34%; border-top: var(--costa-line); }
+.costa-bag__media { display: block; aspect-ratio: 1 / 1; overflow: hidden; border-bottom: var(--costa-line); background: var(--costa-color-bg); }
+.costa-bag__media img { width: 100%; height: 100%; object-fit: cover; }
+.costa-bag__media--empty { display: grid; place-items: center; }
+.costa-bag__mark { font-family: var(--costa-font-heading); font-weight: 800; font-size: 3.4rem; line-height: 0.95; text-align: center; letter-spacing: -0.02em; }
+.costa-bag__mark small { display: block; font-family: var(--costa-font-mono); font-weight: 400; font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.8rem; }
+.costa-bag__label { margin: var(--costa-space-m); padding: var(--costa-space-m); border: var(--costa-line); border-radius: var(--costa-radius); background: var(--costa-color-surface); display: flex; flex-direction: column; gap: var(--costa-space-s); flex: 1; }
+.costa-bag__media + .costa-bag__label { margin-top: calc(var(--costa-space-l) * -1); position: relative; }
+.costa-bag__top { display: flex; justify-content: space-between; gap: var(--costa-space-s); font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.06em; text-transform: uppercase; }
+.costa-bag__title { font-family: var(--costa-font-heading); font-weight: 800; font-size: 2.4rem; line-height: 1.05; letter-spacing: -0.015em; margin: 0; }
+.costa-bag__title a { color: inherit; text-decoration: none; }
+.costa-bag__title a:hover { text-decoration: underline; text-decoration-thickness: var(--costa-line-width); }
+.costa-bag__notes { font-style: italic; color: var(--costa-color-muted); margin: 0; }
+.costa-bag__form { padding: 0 var(--costa-space-m) var(--costa-space-m); display: grid; gap: var(--costa-space-s); }
+.costa-bag__buy { display: flex; align-items: center; justify-content: space-between; gap: var(--costa-space-s); }
+.costa-price { font-family: var(--costa-font-mono); font-size: var(--costa-text-base); font-weight: 500; }
+.costa-price s { color: var(--costa-color-muted); font-weight: 400; margin-right: 0.6rem; }
+.costa-bag__status { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); min-height: 1.6em; margin: 0; }
+
+/* ---------- 9. Tekst med billede ---------- */
 .costa-split { display: grid; gap: var(--costa-space-l); align-items: center; }
 @media (min-width: 750px) {
   .costa-split--has-media { grid-template-columns: 1fr 1fr; gap: var(--costa-space-xl); }
   .costa-split--media-right .costa-split__media { order: 2; }
 }
-.costa-split__media img { width: 100%; border-radius: var(--costa-radius); aspect-ratio: var(--costa-media-ratio, 4 / 3); object-fit: cover; }
-.costa-quote { margin: 0 0 var(--costa-space-l); padding-left: var(--costa-space-m); border-left: 3px solid var(--costa-color-accent); font-style: italic; }
-.costa-quote cite { display: block; margin-top: var(--costa-space-s); font-style: normal; font-weight: 700; }
+.costa-split__media img, .costa-split__media .placeholder-svg { width: 100%; border: var(--costa-line); border-radius: var(--costa-radius); aspect-ratio: var(--costa-media-ratio, 4 / 3); object-fit: cover; }
+.costa-quote { margin: 0 0 var(--costa-space-l); padding-left: var(--costa-space-m); border-left: calc(var(--costa-line-width) * 2) solid currentColor; }
+.costa-quote cite { display: block; margin-top: var(--costa-space-s); font-style: normal; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); text-transform: uppercase; letter-spacing: 0.06em; }
+.costa-info { display: grid; gap: var(--costa-space-m); margin: var(--costa-space-l) 0 0; padding: 0; }
+@media (min-width: 750px) { .costa-info { grid-template-columns: 1fr 1fr; } }
+.costa-info > div { border-top: var(--costa-line); padding-top: var(--costa-space-m); }
+.costa-info dt { margin: 0 0 var(--costa-space-s); }
+.costa-info dd { margin: 0; white-space: pre-line; font-size: var(--costa-text-base); }
+.costa-info a { color: inherit; }
 
-/* ---------- 7. Fokuskort ---------- */
-.costa-cards { display: grid; gap: var(--costa-space-l); grid-template-columns: 1fr; }
+/* ---------- 10. Trin (erhverv) ---------- */
+.costa-steps { list-style: none; margin: var(--costa-space-l) 0 0; padding: 0; display: grid; gap: var(--costa-space-m); counter-reset: costa-step; }
+@media (min-width: 750px) { .costa-steps { grid-template-columns: repeat(3, 1fr); } }
+.costa-step { border: var(--costa-line); border-radius: var(--costa-radius); padding: var(--costa-space-l) var(--costa-space-m); counter-increment: costa-step; }
+.costa-step::before { content: counter(costa-step, decimal-leading-zero); display: block; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.08em; margin-bottom: var(--costa-space-l); }
+.costa-step h3 { font-size: var(--costa-text-h3); }
+.costa-step p { margin: 0; }
+.costa-steps-head { display: grid; gap: var(--costa-space-m); }
+@media (min-width: 990px) { .costa-steps-head { grid-template-columns: 1.2fr 1fr; align-items: end; } .costa-steps-head .costa-buttons { justify-content: flex-end; margin-top: 0; } }
+
+/* ---------- 11. Fokuskort ---------- */
+.costa-cards { display: grid; gap: var(--costa-space-m); grid-template-columns: 1fr; }
 @media (min-width: 750px) { .costa-cards { grid-template-columns: repeat(3, 1fr); } }
-.costa-card { display: flex; flex-direction: column; background: var(--costa-color-bg); border-radius: var(--costa-radius); overflow: hidden; box-shadow: var(--costa-shadow); color: inherit; text-decoration: none; }
-.costa--surface .costa-card { background: var(--costa-color-bg); }
+.costa-card { display: flex; flex-direction: column; background: var(--costa-color-surface); border: var(--costa-line); border-radius: var(--costa-radius); overflow: hidden; color: inherit; text-decoration: none; }
+.costa-card__media { border-bottom: var(--costa-line); }
 .costa-card__media img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
-.costa-card__body { padding: var(--costa-space-l); display: flex; flex-direction: column; flex: 1; }
+.costa-card__body { padding: var(--costa-space-l) var(--costa-space-m); display: flex; flex-direction: column; flex: 1; }
 .costa-card__body .costa-buttons { margin-top: auto; padding-top: var(--costa-space-m); }
 
-/* ---------- 8. Galleri og logoer ---------- */
+/* ---------- 12. Galleri og logoer ---------- */
 .costa-gallery { display: grid; gap: var(--costa-space-s); grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 750px) { .costa-gallery { grid-template-columns: repeat(var(--costa-gallery-columns, 3), 1fr); } }
 .costa-gallery__item { margin: 0; }
-.costa-gallery__item img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--costa-radius); }
-.costa-gallery__item figcaption { font-size: var(--costa-text-small); color: var(--costa-color-muted); margin-top: var(--costa-space-xs); }
-.costa-gallery--logos { gap: var(--costa-space-l); align-items: center; grid-template-columns: repeat(2, 1fr); }
+.costa-gallery__item img { width: 100%; aspect-ratio: 1; object-fit: cover; border: var(--costa-line); border-radius: var(--costa-radius); }
+.costa-gallery__item figcaption { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); margin-top: var(--costa-space-xs); }
+.costa-gallery--logos { gap: var(--costa-space-l); align-items: center; }
 @media (min-width: 750px) { .costa-gallery--logos { grid-template-columns: repeat(var(--costa-gallery-columns, 5), 1fr); } }
-.costa-gallery--logos img { aspect-ratio: auto; object-fit: contain; border-radius: 0; max-height: 90px; margin-inline: auto; }
+.costa-gallery--logos img { aspect-ratio: auto; object-fit: contain; border: 0; border-radius: 0; max-height: 90px; margin-inline: auto; }
 
-/* ---------- 9. Sociale medier ---------- */
-.costa-social__links { display: flex; justify-content: center; gap: var(--costa-space-l); margin-top: var(--costa-space-l); }
-.costa-social__links a { display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; border-radius: 50%; background: var(--costa-color-accent); color: var(--costa-color-accent-text); }
-.costa-social__links svg { width: 26px; height: 26px; fill: currentColor; }
+/* ---------- 13. Sociale medier ---------- */
+.costa-social__links { display: flex; justify-content: center; gap: var(--costa-space-m); margin-top: var(--costa-space-l); }
+.costa-social__links a { display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; border-radius: 50%; border: var(--costa-line); color: inherit; }
+.costa-social__links a:hover { background: var(--costa-color-text); color: var(--costa-color-bg); }
+.costa-social__links svg { width: 24px; height: 24px; fill: currentColor; }
 .costa-social--bg { position: relative; overflow: hidden; }
-.costa-social--bg .costa-social__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.25; }
+.costa-social--bg .costa-social__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.12; }
 .costa-social--bg .costa__inner { position: relative; }
 
-/* ---------- 10. Kontakt og formular ---------- */
+/* ---------- 14. Kontakt og formular ---------- */
 .costa-contact { display: grid; gap: var(--costa-space-xl); }
 @media (min-width: 750px) { .costa-contact--has-form { grid-template-columns: 1fr 1.3fr; } }
-.costa-contact__info dl { margin: 0; display: grid; gap: var(--costa-space-s); }
-.costa-contact__info dt { font-weight: 700; }
-.costa-contact__info dd { margin: 0 0 var(--costa-space-s); white-space: pre-line; }
+.costa-contact__info dl { margin: 0; display: grid; gap: var(--costa-space-xs); }
+.costa-contact__info dt { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); text-transform: uppercase; letter-spacing: 0.06em; padding-top: var(--costa-space-s); border-top: var(--costa-line); }
+.costa-contact__info dd { margin: 0 0 var(--costa-space-m); white-space: pre-line; }
 .costa-form { display: grid; gap: var(--costa-space-m); }
 .costa-form__field { display: grid; gap: var(--costa-space-xs); }
-.costa-form label { font-size: var(--costa-text-small); font-weight: 700; }
+.costa-form label { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); text-transform: uppercase; letter-spacing: 0.06em; }
 .costa-form input, .costa-form textarea {
   width: 100%; box-sizing: border-box; font: inherit; color: var(--costa-color-text);
-  background: var(--costa-color-bg); border: 1px solid var(--costa-color-border);
-  border-radius: var(--costa-radius); padding: var(--costa-space-m); min-height: 44px;
+  background: var(--costa-color-surface); border: var(--costa-line); border-radius: var(--costa-radius);
+  padding: 1.2rem 1.4rem; min-height: 46px;
 }
 .costa-form textarea { min-height: 160px; resize: vertical; }
 .costa-form input:focus, .costa-form textarea:focus { outline: 2px solid var(--costa-color-accent); outline-offset: 1px; }
-.costa-form__status { padding: var(--costa-space-m); border-radius: var(--costa-radius); background: var(--costa-color-surface); }
-.costa-form__status--error { border: 1px solid #b3261e; }
+.costa-form__status { padding: var(--costa-space-m); border: var(--costa-line); border-radius: var(--costa-radius); background: var(--costa-color-surface); color: var(--costa-color-text); }
+.costa-form__status--error { border-color: var(--costa-color-accent); }
 
-/* ---------- 11. Kort ---------- */
-.costa-map__frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--costa-radius); overflow: hidden; background: var(--costa-color-surface); }
+/* ---------- 15. Kort ---------- */
+.costa-map__frame { position: relative; aspect-ratio: 16 / 9; border: var(--costa-line); border-radius: var(--costa-radius); overflow: hidden; background: var(--costa-color-surface); }
 @media (max-width: 749px) { .costa-map__frame { aspect-ratio: 4 / 3; } }
 .costa-map__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-/* ---------- 12. Menukort ---------- */
-.costa-menu__nav { display: flex; flex-wrap: wrap; gap: var(--costa-space-s); justify-content: center; margin-bottom: var(--costa-space-xl); }
-.costa-menu__nav a { padding: var(--costa-space-xs) var(--costa-space-m); border: 1px solid var(--costa-color-border); border-radius: var(--costa-button-radius); text-decoration: none; }
-.costa-menu__category { scroll-margin-top: 120px; margin: var(--costa-space-xl) 0 var(--costa-space-s); padding-top: var(--costa-space-l); border-top: 1px solid var(--costa-color-border); }
+/* ---------- 16. Menukort ---------- */
+.costa-menu__nav { display: flex; flex-wrap: wrap; gap: var(--costa-space-xs); justify-content: center; margin-bottom: var(--costa-space-xl); }
+.costa-menu__nav a { padding: 0.6rem 1.4rem; border: var(--costa-line); border-radius: 999px; text-decoration: none; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); }
+.costa-menu__category { scroll-margin-top: 120px; margin: var(--costa-space-xl) 0 var(--costa-space-s); padding-top: var(--costa-space-l); border-top: var(--costa-line); }
 .costa-menu__category:first-of-type { border-top: 0; }
 .costa-menu__note { color: var(--costa-color-muted); margin-bottom: var(--costa-space-l); }
 .costa-menu__group { margin: var(--costa-space-l) 0 var(--costa-space-s); }
-.costa-menu__item { display: grid; grid-template-columns: 1fr auto; gap: var(--costa-space-xs) var(--costa-space-l); padding: var(--costa-space-m) 0; border-bottom: 1px dashed var(--costa-color-border); }
+.costa-menu__item { display: grid; grid-template-columns: 1fr auto; gap: var(--costa-space-xs) var(--costa-space-l); padding: var(--costa-space-m) 0; border-bottom: var(--costa-line); }
 .costa-menu__name { font-weight: 700; }
-.costa-menu__price { font-weight: 700; white-space: pre-line; text-align: right; }
-.costa-menu__desc { grid-column: 1 / -1; color: var(--costa-color-muted); white-space: pre-line; }
+.costa-menu__price { font-family: var(--costa-font-mono); white-space: pre-line; text-align: right; }
+.costa-menu__desc { grid-column: 1 / -1; color: var(--costa-color-muted); }
 .costa-menu__desc p { margin: 0; }
 .costa-menu__images { margin: var(--costa-space-l) 0; }
 
-/* ---------- 13. Video ---------- */
-.costa-video video { width: 100%; border-radius: var(--costa-radius); display: block; }
+/* ---------- 17. Video ---------- */
+.costa-video video { width: 100%; border: var(--costa-line); border-radius: var(--costa-radius); display: block; }
 
-/* ---------- 14. Footer ---------- */
+/* ---------- 18. Footer ---------- */
 .costa-footer { background: var(--costa-color-dark); color: var(--costa-color-dark-text); font-family: var(--costa-font-body); font-size: var(--costa-text-small); line-height: var(--costa-line-height); }
-.costa-footer__inner { max-width: var(--costa-page-width); margin-inline: auto; padding: var(--costa-space-xl) var(--costa-gutter); display: grid; gap: var(--costa-space-l); grid-template-columns: 1fr; text-align: center; }
-@media (min-width: 750px) { .costa-footer__inner { grid-template-columns: 1fr 1fr 1fr 1fr; text-align: left; align-items: start; } }
+.costa-footer__inner { max-width: var(--costa-page-width); margin-inline: auto; padding: var(--costa-space-xl) var(--costa-gutter); display: grid; gap: var(--costa-space-l); grid-template-columns: 1fr; }
+@media (min-width: 750px) { .costa-footer__inner { grid-template-columns: repeat(2, 1fr); padding-inline: calc(var(--costa-gutter) * 2); } }
+@media (min-width: 990px) { .costa-footer__inner { grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; } }
 .costa-footer a { color: inherit; }
 .costa-footer p { margin: 0 0 var(--costa-space-xs); }
-.costa-footer__title { font-weight: 700; margin-bottom: var(--costa-space-s); }
-.costa-footer__logo img { width: var(--costa-footer-logo-width, 160px); max-width: 100%; height: auto; margin-inline: auto; }
-@media (min-width: 750px) { .costa-footer__logo img { margin-inline: 0; } }
+.costa-footer__title { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: var(--costa-space-m) !important; padding-bottom: var(--costa-space-s); border-bottom: var(--costa-line-width) solid currentColor; }
+.costa-footer__wordmark { font-family: var(--costa-font-heading); font-weight: 800; font-size: 3.6rem; line-height: 0.95; letter-spacing: -0.02em; text-decoration: none; display: inline-block; }
+.costa-footer__wordmark small { display: block; font-family: var(--costa-font-mono); font-weight: 400; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.8rem; }
+.costa-footer__logo img { width: var(--costa-footer-logo-width, 160px); max-width: 100%; height: auto; }
 .costa-footer__hours { white-space: pre-line; }
-.costa-footer__badges { display: flex; flex-wrap: wrap; gap: var(--costa-space-m); align-items: center; justify-content: center; }
-@media (min-width: 750px) { .costa-footer__badges { justify-content: flex-start; } }
-.costa-footer__badges img { height: 48px; width: auto; }
-.costa-footer__social { display: flex; gap: var(--costa-space-m); justify-content: center; margin-top: var(--costa-space-s); }
-@media (min-width: 750px) { .costa-footer__social { justify-content: flex-start; } }
-.costa-footer__social svg { width: 24px; height: 24px; fill: currentColor; }
-.costa-footer__bottom { border-top: 1px solid rgb(255 255 255 / 0.15); text-align: center; padding: var(--costa-space-m) var(--costa-gutter); opacity: 0.8; }
+.costa-footer__badges { display: flex; flex-wrap: wrap; gap: var(--costa-space-m); align-items: center; }
+.costa-footer__badges a { background: var(--costa-color-surface); border-radius: var(--costa-radius); padding: 0.6rem; display: inline-flex; }
+.costa-footer__badges img { height: 40px; width: auto; }
+.costa-footer__social { display: flex; gap: var(--costa-space-s); margin-top: var(--costa-space-s); }
+.costa-footer__social a { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border: var(--costa-line-width) solid currentColor; border-radius: 50%; }
+.costa-footer__social svg { width: 18px; height: 18px; fill: currentColor; }
+.costa-footer__bottom { border-top: var(--costa-line-width) solid currentColor; max-width: var(--costa-page-width); margin-inline: auto; padding: var(--costa-space-m) var(--costa-gutter); font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; }
 
-/* ---------- 15. Dawn-header i Costa-farver ---------- */
-.section-header .header, .section-header .header-wrapper { background: var(--costa-color-bg); }
+/* ---------- 19. Produktside (Dawn main-product) ---------- */
+section[id^='MainProduct-'] .product__media-item, section[id^='MainProduct-'] .product-media-container { border: var(--costa-line); border-radius: var(--costa-radius); overflow: hidden; }
+section[id^='MainProduct-'] .product__title h1 { font-size: var(--costa-text-h1); line-height: 1; letter-spacing: -0.02em; }
+section[id^='MainProduct-'] .price-item { font-family: var(--costa-font-mono); font-size: var(--costa-text-h3); }
+section[id^='MainProduct-'] .product-form__input--pill input[type='radio'] + label { border-radius: 999px; border: var(--costa-line); font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; padding: 1rem 1.8rem; }
+section[id^='MainProduct-'] .product-form__input--pill input[type='radio']:checked + label { background: var(--costa-color-text); color: var(--costa-color-bg); }
+section[id^='MainProduct-'] .product-form__input .form__label { font-family: var(--costa-font-mono); font-size: var(--costa-text-label); text-transform: uppercase; letter-spacing: 0.08em; }
+section[id^='MainProduct-'] .product-form__submit { background: var(--costa-color-accent); color: var(--costa-color-accent-text); border-radius: 999px; min-height: 52px; font-weight: 600; }
+section[id^='MainProduct-'] .product-form__submit::after { box-shadow: 0 0 0 var(--costa-line-width) var(--costa-color-accent) !important; }
+section[id^='MainProduct-'] .product-form__submit:hover::after { box-shadow: 0 0 0 calc(var(--costa-line-width) * 2) var(--costa-color-text) !important; }
+section[id^='MainProduct-'] .quantity { border-radius: 999px; }
+section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-line-width) var(--costa-color-text) !important; border-radius: 999px; }
+.costa-coffee-data { margin: var(--costa-space-m) 0; }
+.costa-coffee-data__notes { font-style: italic; color: var(--costa-color-muted); font-size: var(--costa-text-base); margin: 0 0 var(--costa-space-m); }
+
+/* ---------- 20. Sidehoved på kollektion ---------- */
+.costa-collection-head { padding-block: var(--costa-space-xl) var(--costa-space-l); border-top: 0; }
+.costa-collection-head h1 { font-size: var(--costa-text-display); line-height: 0.92; letter-spacing: -0.035em; margin-bottom: var(--costa-space-m); }

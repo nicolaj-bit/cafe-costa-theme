@@ -4,6 +4,8 @@
     assign color_class = ' costa--surface'
   elsif section.settings.color == 'dark'
     assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
   endif
 -%}
 
@@ -12,15 +14,6 @@
   assign has_form = false
   if section.settings.show_form and field_blocks.size > 0
     assign has_form = true
-  endif
-  assign form_id = 'CostaForm-' | append: section.id
-  assign success_message = section.settings.success_message
-  if success_message == blank
-    assign success_message = 'costa.contact.success' | t
-  endif
-  assign submit_label = section.settings.submit_label
-  if submit_label == blank
-    assign submit_label = 'costa.contact.submit' | t
   endif
 -%}
 <section class="costa{{ color_class }}" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
@@ -61,9 +54,9 @@
       {%- if has_form -%}
         <div class="costa-contact__form">
           {%- if section.settings.form_heading != blank -%}<h3>{{ section.settings.form_heading }}</h3>{%- endif -%}
-          {%- form 'contact', id: form_id, class: 'costa-form' -%}
+          {%- form 'contact', id: 'CostaForm-{{ section.id }}', class: 'costa-form' -%}
             {%- if form.posted_successfully? -%}
-              <p class="costa-form__status" role="status">{{ success_message }}</p>
+              <p class="costa-form__status" role="status">{{ section.settings.success_message | default: 'costa.contact.success' | t }}</p>
             {%- elsif form.errors -%}
               <div class="costa-form__status costa-form__status--error" role="alert">
                 <p>{{ 'costa.contact.error' | t }}</p>
@@ -95,7 +88,7 @@
                 {%- endif -%}
               </div>
             {%- endfor -%}
-            <div><button type="submit" class="costa-button">{{ submit_label | escape }}</button></div>
+            <div><button type="submit" class="costa-button">{{ section.settings.submit_label | default: 'costa.contact.submit' | t }}</button></div>
           {%- endform -%}
         </div>
       {%- endif -%}
@@ -172,15 +165,19 @@
       "options": [
         {
           "value": "bg",
-          "label": "Lys"
+          "label": "Papir"
         },
         {
           "value": "surface",
-          "label": "Flade"
+          "label": "Kort (lysere papir)"
         },
         {
           "value": "dark",
           "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
         }
       ]
     },

@@ -90,3 +90,55 @@ Filerne ligger i `content/billeder/`, og `content/billeder.json` viser, hvor hve
 gamle side. De uploades til Shopify Files under præcis de navne, så de dukker op af sig selv.
 
 Shopify ignorerer mappen `content/` og denne README – de er kun til arkiv.
+
+---
+
+# Opgave 2 – nyt design (risteri)
+
+**Udtryk:** varmt papir som bund, sort tryk, 1,5 px linjer, pilleknapper og produktkort formet som
+kaffeposer med etiket. Ingen gradienter, skygger eller pynt. Alt ligger i `assets/costa-tokens.css`.
+
+## Farver og kontrast
+
+| Rolle | Farve | Kontrast |
+|---|---|---|
+| Papir (bund) | `#EFE8DC` | – |
+| Kort/etiketter | `#F7F2E9` | – |
+| Tryk | `#1C1A17` | 14,3:1 på papir |
+| Brødtekst | `#4A453D` | 7,8:1 på papir |
+| Ristet rød (køb) | `#9A4421` | hvid tekst 6,5:1 · som tekst på papir 5,4:1 |
+| Havneblå (erhverv) | `#1E3A4C` | papirfarvet tekst 9,8:1 |
+
+Ristet rød bruges aldrig som tekst på mørk eller blå bund (2,7:1 og 1,8:1).
+
+## Skrifter
+
+Bricolage Grotesque 800 (overskrifter), Instrument Sans (brødtekst) og JetBrains Mono (etiketter og
+kaffedata). Filerne ligger i `assets/costa-*.woff2` (latin-tegnsæt, fra @fontsource 5.3.0) og indlæses
+med `font-display: swap`. Licenserne (SIL Open Font License 1.1) ligger i `content/fonts/`.
+
+## Nye sektioner
+
+- `costa-header` – sort topbjælke (fragt og åbningstider), logo som tekst, menu, ikoner for erhvervslogin
+  og kurv; menuen foldes sammen på mobil
+- `costa-hero-split` – stor overskrift, to knapper og foto med «I risteren nu»-mærke
+- `costa-promises` – stribe med fire løfter
+- `costa-product-grid` – produktgitter fra en valgt kollektion med filterknapper (produkt-tags),
+  malning som pille-vælger og «Læg i kurv» direkte fra kortet. Bruges også på kollektionssiden.
+- `costa-steps` – trin på havneblå bund (erhverv)
+
+## Metafelter (produkter)
+
+`custom.smagsnoter`, `custom.oprindelse`, `custom.proces`, `custom.ristning` – alle enkeltlinje-tekst.
+Filtrene bruger produkt-tags: `espresso`, `filter`, `single-origin`, `gaver`.
+Malning er en variant med indstillingen «Malning»: «Hele bønner» / «Formalet».
+
+## Skal bekræftes af ejeren
+
+- **Fragttekst** i topbjælken («Fri fragt på kaffe over 400 kr.») er en pladsholder.
+- **«I risteren nu»** viser «'Kiwi' espresso» (nævnt på den gamle kaffevogn-side).
+- **Løfterne** og **erhvervstrinene** er korte uddrag af teksten fra de gamle sider – formuleringen bør
+  godkendes.
+- **«Opret erhvervskonto»** peger på siden *Kaffe til erhverv* (formularen). Rigtige erhvervskonti
+  (Shopify B2B) kræver Shopify Plus.
+- **Testprodukterne** har pladsholdertekst og intet foto. Uden foto vises en tegnet pose.

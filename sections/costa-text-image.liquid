@@ -4,6 +4,8 @@
     assign color_class = ' costa--surface'
   elsif section.settings.color == 'dark'
     assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
   endif
 -%}
 
@@ -92,15 +94,19 @@
       "options": [
         {
           "value": "bg",
-          "label": "Lys"
+          "label": "Papir"
         },
         {
           "value": "surface",
-          "label": "Flade"
+          "label": "Kort (lysere papir)"
         },
         {
           "value": "dark",
           "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
         }
       ]
     },
@@ -112,6 +118,18 @@
     }
   ],
   "blocks": [
+    {
+      "type": "label",
+      "name": "Etiket (lille mono-tekst)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Etiket"
+        }
+      ]
+    },
     {
       "type": "heading",
       "name": "Overskrift",
@@ -190,6 +208,35 @@
       ]
     },
     {
+      "type": "info",
+      "name": "Åbningstider og adresse",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_hours",
+          "label": "Vis åbningstider",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_address",
+          "label": "Vis adresse",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_phone",
+          "label": "Vis telefon",
+          "default": false
+        },
+        {
+          "type": "paragraph",
+          "content": "Teksten hentes fra Tema-indstillinger › Costa – virksomhed."
+        }
+      ]
+    },
+    {
       "type": "button",
       "name": "Knap",
       "settings": [
@@ -198,6 +245,26 @@
           "id": "label",
           "label": "Knaptekst",
           "default": "Læs mere"
+        },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Linker til",
+          "default": "custom",
+          "options": [
+            {
+              "value": "custom",
+              "label": "Linket herunder"
+            },
+            {
+              "value": "route",
+              "label": "Rutevejledning (fra tema-indstillinger)"
+            },
+            {
+              "value": "phone",
+              "label": "Ring op (fra tema-indstillinger)"
+            }
+          ]
         },
         {
           "type": "url",
@@ -217,6 +284,10 @@
             {
               "value": "secondary",
               "label": "Kant"
+            },
+            {
+              "value": "buy",
+              "label": "Køb (ristet rød)"
             }
           ]
         }

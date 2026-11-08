@@ -1,0 +1,88 @@
+{% comment %}
+  Produktkort formet som en kaffepose med etiket.
+  Viser posefoto, navn, pris, smagsnoter og kaffedata fra metafelter,
+  malning som pille-vælger (variant) og «Læg i kurv» direkte fra kortet.
+  render 'costa-product-card', product: product, section_id: section.id
+{% endcomment %}
+{%- liquid
+  assign current = product.selected_or_first_available_variant
+  assign smagsnoter = product.metafields.custom.smagsnoter.value
+  assign ristning = product.metafields.custom.ristning.value
+  assign uid = section_id | append: '-' | append: product.id
+-%}
+<article class="costa-bag">
+  <div class="costa-bag__seal" aria-hidden="true"></div>
+
+  {%- if product.featured_media -%}
+    <a class="costa-bag__media" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+      {{ product.featured_media | image_url: width: 900 | image_tag:
+        loading: 'lazy',
+        widths: '300, 450, 600, 900',
+        sizes: '(min-width: 990px) 30vw, (min-width: 600px) 45vw, 100vw',
+        alt: product.featured_media.alt | default: product.title | escape
+      }}
+    </a>
+  {%- else -%}
+    <a class="costa-bag__media costa-bag__media--empty" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+      <span class="costa-bag__mark">{{ settings.costa_cafe_name | split: ' ' | slice: 0, 2 | join: ' ' }}<small>{{ 'costa.shop.roastery' | t }}</small></span>
+    </a>
+  {%- endif -%}
+
+  <div class="costa-bag__label">
+    <div class="costa-bag__top">
+      <span>{% if ristning != blank %}{{ 'costa.coffee.roast' | t }} · {{ ristning | escape }}{% else %}{{ product.type | escape }}{% endif %}</span>
+      {%- if product.compare_at_price > product.price -%}<span>{{ 'products.product.on_sale' | t }}</span>{%- endif -%}
+    </div>
+    <h3 class="costa-bag__title"><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
+    {%- if smagsnoter != blank -%}<p class="costa-bag__notes">{{ smagsnoter | escape }}</p>{%- endif -%}
+    {%- render 'costa-coffee-data', product: product -%}
+  </div>
+
+  {%- form 'product', product, class: 'costa-bag__form', data-costa-add: '', novalidate: 'novalidate' -%}
+    {%- if product.has_only_default_variant -%}
+      <input type="hidden" name="id" value="{{ current.id }}">
+    {%- elsif product.options.size == 1 -%}
+      <fieldset class="costa-pills">
+        <legend class="visually-hidden">{{ product.options.first | escape }}</legend>
+        {%- for variant in product.variants -%}
+          <label class="costa-pill">
+            <input
+              type="radio"
+              name="id"
+              value="{{ variant.id }}"
+              data-price="{{ variant.price | money }}"
+              {% if variant.compare_at_price > variant.price %}data-compare="{{ variant.compare_at_price | money }}"{% endif %}
+              {% if variant == current %}checked{% endif %}
+              {% unless variant.available %}disabled{% endunless %}
+            >
+            <span>{{ variant.title | escape }}</span>
+          </label>
+        {%- endfor -%}
+      </fieldset>
+    {%- else -%}
+      <label class="visually-hidden" for="CostaVariant-{{ uid }}">{{ 'costa.shop.variant' | t }}</label>
+      <select id="CostaVariant-{{ uid }}" name="id" class="costa-pill-select">
+        {%- for variant in product.variants -%}
+          <option value="{{ variant.id }}" data-price="{{ variant.price | money }}" {% if variant == current %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title | escape }}</option>
+        {%- endfor -%}
+      </select>
+    {%- endif -%}
+    <input type="hidden" name="quantity" value="1">
+    <div class="costa-bag__buy">
+      <span class="costa-price" data-costa-price>
+        {%- if current.compare_at_price > current.price -%}<s>{{ current.compare_at_price | money }}</s>{%- endif -%}
+        {{- current.price | money -}}
+      </span>
+      <button
+        type="submit"
+        class="costa-button costa-button--buy costa-button--small"
+        data-label-add="{{ 'costa.shop.add' | t }}"
+        data-label-adding="{{ 'costa.shop.adding' | t }}"
+        {% unless product.available %}disabled{% endunless %}
+      >
+        {%- if product.available -%}{{ 'costa.shop.add' | t }}{%- else -%}{{ 'costa.shop.sold_out' | t }}{%- endif -%}
+      </button>
+    </div>
+    <p class="costa-bag__status" role="status" aria-live="polite" data-costa-status data-added="{{ 'costa.shop.added' | t }}" data-error="{{ 'costa.shop.error' | t }}"></p>
+  {%- endform -%}
+</article>

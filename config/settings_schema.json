@@ -12,7 +12,7 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Al stil i Costa-sektionerne styres herfra via assets/costa-tokens.css. Skift farver, skrifter og former her – sektionerne skal ikke røres."
+        "content": "Al stil i Costa-sektionerne styres herfra via assets/costa-tokens.css. Skift farver, skrifter og former her – sektionerne skal ikke røres. Hold tekstkontrasten på mindst 4,5:1."
       },
       {
         "type": "header",
@@ -21,61 +21,68 @@
       {
         "type": "color",
         "id": "costa_color_bg",
-        "label": "Baggrund",
-        "default": "#F7F2EB"
+        "label": "Papir (bund)",
+        "default": "#EFE8DC"
       },
       {
         "type": "color",
         "id": "costa_color_surface",
-        "label": "Flader (kort, bokse)",
-        "default": "#EFE6DA"
+        "label": "Kort og etiketter",
+        "default": "#F7F2E9"
       },
       {
         "type": "color",
         "id": "costa_color_text",
-        "label": "Tekst",
-        "default": "#2E2620"
+        "label": "Tryk (overskrifter og linjer)",
+        "default": "#1C1A17"
       },
       {
         "type": "color",
         "id": "costa_color_muted",
-        "label": "Dæmpet tekst",
-        "default": "#6E6258"
+        "label": "Brødtekst",
+        "default": "#4A453D"
       },
       {
         "type": "color",
         "id": "costa_color_accent",
-        "label": "Accent (knapper, links)",
-        "default": "#8A5A3C"
+        "label": "Ristet rød (køb-knapper)",
+        "default": "#9A4421",
+        "info": "Bruges ikke som tekst på mørk eller blå bund."
       },
       {
         "type": "color",
         "id": "costa_color_accent_text",
-        "label": "Tekst på accent",
+        "label": "Tekst på ristet rød",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
+        "id": "costa_color_harbor",
+        "label": "Havneblå (erhverv)",
+        "default": "#1E3A4C"
+      },
+      {
+        "type": "color",
+        "id": "costa_color_harbor_text",
+        "label": "Tekst på havneblå",
+        "default": "#EFE8DC"
+      },
+      {
+        "type": "color",
         "id": "costa_color_dark",
-        "label": "Mørk flade (footer, topbjælke)",
-        "default": "#2E2620"
+        "label": "Mørk bund (risteriet, topbjælke, footer)",
+        "default": "#1C1A17"
       },
       {
         "type": "color",
         "id": "costa_color_dark_text",
-        "label": "Tekst på mørk flade",
-        "default": "#F7F2EB"
-      },
-      {
-        "type": "color",
-        "id": "costa_color_border",
-        "label": "Streger",
-        "default": "#DCCFBF"
+        "label": "Tekst på mørk bund",
+        "default": "#EFE8DC"
       },
       {
         "type": "range",
         "id": "costa_overlay_opacity",
-        "label": "Mørkt lag over hero-billeder",
+        "label": "Mørkt lag over hero-billeder på undersider",
         "min": 0,
         "max": 80,
         "step": 5,
@@ -84,18 +91,48 @@
       },
       {
         "type": "header",
+        "content": "Linjer"
+      },
+      {
+        "type": "range",
+        "id": "costa_line_width",
+        "label": "Stregtykkelse",
+        "min": 1,
+        "max": 3,
+        "step": 0.5,
+        "unit": "px",
+        "default": 1.5
+      },
+      {
+        "type": "header",
         "content": "Skrifttyper"
+      },
+      {
+        "type": "select",
+        "id": "costa_font_mode",
+        "label": "Skrifter",
+        "default": "theme",
+        "options": [
+          {
+            "value": "theme",
+            "label": "Temaets egne (Bricolage Grotesque, Instrument Sans, JetBrains Mono)"
+          },
+          {
+            "value": "shopify",
+            "label": "Vælg fra Shopifys bibliotek herunder"
+          }
+        ]
       },
       {
         "type": "font_picker",
         "id": "costa_font_heading",
-        "label": "Overskrifter",
+        "label": "Overskrifter (kun ved Shopifys bibliotek)",
         "default": "lora_n4"
       },
       {
         "type": "font_picker",
         "id": "costa_font_body",
-        "label": "Brødtekst",
+        "label": "Brødtekst (kun ved Shopifys bibliotek)",
         "default": "assistant_n4"
       },
       {
@@ -132,11 +169,11 @@
         "type": "range",
         "id": "costa_space_section",
         "label": "Luft mellem sektioner",
-        "min": 24,
-        "max": 120,
+        "min": 32,
+        "max": 140,
         "step": 4,
         "unit": "px",
-        "default": 72
+        "default": 88
       },
       {
         "type": "range",
@@ -146,7 +183,7 @@
         "max": 1600,
         "step": 20,
         "unit": "px",
-        "default": 1200
+        "default": 1320
       },
       {
         "type": "range",
@@ -165,26 +202,36 @@
       {
         "type": "range",
         "id": "costa_radius",
-        "label": "Hjørner på kort og billeder",
+        "label": "Hjørner på billeder, kort og felter",
         "min": 0,
-        "max": 32,
-        "step": 2,
+        "max": 24,
+        "step": 1,
         "unit": "px",
-        "default": 8
+        "default": 6
       },
       {
         "type": "header",
         "content": "Knapper"
       },
       {
-        "type": "range",
-        "id": "costa_button_radius",
-        "label": "Hjørner på knapper",
-        "min": 0,
-        "max": 40,
-        "step": 2,
-        "unit": "px",
-        "default": 4
+        "type": "select",
+        "id": "costa_button_shape",
+        "label": "Knappernes form",
+        "default": "pill",
+        "options": [
+          {
+            "value": "pill",
+            "label": "Pille (helt runde ender)"
+          },
+          {
+            "value": "rounded",
+            "label": "Let afrundede"
+          },
+          {
+            "value": "square",
+            "label": "Firkantede"
+          }
+        ]
       },
       {
         "type": "range",
@@ -194,7 +241,7 @@
         "max": 24,
         "step": 1,
         "unit": "px",
-        "default": 14
+        "default": 13
       },
       {
         "type": "select",
@@ -211,16 +258,6 @@
             "label": "Store bogstaver"
           }
         ]
-      },
-      {
-        "type": "range",
-        "id": "costa_button_border",
-        "label": "Kantstreg på sekundær knap",
-        "min": 1,
-        "max": 4,
-        "step": 1,
-        "unit": "px",
-        "default": 2
       }
     ]
   },
@@ -330,6 +367,27 @@
       {
         "type": "paragraph",
         "content": "Facebook og Instagram sættes under «Sociale medier»."
+      },
+      {
+        "type": "header",
+        "content": "Topbjælke"
+      },
+      {
+        "type": "text",
+        "id": "costa_shipping",
+        "label": "Fragttekst",
+        "default": "Fri fragt på kaffe over 400 kr.",
+        "info": "Pladsholder – skal bekræftes af ejeren."
+      },
+      {
+        "type": "header",
+        "content": "Erhverv"
+      },
+      {
+        "type": "url",
+        "id": "costa_business_login_url",
+        "label": "Link til erhvervslogin",
+        "info": "Tomt = butikkens kundelogin."
       }
     ]
   },

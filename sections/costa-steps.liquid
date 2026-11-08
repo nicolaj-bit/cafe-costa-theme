@@ -1,0 +1,190 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
+  endif
+-%}
+
+{%- assign buttons = section.blocks | where: 'type', 'button' -%}
+<section class="costa{{ color_class }}" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="costa__inner">
+    <div class="costa-steps-head">
+      <div>
+        {%- if section.settings.label != blank -%}<p class="costa-label">{{ section.settings.label | escape }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="costa-richtext">{{ section.settings.text }}</div>{%- endif -%}
+      </div>
+      {%- if buttons.size > 0 -%}
+        <div class="costa-buttons">
+          {%- for block in buttons -%}{%- render 'costa-button', block: block -%}{%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <ol class="costa-steps">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'step' -%}
+          <li class="costa-step" {{ block.shopify_attributes }}>
+            <h3>{{ block.settings.title }}</h3>
+            {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: trin",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Etiket"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Sådan gør vi"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst"
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "harbor",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Papir"
+        },
+        {
+          "value": "surface",
+          "label": "Kort (lysere papir)"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anker-id (til links som #morgenmad)",
+      "info": "Kun små bogstaver og bindestreger."
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Trin",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Titel",
+          "default": "Trin"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Tekst"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Knap",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Knaptekst",
+          "default": "Læs mere"
+        },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Linker til",
+          "default": "custom",
+          "options": [
+            {
+              "value": "custom",
+              "label": "Linket herunder"
+            },
+            {
+              "value": "route",
+              "label": "Rutevejledning (fra tema-indstillinger)"
+            },
+            {
+              "value": "phone",
+              "label": "Ring op (fra tema-indstillinger)"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Udseende",
+          "default": "primary",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Udfyldt"
+            },
+            {
+              "value": "secondary",
+              "label": "Kant"
+            },
+            {
+              "value": "buy",
+              "label": "Køb (ristet rød)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: trin",
+      "blocks": [
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

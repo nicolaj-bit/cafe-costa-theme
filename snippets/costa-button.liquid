@@ -1,8 +1,28 @@
 {% comment %} Én knap fra en button-block: render 'costa-button', block: block {% endcomment %}
 {%- if block.settings.label != blank -%}
+  {%- liquid
+    assign href = block.settings.link | default: '#'
+    assign external = false
+    if block.settings.link_type == 'route'
+      assign href = settings.costa_route_url
+      assign external = true
+    elsif block.settings.link_type == 'phone'
+      assign href = 'tel:' | append: settings.costa_phone | remove: ' '
+    endif
+    assign style_class = ''
+    case block.settings.style
+      when 'secondary'
+        assign style_class = ''
+      when 'buy'
+        assign style_class = ' costa-button--buy'
+      else
+        assign style_class = ' costa-button--primary'
+    endcase
+  -%}
   <a
-    href="{{ block.settings.link | default: '#' }}"
-    class="costa-button{% if block.settings.style == 'secondary' %} costa-button--secondary{% endif %}"
+    href="{{ href }}"
+    class="costa-button{{ style_class }}"
+    {% if external %}target="_blank" rel="noopener"{% endif %}
     {{ block.shopify_attributes }}
   >
     {{- block.settings.label | escape -}}

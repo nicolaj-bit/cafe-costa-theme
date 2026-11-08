@@ -536,7 +536,8 @@
       "cvr": "CVR",
       "submit": "Send",
       "success": "Tak for din besked. Vi vender tilbage hurtigst muligt.",
-      "error": "Nogle felter er ikke udfyldt korrekt."
+      "error": "Nogle felter er ikke udfyldt korrekt.",
+      "address": "Adresse"
     },
     "map": {
       "consent": "Kortet vises med Google Maps, som sætter cookies.",
@@ -550,6 +551,29 @@
     },
     "footer": {
       "findsmiley": "Se vores kontrolrapport på Findsmiley.dk"
+    },
+    "header": {
+      "menu": "Menu",
+      "cart": "Kurv"
+    },
+    "coffee": {
+      "origin": "Oprindelse",
+      "process": "Proces",
+      "roast": "Ristning",
+      "notes": "Smagsnoter"
+    },
+    "shop": {
+      "all": "Alle",
+      "filter_label": "Filtrér kaffen",
+      "empty": "Ingen kaffe matcher filteret lige nu.",
+      "no_collection": "Vælg en kollektion i Theme Editor.",
+      "add": "Læg i kurv",
+      "adding": "Lægger i kurv …",
+      "added": "Lagt i kurven ✓",
+      "error": "Det lykkedes ikke. Prøv igen.",
+      "sold_out": "Udsolgt",
+      "variant": "Vælg variant",
+      "roastery": "Kafferisteri · Kalundborg"
     }
   }
 }

@@ -1,0 +1,238 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
+  endif
+-%}
+
+{%- liquid
+  assign use_page = false
+  if section.settings.use_page_collection and template.name == 'collection'
+    assign use_page = true
+  endif
+  assign source = section.settings.collection
+  if use_page
+    assign source = collection
+  endif
+  assign filters = section.blocks | where: 'type', 'filter'
+-%}
+<section class="costa costa-shop{{ color_class }}" id="Costa-{{ section.id }}" data-costa-shop>
+  <div class="costa__inner">
+    <div class="costa-shop__head">
+      <div>
+        {%- if section.settings.label != blank -%}<p class="costa-label">{{ section.settings.label | escape }}</p>{%- endif -%}
+        {%- if use_page and section.settings.heading == blank -%}
+          <h1>{{ collection.title | escape }}</h1>
+        {%- elsif section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="costa-richtext">{{ section.settings.text }}</div>{%- elsif use_page and collection.description != blank -%}<div class="costa-richtext">{{ collection.description }}</div>{%- endif -%}
+      </div>
+      {%- if section.settings.view_all_label != blank and source != blank and use_page == false -%}
+        <a class="costa-button" href="{{ source.url }}">{{ section.settings.view_all_label | escape }}</a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_filters and filters.size > 0 -%}
+      <div class="costa-shop__filters costa-pills" role="group" aria-label="{{ 'costa.shop.filter_label' | t }}">
+        <button type="button" class="costa-filter" data-costa-filter="" aria-pressed="true">{{ section.settings.all_label | default: 'costa.shop.all' | t }}</button>
+        {%- for block in filters -%}
+          <button type="button" class="costa-filter" data-costa-filter="{{ block.settings.tag | handleize }}" aria-pressed="false" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if source == blank or source.products_count == 0 -%}
+      <p class="costa-shop__empty">{{ 'costa.shop.no_collection' | t }}</p>
+    {%- elsif use_page -%}
+      {%- paginate collection.products by section.settings.products_limit -%}
+        <ul class="costa-shop__grid" style="--costa-shop-columns: {{ section.settings.columns }};">
+          {%- for product in collection.products -%}
+            <li class="costa-shop__item" data-costa-tags="{% for tag in product.tags %}{{ tag | handleize }} {% endfor %}">
+              {%- render 'costa-product-card', product: product, section_id: section.id -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- if paginate.pages > 1 -%}<div class="costa-shop__more">{{ paginate | default_pagination }}</div>{%- endif -%}
+      {%- endpaginate -%}
+    {%- else -%}
+      <ul class="costa-shop__grid" style="--costa-shop-columns: {{ section.settings.columns }};">
+        {%- for product in source.products limit: section.settings.products_limit -%}
+          <li class="costa-shop__item" data-costa-tags="{% for tag in product.tags %}{{ tag | handleize }} {% endfor %}">
+            {%- render 'costa-product-card', product: product, section_id: section.id -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <p class="costa-shop__empty" data-costa-empty hidden>{{ 'costa.shop.empty' | t }}</p>
+  </div>
+</section>
+<script src="{{ 'costa-shop.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Costa: produktgitter",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Etiket",
+      "default": "Fra risteriet"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Fra risteriet"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst (valgfri)"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Kollektion"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_page_collection",
+      "label": "Brug sidens kollektion på kollektionssider",
+      "default": true,
+      "info": "På en kollektionsside vises den kollektion, man står på, med sideskift."
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Antal produkter",
+      "min": 3,
+      "max": 24,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Kolonner på computer",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "Knap til hele kollektionen",
+      "default": "Se al kaffe"
+    },
+    {
+      "type": "header",
+      "content": "Filtre"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "label": "Vis filterknapper",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "Tekst på «alle»-knappen",
+      "default": "Alle"
+    },
+    {
+      "type": "paragraph",
+      "content": "Tilføj en blok pr. filter. Filteret viser de produkter, der har det valgte produkt-tag."
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Papir"
+        },
+        {
+          "value": "surface",
+          "label": "Kort (lysere papir)"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "filter",
+      "name": "Filter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Knaptekst",
+          "default": "Espresso"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Produkt-tag",
+          "default": "espresso",
+          "info": "Skrives som på produktet, f.eks. single-origin."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: produktgitter",
+      "blocks": [
+        {
+          "type": "filter",
+          "settings": {
+            "label": "Espresso",
+            "tag": "espresso"
+          }
+        },
+        {
+          "type": "filter",
+          "settings": {
+            "label": "Filter",
+            "tag": "filter"
+          }
+        },
+        {
+          "type": "filter",
+          "settings": {
+            "label": "Single origin",
+            "tag": "single-origin"
+          }
+        },
+        {
+          "type": "filter",
+          "settings": {
+            "label": "Gaver",
+            "tag": "gaver"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -4,6 +4,8 @@
     assign color_class = ' costa--surface'
   elsif section.settings.color == 'dark'
     assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
   endif
 -%}
 
@@ -12,6 +14,8 @@
   if address == blank
     assign address = settings.costa_street | append: ', ' | append: settings.costa_city
   endif
+  assign map_src = 'https://maps.google.com/maps?q=' | append: address | url_encode | append: '&z=' | append: section.settings.zoom | append: '&output=embed'
+  assign map_src = 'https://maps.google.com/maps?q=' | append: map_src
 -%}
 {%- capture map_src -%}https://maps.google.com/maps?q={{ address | url_encode }}&z={{ section.settings.zoom }}&output=embed{%- endcapture -%}
 <section class="costa{{ color_class }}" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
@@ -91,15 +95,19 @@
       "options": [
         {
           "value": "bg",
-          "label": "Lys"
+          "label": "Papir"
         },
         {
           "value": "surface",
-          "label": "Flade"
+          "label": "Kort (lysere papir)"
         },
         {
           "value": "dark",
           "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
         }
       ]
     },
@@ -134,6 +142,26 @@
           "default": "Læs mere"
         },
         {
+          "type": "select",
+          "id": "link_type",
+          "label": "Linker til",
+          "default": "custom",
+          "options": [
+            {
+              "value": "custom",
+              "label": "Linket herunder"
+            },
+            {
+              "value": "route",
+              "label": "Rutevejledning (fra tema-indstillinger)"
+            },
+            {
+              "value": "phone",
+              "label": "Ring op (fra tema-indstillinger)"
+            }
+          ]
+        },
+        {
           "type": "url",
           "id": "link",
           "label": "Link"
@@ -151,6 +179,10 @@
             {
               "value": "secondary",
               "label": "Kant"
+            },
+            {
+              "value": "buy",
+              "label": "Køb (ristet rød)"
             }
           ]
         }

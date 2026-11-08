@@ -12,7 +12,7 @@
         "logo_width": 180
       },
       "blocks": {
-        "heading_227": {
+        "heading_234": {
           "type": "heading",
           "settings": {
             "heading": "Åbningstider & kontakt",
@@ -21,7 +21,7 @@
         }
       },
       "block_order": [
-        "heading_227"
+        "heading_234"
       ]
     },
     "tider": {
@@ -33,40 +33,40 @@
         "color": "bg"
       },
       "blocks": {
-        "heading_228": {
+        "heading_235": {
           "type": "heading",
           "settings": {
             "heading": "Åbningstider",
             "tag": "h2"
           }
         },
-        "heading_229": {
+        "heading_236": {
           "type": "heading",
           "settings": {
             "heading": "SOMMERSÆSON",
             "tag": "h3"
           }
         },
-        "subheading_230": {
+        "subheading_237": {
           "type": "subheading",
           "settings": {
             "text": "d.1 Maj - d.18 Okt, uge 42/Efterårsferien"
           }
         },
-        "text_231": {
+        "text_238": {
           "type": "text",
           "settings": {
             "text": "<p>Mandag - fredag: 09.00 - 18.00</p><p>Lørdag og søndag: 09.00 - 18.00</p>"
           }
         },
-        "heading_232": {
+        "heading_239": {
           "type": "heading",
           "settings": {
             "heading": "RESTEN AF ÅRET - d.19 Okt 26 - d.30 Apr 27",
             "tag": "h3"
           }
         },
-        "text_233": {
+        "text_240": {
           "type": "text",
           "settings": {
             "text": "<p>Mandag - fredag: 09.00 - 17.00</p><p>Lørdag &amp; søndag: 09.00 - 17.00</p>"
@@ -74,12 +74,12 @@
         }
       },
       "block_order": [
-        "heading_228",
-        "heading_229",
-        "subheading_230",
-        "text_231",
-        "heading_232",
-        "text_233"
+        "heading_235",
+        "heading_236",
+        "subheading_237",
+        "text_238",
+        "heading_239",
+        "text_240"
       ]
     },
     "kontakt": {
@@ -95,13 +95,13 @@
         "color": "surface"
       },
       "blocks": {
-        "text_234": {
+        "text_241": {
           "type": "text",
           "settings": {
             "text": "<p>Caféen er walk-in. Bordbestilling er kun nødvendig for grupper på 6+ gæster.</p><p>I weekenden tager vi desværre ikke imod reservationer, da vi har begrænset plads og ofte mere travlt. Derfor kører vi efter ‘først til mølle’. Hvis vejret er godt, så er der masser af plads både inden- og udenfor, mange vælger at sidde udenfor og nyde havnen og udsigten.</p><p>Til bordbestillinger: vær søde og hjælp os med så mange detaljer som muligt - <strong>Dato, antal gæster, tidspunkt, betaling samlet eller hver for sig, særlig behov</strong> (f.eks. stole med ryglæn), begivenhed osv.</p><p>Vi glæder os til at se jer.</p>"
           }
         },
-        "field_235": {
+        "field_242": {
           "type": "field",
           "settings": {
             "label": "Navn",
@@ -110,7 +110,7 @@
             "required": true
           }
         },
-        "field_236": {
+        "field_243": {
           "type": "field",
           "settings": {
             "label": "Telefon",
@@ -119,7 +119,7 @@
             "required": true
           }
         },
-        "field_237": {
+        "field_244": {
           "type": "field",
           "settings": {
             "label": "E-mail",
@@ -128,7 +128,7 @@
             "required": true
           }
         },
-        "field_238": {
+        "field_245": {
           "type": "field",
           "settings": {
             "label": "Besked",
@@ -139,11 +139,11 @@
         }
       },
       "block_order": [
-        "text_234",
-        "field_235",
-        "field_236",
-        "field_237",
-        "field_238"
+        "text_241",
+        "field_242",
+        "field_243",
+        "field_244",
+        "field_245"
       ]
     },
     "kort": {
@@ -165,14 +165,14 @@
         "color": "surface"
       },
       "blocks": {
-        "link_239": {
+        "link_246": {
           "type": "link",
           "settings": {
             "platform": "facebook",
             "url": ""
           }
         },
-        "link_240": {
+        "link_247": {
           "type": "link",
           "settings": {
             "platform": "instagram",
@@ -181,8 +181,8 @@
         }
       },
       "block_order": [
-        "link_239",
-        "link_240"
+        "link_246",
+        "link_247"
       ]
     },
     "galleri": {
@@ -194,7 +194,7 @@
         "color": "bg"
       },
       "blocks": {
-        "image_241": {
+        "image_248": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
@@ -202,7 +202,7 @@
             "link": ""
           }
         },
-        "image_242": {
+        "image_249": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-2.jpg",
@@ -210,7 +210,7 @@
             "link": ""
           }
         },
-        "image_243": {
+        "image_250": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
@@ -218,7 +218,7 @@
             "link": ""
           }
         },
-        "image_244": {
+        "image_251": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
@@ -226,7 +226,7 @@
             "link": ""
           }
         },
-        "image_245": {
+        "image_252": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-5.jpg",
@@ -234,7 +234,7 @@
             "link": ""
           }
         },
-        "image_246": {
+        "image_253": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
@@ -244,12 +244,12 @@
         }
       },
       "block_order": [
-        "image_241",
-        "image_242",
-        "image_243",
-        "image_244",
-        "image_245",
-        "image_246"
+        "image_248",
+        "image_249",
+        "image_250",
+        "image_251",
+        "image_252",
+        "image_253"
       ]
     }
   },

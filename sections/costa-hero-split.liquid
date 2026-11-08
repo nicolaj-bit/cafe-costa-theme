@@ -1,0 +1,292 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
+  endif
+-%}
+
+<section class="costa costa-hero-split{{ color_class }}">
+  <div class="costa__inner">
+    <div class="costa-hero-split__grid">
+      <div class="costa-hero-split__text">
+        {%- render 'costa-block-content', blocks: section.blocks -%}
+      </div>
+      <div class="costa-hero-split__media">
+        {%- render 'costa-image', image: section.settings.image, loading: 'eager', sizes: '(min-width: 990px) 45vw, 100vw' -%}
+        {%- if section.settings.badge_label != blank or section.settings.badge_text != blank -%}
+          <div class="costa-badge">
+            {%- if section.settings.badge_label != blank -%}<span class="costa-badge__label">{{ section.settings.badge_label | escape }}</span>{%- endif -%}
+            {%- if section.settings.badge_text != blank -%}
+              <span class="costa-badge__text">
+                {%- if section.settings.badge_link != blank -%}<a href="{{ section.settings.badge_link }}" style="color:inherit;">{{ section.settings.badge_text }}</a>{%- else -%}{{ section.settings.badge_text }}{%- endif -%}
+              </span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: hero med foto",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Foto"
+    },
+    {
+      "type": "header",
+      "content": "Mærke på fotoet"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Mærke – etiket",
+      "default": "I risteren nu"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "badge_text",
+      "label": "Mærke – tekst",
+      "default": "Kaffens navn"
+    },
+    {
+      "type": "url",
+      "id": "badge_link",
+      "label": "Mærke – link (valgfrit)"
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Papir"
+        },
+        {
+          "value": "surface",
+          "label": "Kort (lysere papir)"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "label",
+      "name": "Etiket (lille mono-tekst)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Etiket"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Overskrift",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Overskrift",
+          "default": "Overskrift"
+        },
+        {
+          "type": "select",
+          "id": "tag",
+          "label": "Niveau",
+          "default": "h2",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1 – sidens hovedoverskrift"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "p",
+              "label": "Almindelig tekst"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Underoverskrift",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Underoverskrift"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "<p>Skriv din tekst her.</p>"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Citat",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Citat",
+          "default": "<p>Citat</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Afsender"
+        }
+      ]
+    },
+    {
+      "type": "info",
+      "name": "Åbningstider og adresse",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_hours",
+          "label": "Vis åbningstider",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_address",
+          "label": "Vis adresse",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_phone",
+          "label": "Vis telefon",
+          "default": false
+        },
+        {
+          "type": "paragraph",
+          "content": "Teksten hentes fra Tema-indstillinger › Costa – virksomhed."
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Knap",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Knaptekst",
+          "default": "Læs mere"
+        },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Linker til",
+          "default": "custom",
+          "options": [
+            {
+              "value": "custom",
+              "label": "Linket herunder"
+            },
+            {
+              "value": "route",
+              "label": "Rutevejledning (fra tema-indstillinger)"
+            },
+            {
+              "value": "phone",
+              "label": "Ring op (fra tema-indstillinger)"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Udseende",
+          "default": "primary",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Udfyldt"
+            },
+            {
+              "value": "secondary",
+              "label": "Kant"
+            },
+            {
+              "value": "buy",
+              "label": "Køb (ristet rød)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: hero med foto",
+      "blocks": [
+        {
+          "type": "label"
+        },
+        {
+          "type": "heading",
+          "settings": {
+            "tag": "h1"
+          }
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

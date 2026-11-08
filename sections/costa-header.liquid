@@ -1,0 +1,133 @@
+{%- liquid
+  assign account_url = settings.costa_business_login_url
+  if account_url == blank
+    if customer
+      assign account_url = routes.account_url
+    else
+      assign account_url = routes.account_login_url
+    endif
+  endif
+  assign menu = section.settings.menu
+-%}
+<header class="costa-header">
+  <div class="costa-header__inner">
+    <a class="costa-logo" href="{{ routes.root_url }}">
+      <span class="costa-logo__name">{{ section.settings.logo_name | escape }}</span>
+      {%- if section.settings.logo_sub != blank -%}<span class="costa-logo__sub">{{ section.settings.logo_sub | escape }}</span>{%- endif -%}
+    </a>
+
+    <nav class="costa-nav" aria-label="{{ 'costa.header.menu' | t }}">
+      <ul>
+        {%- for link in menu.links -%}
+          <li>
+            {%- if link.links.size > 0 -%}
+              <details>
+                <summary>{{ link.title | escape }} {{- 'icon-caret.svg' | inline_asset_content -}}</summary>
+                <ul>
+                  <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                  {%- for child in link.links -%}
+                    <li><a href="{{ child.url }}" {% if child.current %}aria-current="page"{% endif %}>{{ child.title | escape }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              </details>
+            {%- else -%}
+              <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="costa-header__icons">
+      {%- if section.settings.show_account -%}
+        <a class="costa-icon-link" href="{{ account_url }}">
+          {{- 'icon-account.svg' | inline_asset_content -}}
+          <span class="visually-hidden">{{ section.settings.account_label | escape }}</span>
+        </a>
+      {%- endif -%}
+      <a class="costa-icon-link" href="{{ routes.cart_url }}">
+        {{- 'icon-cart-empty.svg' | inline_asset_content -}}
+        <span class="visually-hidden">{{ 'costa.header.cart' | t }}</span>
+        <span class="costa-cart-count" data-costa-cart-count {% if cart.item_count == 0 %}hidden{% endif %} aria-hidden="true">{{ cart.item_count }}</span>
+      </a>
+      <details class="costa-mobile-menu">
+        <summary class="costa-icon-link" aria-label="{{ 'costa.header.menu' | t }}">
+          {{- 'icon-hamburger.svg' | inline_asset_content -}}
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </summary>
+        <div class="costa-mobile-menu__panel">
+          <ul>
+            {%- for link in menu.links -%}
+              <li>
+                <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+                {%- if link.links.size > 0 -%}
+                  <ul>
+                    {%- for child in link.links -%}<li><a href="{{ child.url }}">{{ child.title | escape }}</a></li>{%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+            {%- if section.settings.show_account -%}
+              <li><a href="{{ account_url }}">{{ section.settings.account_label | escape }}</a></li>
+            {%- endif -%}
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Costa: header",
+  "tag": "div",
+  "class": "costa-section",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_name",
+      "label": "Logo – navn",
+      "default": "Café Costa"
+    },
+    {
+      "type": "text",
+      "id": "logo_sub",
+      "label": "Logo – linje under",
+      "default": "Kafferisteri · Kalundborg"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu",
+      "info": "Punkter med underpunkter bliver til en rulleliste."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Vis ikon for erhvervslogin",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "account_label",
+      "label": "Tekst til erhvervslogin",
+      "default": "Erhvervslogin"
+    },
+    {
+      "type": "paragraph",
+      "content": "Linket til erhvervslogin sættes under Tema-indstillinger › Costa – virksomhed."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: header"
+    }
+  ]
+}
+{% endschema %}

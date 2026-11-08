@@ -4,299 +4,382 @@
 {
   "sections": {
     "hero": {
-      "type": "costa-hero",
+      "type": "costa-hero-split",
       "settings": {
-        "image": "shopify://shop_images/costa-hero.jpg",
-        "height": "large",
-        "show_logo": true,
-        "logo_width": 220
+        "image": "shopify://shop_images/costa-risteriet-shaun.jpg",
+        "badge_label": "I risteren nu",
+        "badge_text": "'Kiwi' espresso",
+        "badge_link": "/collections/kaffe",
+        "color": "bg"
       },
       "blocks": {
-        "heading_1": {
-          "type": "heading",
+        "label_1": {
+          "type": "label",
           "settings": {
-            "heading": "Café Costa Kalundborg",
-            "tag": "p"
+            "text": "Café · Kafferisteri · Kalundborg"
           }
         },
-        "tagline_2": {
-          "type": "tagline",
+        "heading_2": {
+          "type": "heading",
           "settings": {
-            "text": "Café, spisested og lokalt kafferisteri, med et unikt strejf af New Zealand - midt på havnen."
+            "heading": "Friskristet kaffe smager bare bedre",
+            "tag": "h1"
           }
         },
         "text_3": {
           "type": "text",
           "settings": {
-            "text": "<p>There's no place in Kalundborg like it.</p>"
+            "text": "<p>Café, spisested og lokalt kafferisteri, med et unikt strejf af New Zealand - midt på havnen.</p>"
           }
         },
         "button_4": {
           "type": "button",
           "settings": {
-            "label": "Se vores menu",
-            "link": "shopify://pages/menu",
-            "style": "primary"
+            "label": "Køb kaffe",
+            "link": "/collections/kaffe",
+            "style": "buy",
+            "link_type": "custom"
           }
         },
         "button_5": {
           "type": "button",
           "settings": {
-            "label": "Åbningstider",
-            "link": "shopify://pages/aabningstider",
-            "style": "secondary"
+            "label": "Besøg caféen",
+            "link": "/#cafeen",
+            "style": "secondary",
+            "link_type": "custom"
           }
         }
       },
       "block_order": [
-        "heading_1",
-        "tagline_2",
+        "label_1",
+        "heading_2",
         "text_3",
         "button_4",
         "button_5"
       ]
     },
-    "intro": {
+    "loefter": {
+      "type": "costa-promises",
+      "settings": {
+        "color": "surface"
+      },
+      "blocks": {
+        "promise_6": {
+          "type": "promise",
+          "settings": {
+            "label": "01",
+            "title": "Friskristet i eget risteri",
+            "text": "Vi udvælger og rister vores bønner på stedet."
+          }
+        },
+        "promise_7": {
+          "type": "promise",
+          "settings": {
+            "label": "02",
+            "title": "Slowroasting",
+            "text": "For at garantere den højeste kvalitet og friskhed."
+          }
+        },
+        "promise_8": {
+          "type": "promise",
+          "settings": {
+            "label": "03",
+            "title": "Lokale råvarer",
+            "text": "Så vidt muligt altid fra lokale leverandører."
+          }
+        },
+        "promise_9": {
+          "type": "promise",
+          "settings": {
+            "label": "04",
+            "title": "Levering til døren",
+            "text": "Vi er lokale, så vi garanterer hurtige svartider."
+          }
+        }
+      },
+      "block_order": [
+        "promise_6",
+        "promise_7",
+        "promise_8",
+        "promise_9"
+      ]
+    },
+    "fra_risteriet": {
+      "type": "costa-product-grid",
+      "settings": {
+        "label": "Webshop",
+        "heading": "Fra risteriet",
+        "text": "<p>Vores sortiment spænder bredt, og der er noget for enhver smag, når det kommer til kaffe.</p>",
+        "collection": "",
+        "use_page_collection": true,
+        "products_limit": 6,
+        "columns": 3,
+        "view_all_label": "Se al kaffe",
+        "show_filters": true,
+        "all_label": "Alle",
+        "color": "bg"
+      },
+      "blocks": {
+        "filter_10": {
+          "type": "filter",
+          "settings": {
+            "label": "Espresso",
+            "tag": "espresso"
+          }
+        },
+        "filter_11": {
+          "type": "filter",
+          "settings": {
+            "label": "Filter",
+            "tag": "filter"
+          }
+        },
+        "filter_12": {
+          "type": "filter",
+          "settings": {
+            "label": "Single origin",
+            "tag": "single-origin"
+          }
+        },
+        "filter_13": {
+          "type": "filter",
+          "settings": {
+            "label": "Gaver",
+            "tag": "gaver"
+          }
+        }
+      },
+      "block_order": [
+        "filter_10",
+        "filter_11",
+        "filter_12",
+        "filter_13"
+      ]
+    },
+    "risteriet": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-risteriet-kaffeposer.jpg",
+        "image_position": "right",
+        "ratio": "4 / 3",
+        "color": "dark",
+        "anchor": "risteriet"
+      },
+      "blocks": {
+        "label_14": {
+          "type": "label",
+          "settings": {
+            "text": "Risteriet"
+          }
+        },
+        "heading_15": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fra kvalitetsbønner til den perfekte kop kaffe",
+            "tag": "h2"
+          }
+        },
+        "text_16": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vores kafferisteri, placeret i hjertet af caféen, fungerer som et åbent værksted, hvor gæsterne inviteres indenfor i processen - fra bønner til den perfekte kop kaffe.</p><p>Med vores slowroasting-teknik, sikrer vi, at hver kop kaffe ikke blot afspejler vores dybe passion for det perfekte bryg, men også kærligheden og stoltheden bag hver bønne.</p>"
+          }
+        },
+        "button_17": {
+          "type": "button",
+          "settings": {
+            "label": "Læs om risteriet",
+            "link": "shopify://pages/risteriet",
+            "style": "secondary",
+            "link_type": "custom"
+          }
+        }
+      },
+      "block_order": [
+        "label_14",
+        "heading_15",
+        "text_16",
+        "button_17"
+      ]
+    },
+    "cafeen": {
       "type": "costa-text-image",
       "settings": {
         "image": "shopify://shop_images/costa-intro.jpg",
         "image_position": "left",
         "ratio": "1 / 1",
-        "color": "bg"
+        "color": "bg",
+        "anchor": "cafeen"
       },
       "blocks": {
-        "heading_6": {
+        "label_18": {
+          "type": "label",
+          "settings": {
+            "text": "Caféen"
+          }
+        },
+        "heading_19": {
           "type": "heading",
           "settings": {
             "heading": "Oplev hyggen ved vandkanten hos Café Costa Kalundborg",
-            "tag": "h1"
+            "tag": "h2"
           }
         },
-        "subheading_7": {
-          "type": "subheading",
-          "settings": {
-            "text": "Café og spisested med et unikt strejf af New Zealand"
-          }
-        },
-        "text_8": {
+        "text_20": {
           "type": "text",
           "settings": {
-            "text": "<p>I hjertet af Kalundborgs maleriske havnepark finder du Café Costa Kalundborg - en perle for enhver, der sætter pris på kvalitetskaffe, håndlavet delikatesser, og en betagende udsigt.</p><p>Vores sydvendte terrasse byder på solskin fra morgen til aften, perfekt til afslappende stunder med familie og venner. Udover lokale gæster fra Kalundborg har vi også mange glade stamkunder fra Jyderup, Ordrup og andre nærtliggende byer.</p><p>Det ser vi som et skulderklap til vores hyggelige café og spisested.</p>"
+            "text": "<p>I hjertet af Kalundborgs maleriske havnepark finder du Café Costa Kalundborg - en perle for enhver, der sætter pris på kvalitetskaffe, håndlavet delikatesser, og en betagende udsigt.</p><p>Vores sydvendte terrasse byder på solskin fra morgen til aften, perfekt til afslappende stunder med familie og venner.</p>"
           }
         },
-        "button_9": {
+        "info_21": {
+          "type": "info",
+          "settings": {
+            "show_hours": true,
+            "show_address": true,
+            "show_phone": false
+          }
+        },
+        "button_22": {
           "type": "button",
           "settings": {
-            "label": "Se mere om risteriet",
-            "link": "shopify://pages/risteriet",
-            "style": "primary"
+            "label": "Se menuen",
+            "link": "shopify://pages/menu",
+            "style": "primary",
+            "link_type": "custom"
+          }
+        },
+        "button_23": {
+          "type": "button",
+          "settings": {
+            "label": "Find vej",
+            "link": "",
+            "style": "secondary",
+            "link_type": "route"
           }
         }
       },
       "block_order": [
-        "heading_6",
-        "subheading_7",
-        "text_8",
-        "button_9"
+        "label_18",
+        "heading_19",
+        "text_20",
+        "info_21",
+        "button_22",
+        "button_23"
       ]
     },
-    "mere": {
+    "erhverv": {
+      "type": "costa-steps",
+      "settings": {
+        "label": "Kaffe til erhverv",
+        "heading": "Ønsker I bedre kaffe på arbejdspladsen?",
+        "text": "<p>Sammen med en partner kan vi levere, installere og træne i alle typer maskiner. Kaffeautomater, espresso maskine, kværn, osv.</p>",
+        "color": "harbor",
+        "anchor": "erhverv"
+      },
+      "blocks": {
+        "step_24": {
+          "type": "step",
+          "settings": {
+            "title": "Vi leverer",
+            "text": "Friskristet kaffe fra eget risteri. Vi er lokale, så vi garanterer hurtige svartider og levering til døren."
+          }
+        },
+        "step_25": {
+          "type": "step",
+          "settings": {
+            "title": "Vi installerer",
+            "text": "Sammen med en partner leverer og installerer vi alle typer maskiner: kaffeautomater, espresso maskine, kværn, osv."
+          }
+        },
+        "step_26": {
+          "type": "step",
+          "settings": {
+            "title": "Vi træner",
+            "text": "Vi deler gerne vores viden: hvordan man bedst serverer og opbevarer kaffe, gode råd om kaffetyper og udstyr."
+          }
+        },
+        "button_27": {
+          "type": "button",
+          "settings": {
+            "label": "Opret erhvervskonto",
+            "link": "shopify://pages/kaffe-til-erhverv",
+            "style": "primary",
+            "link_type": "custom"
+          }
+        },
+        "button_28": {
+          "type": "button",
+          "settings": {
+            "label": "Log ind",
+            "link": "/account/login",
+            "style": "secondary",
+            "link_type": "custom"
+          }
+        }
+      },
+      "block_order": [
+        "step_24",
+        "step_25",
+        "step_26",
+        "button_27",
+        "button_28"
+      ]
+    },
+    "kaffevogn": {
       "type": "costa-text-image",
       "settings": {
-        "image": "shopify://shop_images/costa-havn.jpg",
+        "image": "shopify://shop_images/costa-kaffevogn-3.jpg",
         "image_position": "right",
-        "ratio": "4 / 3",
-        "color": "surface"
+        "ratio": "1 / 1",
+        "color": "surface",
+        "anchor": "kaffevogn"
       },
       "blocks": {
-        "heading_10": {
+        "label_29": {
+          "type": "label",
+          "settings": {
+            "text": "Kaffevogn"
+          }
+        },
+        "heading_30": {
           "type": "heading",
           "settings": {
-            "heading": "Mere end bare en café",
+            "heading": "Skab en speciel stemning ved dit næste arrangement med vores super hyggelige el-Kaffe Knallert",
             "tag": "h2"
           }
         },
-        "text_11": {
+        "text_31": {
           "type": "text",
           "settings": {
-            "text": "<p>På Café Costa Kalundborg forener vi passionen for friskristet kaffe fra eget <a href=\"/pages/risteriet\">risteri</a> med kærligheden til mad. Vores menukort inkluderer en række lækre retter med rødder til New Zealand. Herunder vores populære og autentiske madtærter.</p><p>Som kvalitetsbevidst spisested lægger vi vægt på friskhed og omhyggelighed, og vi udvælger så vidt muligt altid vores råvarer fra lokale leverandører.</p>"
+            "text": "<p>Vi bringer den fulde caféoplevelse og byens bedste kaffe til næsten enhver lokation. Med vognen følger højkvalitetskaffe og professionelt udstyr.</p>"
           }
         },
-        "heading_12": {
-          "type": "heading",
-          "settings": {
-            "heading": "Kom forbi hyggelige Café Costa Kalundborg",
-            "tag": "h2"
-          }
-        },
-        "text_13": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Er du på udkig efter et sted, hvor mad, drikke, og atmosfære går op i en højere enhed? Så lad Café Costa Kalundborg være dit næste stop. Besøg os og lad dig forføre af duften af frisk kaffe, smagen af hjemmelavet New Zealandsk mad, og synet af Kalundborgs smukke havnefront.</p><p>Vi glæder os til at byde dig velkommen!</p>"
-          }
-        },
-        "button_14": {
+        "button_32": {
           "type": "button",
           "settings": {
-            "label": "Se vores historie",
-            "link": "shopify://pages/historie",
-            "style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "heading_10",
-        "text_11",
-        "heading_12",
-        "text_13",
-        "button_14"
-      ]
-    },
-    "fokus": {
-      "type": "costa-focus-cards",
-      "settings": {
-        "color": "bg"
-      },
-      "blocks": {
-        "card_15": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/costa-fokus-risteriet.jpg",
-            "title": "Risteriet",
-            "text": "<p>Vores kafferisteri, placeret i hjertet af caféen, fungerer som et åbent værksted, hvor gæsterne inviteres indenfor i processen.</p>",
-            "link": "shopify://pages/risteriet",
-            "button_label": "Læs mere"
-          }
-        },
-        "card_16": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/costa-fokus-kaffevogn.jpg",
-            "title": "Kaffevogn",
-            "text": "<p>Vi bringer den fulde caféoplevelse og byens bedste kaffe til næsten enhver lokation. Med vognen følger højkvalitetskaffe og professionelt udstyr.</p>",
+            "label": "Book kaffevognen",
             "link": "shopify://pages/kaffevogn",
-            "button_label": "Læs mere"
-          }
-        },
-        "card_17": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/costa-fokus-erhverv.jpg",
-            "title": "Kaffe til erhverv",
-            "text": "<p>Sammen med en partner kan vi levere, installere og træne i alle typer maskiner. Kaffeautomater, espresso maskine, kværn, osv.</p>",
-            "link": "shopify://pages/kaffe-til-erhverv",
-            "button_label": "Læs mere"
+            "style": "buy",
+            "link_type": "custom"
           }
         }
       },
       "block_order": [
-        "card_15",
-        "card_16",
-        "card_17"
-      ]
-    },
-    "social": {
-      "type": "costa-social",
-      "settings": {
-        "heading": "Følg Café Costa Kalundborg på de sociale medier",
-        "background": "shopify://shop_images/costa-social-bg.png",
-        "color": "surface"
-      },
-      "blocks": {
-        "link_18": {
-          "type": "link",
-          "settings": {
-            "platform": "facebook",
-            "url": ""
-          }
-        },
-        "link_19": {
-          "type": "link",
-          "settings": {
-            "platform": "instagram",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "link_18",
-        "link_19"
-      ]
-    },
-    "galleri": {
-      "type": "costa-gallery",
-      "settings": {
-        "style": "photos",
-        "columns": 3,
-        "tight": true,
-        "color": "bg"
-      },
-      "blocks": {
-        "image_20": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
-            "caption": "",
-            "link": ""
-          }
-        },
-        "image_21": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/costa-galleri-2.jpg",
-            "caption": "",
-            "link": ""
-          }
-        },
-        "image_22": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
-            "caption": "",
-            "link": ""
-          }
-        },
-        "image_23": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
-            "caption": "",
-            "link": ""
-          }
-        },
-        "image_24": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/costa-galleri-5.jpg",
-            "caption": "",
-            "link": ""
-          }
-        },
-        "image_25": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
-            "caption": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_20",
-        "image_21",
-        "image_22",
-        "image_23",
-        "image_24",
-        "image_25"
+        "label_29",
+        "heading_30",
+        "text_31",
+        "button_32"
       ]
     }
   },
   "order": [
     "hero",
-    "intro",
-    "mere",
-    "fokus",
-    "social",
-    "galleri"
+    "loefter",
+    "fra_risteriet",
+    "risteriet",
+    "cafeen",
+    "erhverv",
+    "kaffevogn"
   ]
 }

@@ -12,7 +12,7 @@
         "logo_width": 180
       },
       "blocks": {
-        "heading_247": {
+        "heading_254": {
           "type": "heading",
           "settings": {
             "heading": "Job hos Costa Kalundborg Cafe",
@@ -21,7 +21,7 @@
         }
       },
       "block_order": [
-        "heading_247"
+        "heading_254"
       ]
     },
     "stillinger": {
@@ -33,14 +33,14 @@
         "color": "bg"
       },
       "blocks": {
-        "heading_248": {
+        "heading_255": {
           "type": "heading",
           "settings": {
             "heading": "Ledige stillinger",
             "tag": "h2"
           }
         },
-        "text_249": {
+        "text_256": {
           "type": "text",
           "settings": {
             "text": "<p>Ingen ledige stillinger lige nu</p>"
@@ -48,8 +48,8 @@
         }
       },
       "block_order": [
-        "heading_248",
-        "text_249"
+        "heading_255",
+        "text_256"
       ]
     },
     "ansoeg": {
@@ -65,7 +65,7 @@
         "color": "surface"
       },
       "blocks": {
-        "field_250": {
+        "field_257": {
           "type": "field",
           "settings": {
             "label": "Navn",
@@ -74,7 +74,7 @@
             "required": false
           }
         },
-        "field_251": {
+        "field_258": {
           "type": "field",
           "settings": {
             "label": "Tlf. nr.",
@@ -83,7 +83,7 @@
             "required": false
           }
         },
-        "field_252": {
+        "field_259": {
           "type": "field",
           "settings": {
             "label": "E-mail",
@@ -92,7 +92,7 @@
             "required": true
           }
         },
-        "field_253": {
+        "field_260": {
           "type": "field",
           "settings": {
             "label": "Ansøgning",
@@ -103,10 +103,10 @@
         }
       },
       "block_order": [
-        "field_250",
-        "field_251",
-        "field_252",
-        "field_253"
+        "field_257",
+        "field_258",
+        "field_259",
+        "field_260"
       ]
     },
     "social": {
@@ -117,14 +117,14 @@
         "color": "surface"
       },
       "blocks": {
-        "link_254": {
+        "link_261": {
           "type": "link",
           "settings": {
             "platform": "facebook",
             "url": ""
           }
         },
-        "link_255": {
+        "link_262": {
           "type": "link",
           "settings": {
             "platform": "instagram",
@@ -133,8 +133,8 @@
         }
       },
       "block_order": [
-        "link_254",
-        "link_255"
+        "link_261",
+        "link_262"
       ]
     },
     "galleri": {
@@ -146,7 +146,7 @@
         "color": "bg"
       },
       "blocks": {
-        "image_256": {
+        "image_263": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
@@ -154,7 +154,7 @@
             "link": ""
           }
         },
-        "image_257": {
+        "image_264": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-2.jpg",
@@ -162,7 +162,7 @@
             "link": ""
           }
         },
-        "image_258": {
+        "image_265": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
@@ -170,7 +170,7 @@
             "link": ""
           }
         },
-        "image_259": {
+        "image_266": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
@@ -178,7 +178,7 @@
             "link": ""
           }
         },
-        "image_260": {
+        "image_267": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-5.jpg",
@@ -186,7 +186,7 @@
             "link": ""
           }
         },
-        "image_261": {
+        "image_268": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
@@ -196,12 +196,12 @@
         }
       },
       "block_order": [
-        "image_256",
-        "image_257",
-        "image_258",
-        "image_259",
-        "image_260",
-        "image_261"
+        "image_263",
+        "image_264",
+        "image_265",
+        "image_266",
+        "image_267",
+        "image_268"
       ]
     }
   },

@@ -1,0 +1,103 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
+  endif
+-%}
+
+<section class="costa costa-promises{{ color_class }}">
+  <div class="costa__inner">
+    <ul class="costa-promises__list">
+      {%- for block in section.blocks -%}
+        <li class="costa-promise" {{ block.shopify_attributes }}>
+          {%- if block.settings.label != blank -%}<p class="costa-label">{{ block.settings.label | escape }}</p>{%- endif -%}
+          <p class="costa-promise__title">{{ block.settings.title }}</p>
+          {%- if block.settings.text != blank -%}<p class="costa-promise__text">{{ block.settings.text }}</p>{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: løfter",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Papir"
+        },
+        {
+          "value": "surface",
+          "label": "Kort (lysere papir)"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "promise",
+      "name": "Løfte",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Etiket",
+          "default": "01"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Løfte",
+          "default": "Kort løfte"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Uddybning (valgfri)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: løfter",
+      "blocks": [
+        {
+          "type": "promise"
+        },
+        {
+          "type": "promise"
+        },
+        {
+          "type": "promise"
+        },
+        {
+          "type": "promise"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

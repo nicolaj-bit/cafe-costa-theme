@@ -4,6 +4,10 @@
       <div class="costa-footer__col" {{ block.shopify_attributes }}>
         {%- case block.type -%}
           {%- when 'logo' -%}
+            {%- if block.settings.style == 'wordmark' -%}
+              <a class="costa-footer__wordmark" href="{{ routes.root_url }}">{{ block.settings.name | escape }}<small>{{ block.settings.sub | escape }}</small></a>
+              {%- if block.settings.text != blank -%}<div style="margin-top: var(--costa-space-m);">{{ block.settings.text }}</div>{%- endif -%}
+            {%- else -%}
             <a class="costa-footer__logo" href="{{ routes.root_url }}">
               {%- if settings.costa_footer_logo != blank -%}
                 {{ settings.costa_footer_logo | image_url: width: 500 | image_tag: alt: settings.costa_cafe_name, loading: 'lazy' }}
@@ -11,8 +15,13 @@
                 <img src="{{ 'costa-logo-lys.svg' | asset_url }}" alt="{{ settings.costa_cafe_name | escape }}" width="1415" height="1049" loading="lazy">
               {%- endif -%}
             </a>
+            {%- endif -%}
+          {%- when 'menu' -%}
+            <p class="costa-footer__title">{{ block.settings.title | default: block.settings.menu.title }}</p>
+            {%- for link in block.settings.menu.links -%}<p><a href="{{ link.url }}">{{ link.title | escape }}</a></p>{%- endfor -%}
           {%- when 'address' -%}
-            <p class="costa-footer__title">{{ settings.costa_company }}</p>
+            <p class="costa-footer__title">{{ block.settings.title | default: settings.costa_company }}</p>
+            <p>{{ settings.costa_company }}</p>
             <p>{{ settings.costa_street }}, {{ settings.costa_city }}</p>
             <p><a href="{{ settings.costa_route_url }}" target="_blank" rel="noopener">{{ block.settings.route_label }}</a></p>
           {%- when 'contact' -%}
@@ -86,7 +95,41 @@
       "type": "logo",
       "name": "Logo",
       "limit": 1,
-      "settings": []
+      "settings": [
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Logo",
+          "default": "wordmark",
+          "options": [
+            {
+              "value": "wordmark",
+              "label": "Som tekst"
+            },
+            {
+              "value": "image",
+              "label": "Billede"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Navn",
+          "default": "Café Costa"
+        },
+        {
+          "type": "text",
+          "id": "sub",
+          "label": "Linje under",
+          "default": "Kafferisteri · Kalundborg"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst under logoet"
+        }
+      ]
     },
     {
       "type": "address",
@@ -95,9 +138,32 @@
       "settings": [
         {
           "type": "text",
+          "id": "title",
+          "label": "Overskrift",
+          "default": "Find os"
+        },
+        {
+          "type": "text",
           "id": "route_label",
           "label": "Tekst på rute-link",
           "default": "Klik her for rutevejledning"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Links",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Overskrift"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "default": "footer"
         }
       ]
     },
