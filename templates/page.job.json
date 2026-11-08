@@ -1,11 +1,5 @@
 /*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
+ * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
  */
 {
   "sections": {
@@ -26,8 +20,196 @@
           }
         }
       },
-      "block_order": ["heading_247"]
+      "block_order": [
+        "heading_247"
+      ]
+    },
+    "stillinger": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-job.jpg",
+        "image_position": "left",
+        "ratio": "4 / 3",
+        "color": "bg"
+      },
+      "blocks": {
+        "heading_248": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ledige stillinger",
+            "tag": "h2"
+          }
+        },
+        "text_249": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ingen ledige stillinger lige nu</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_248",
+        "text_249"
+      ]
+    },
+    "ansoeg": {
+      "type": "costa-contact",
+      "settings": {
+        "heading": "",
+        "show_info": false,
+        "show_hours": false,
+        "show_form": true,
+        "form_heading": "Send din ansøgning/uopfordrede ansøgning via nedenstående formular.",
+        "form_name": "Job",
+        "submit_label": "Afsend",
+        "color": "surface"
+      },
+      "blocks": {
+        "field_250": {
+          "type": "field",
+          "settings": {
+            "label": "Navn",
+            "type": "text",
+            "placeholder": "",
+            "required": false
+          }
+        },
+        "field_251": {
+          "type": "field",
+          "settings": {
+            "label": "Tlf. nr.",
+            "type": "tel",
+            "placeholder": "",
+            "required": false
+          }
+        },
+        "field_252": {
+          "type": "field",
+          "settings": {
+            "label": "E-mail",
+            "type": "email",
+            "placeholder": "",
+            "required": true
+          }
+        },
+        "field_253": {
+          "type": "field",
+          "settings": {
+            "label": "Ansøgning",
+            "type": "textarea",
+            "placeholder": "",
+            "required": false
+          }
+        }
+      },
+      "block_order": [
+        "field_250",
+        "field_251",
+        "field_252",
+        "field_253"
+      ]
+    },
+    "social": {
+      "type": "costa-social",
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      },
+      "blocks": {
+        "link_254": {
+          "type": "link",
+          "settings": {
+            "platform": "facebook",
+            "url": ""
+          }
+        },
+        "link_255": {
+          "type": "link",
+          "settings": {
+            "platform": "instagram",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_254",
+        "link_255"
+      ]
+    },
+    "galleri": {
+      "type": "costa-gallery",
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      },
+      "blocks": {
+        "image_256": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-cafe-front.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_257": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-2.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_258": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_259": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-kaffe-kop.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_260": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-5.jpg",
+            "caption": "",
+            "link": ""
+          }
+        },
+        "image_261": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/costa-galleri-steak-cheese-pie.jpg",
+            "caption": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_256",
+        "image_257",
+        "image_258",
+        "image_259",
+        "image_260",
+        "image_261"
+      ]
     }
   },
-  "order": ["hero"]
+  "order": [
+    "hero",
+    "stillinger",
+    "ansoeg",
+    "social",
+    "galleri"
+  ]
 }

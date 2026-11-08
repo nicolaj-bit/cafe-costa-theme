@@ -207,7 +207,7 @@
     "social": {
       "type": "costa-social",
       "settings": {
-        "heading": "Følg Café Costa Kalundborg <br>på de sociale medier",
+        "heading": "Følg Café Costa Kalundborg på de sociale medier",
         "background": "shopify://shop_images/costa-social-bg.png",
         "color": "surface"
       },
