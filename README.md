@@ -157,11 +157,3 @@ bevægelse fra («Reducer bevægelse»). Kopien, der får båndet til at køre i
 Kundenavnene i logoernes alt-tekst er aflæst fra logoerne: Intertek, Hush Little One, Benny Petersen,
 Wild Kiwi Pies, Tømmerup Friskole & Friluftsbørnehave, Kalundborgegnens Erhvervsråd, Reersø Bryghus,
 Kiropraktisk Center Kalundborg, UNG Kalundborg, SKØL, LUVE og Better Life.
-
-## Produktside (costa-main-product)
-
-Egen produktside i stedet for Dawns: stort posefoto i ramme (eller en tegnet pose, hvis produktet ikke har
-foto), fast infokolonne på computer, kaffedata som etiket, malning som piller, antal og én tydelig
-«Læg i kurv», som lægger varen i kurven uden at forlade siden. «Køb nu» kan slås til i sektionen.
-Fold-ud-tekster er blokke. «Mere fra risteriet» viser tre andre kaffer fra kollektionen «Kaffe».
-Noten ved prisen (f.eks. posens vægt) er tom, indtil ejeren oplyser den.

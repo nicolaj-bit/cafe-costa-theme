@@ -39,9 +39,7 @@
 
     {%- if section.settings.show_filters and filters.size > 0 -%}
       <div class="costa-shop__filters costa-pills" role="group" aria-label="{{ 'costa.shop.filter_label' | t }}">
-        {%- assign all_label = section.settings.all_label -%}
-        {%- if all_label == blank -%}{%- assign all_label = 'costa.shop.all' | t -%}{%- endif -%}
-        <button type="button" class="costa-filter" data-costa-filter="" aria-pressed="true">{{ all_label | escape }}</button>
+        <button type="button" class="costa-filter" data-costa-filter="" aria-pressed="true">{{ section.settings.all_label | default: 'costa.shop.all' | t }}</button>
         {%- for block in filters -%}
           <button type="button" class="costa-filter" data-costa-filter="{{ block.settings.tag | handleize }}" aria-pressed="false" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>
         {%- endfor -%}

@@ -186,7 +186,7 @@
         "price_at_each_html": "til {{ price }} pr. stk."
       },
       "product_variants": "Produktvarianter",
-      "taxes_included": "Inkl. moms.",
+      "taxes_included": "Inklusive skatter.",
       "duties_included": "Inklusive told.",
       "duties_and_taxes_included": "Inklusive told og skatter."
     },
@@ -311,12 +311,12 @@
       "new_estimated_total": "Ny estimeret totalbeløb",
       "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inklusive told og skatter. Rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
       "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inklusive told og skatter. Rabatter og levering beregnes ved betaling.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. moms. Rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
-      "taxes_included_shipping_at_checkout_without_policy": "Inkl. moms. Rabatter og levering beregnes ved betaling.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inklusive told. Moms, rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inklusive told. Moms, rabatter og levering beregnes ved betaling.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Moms, rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Moms, rabatter og levering beregnes ved betaling."
+      "taxes_included_shipping_at_checkout_with_policy_html": "Inklusive skatter. Rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
+      "taxes_included_shipping_at_checkout_without_policy": "Inklusive skatter. Rabatter og levering beregnes ved betaling.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inklusive told. Skatter, rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inklusive told. Skatter, rabatter og levering beregnes ved betaling.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Skatter, rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Skatter, rabatter og levering beregnes ved betaling."
     },
     "footer": {
       "payment": "Betalingsmetoder"
@@ -583,15 +583,6 @@
       "sold_out": "Udsolgt",
       "variant": "Vælg variant",
       "roastery": "Kafferisteri · Kalundborg"
-    },
-    "product": {
-      "breadcrumbs": "Brødkrumme",
-      "home": "Forside",
-      "incl_vat": "Inkl. moms",
-      "qty": "Antal",
-      "qty_minus": "Færre",
-      "qty_plus": "Flere",
-      "go_to_cart": "Gå til kurven"
     }
   }
 }

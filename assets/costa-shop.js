@@ -39,23 +39,8 @@
     var source = input.tagName === 'SELECT' ? input.options[input.selectedIndex] : input;
     var price = source.getAttribute('data-price');
     var compare = source.getAttribute('data-compare');
-    var scope = input.closest('[data-costa-product]') || form;
-    var target = scope.querySelector('[data-costa-price]');
-    var page = input.closest('[data-costa-product]');
-    if (page && input.name === 'id' && window.history && window.history.replaceState) {
-      var url = new URL(window.location.href);
-      url.searchParams.set('variant', input.value);
-      window.history.replaceState({}, '', url.toString());
-    }
+    var target = form.querySelector('[data-costa-price]');
     if (price && target) target.innerHTML = (compare ? '<s>' + compare + '</s>' : '') + price;
-  });
-
-  document.addEventListener('click', function (event) {
-    var step = event.target.closest('[data-costa-qty]');
-    if (!step) return;
-    var input = step.parentElement.querySelector('input[name="quantity"]');
-    var next = Math.max(1, (parseInt(input.value, 10) || 1) + parseInt(step.getAttribute('data-costa-qty'), 10));
-    input.value = next;
   });
 
   function updateCount() {
@@ -95,8 +80,6 @@
       })
       .then(function () {
         if (status) status.textContent = status.getAttribute('data-added');
-        var link = form.querySelector('[data-costa-cart-link]');
-        if (link) link.hidden = false;
         return updateCount();
       })
       .catch(function (error) {
