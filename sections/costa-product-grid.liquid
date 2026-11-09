@@ -23,7 +23,6 @@
 -%}
 <section class="costa costa-shop{{ color_class }}" id="Costa-{{ section.id }}" data-costa-shop>
   <div class="costa__inner">
-    {%- if section.settings.show_header -%}
     <div class="costa-shop__head">
       <div>
         {%- if section.settings.label != blank -%}<p class="costa-label">{{ section.settings.label | escape }}</p>{%- endif -%}
@@ -38,39 +37,15 @@
         <a class="costa-button" href="{{ source.url }}">{{ section.settings.view_all_label | escape }}</a>
       {%- endif -%}
     </div>
-    {%- endif -%}
 
-    {%- assign show_bar = false -%}
-    {%- if section.settings.show_filters and filters.size > 0 -%}{%- assign show_bar = true -%}{%- endif -%}
-    {%- if use_page and section.settings.show_sort -%}{%- assign show_bar = true -%}{%- endif -%}
-    {%- if show_bar -%}
-      <div class="costa-shop__bar{% if use_page %} costa-shop__bar--sticky{% endif %}">
-        {%- if section.settings.show_filters and filters.size > 0 -%}
-          <div class="costa-shop__filters costa-pills" role="group" aria-label="{{ 'costa.shop.filter_label' | t }}">
-            {%- assign all_label = section.settings.all_label -%}
-            {%- if all_label == blank -%}{%- assign all_label = 'costa.shop.all' | t -%}{%- endif -%}
-            <button type="button" class="costa-filter" data-costa-filter="" aria-pressed="true">{{ all_label | escape }}</button>
-            {%- for block in filters -%}
-              <button type="button" class="costa-filter" data-costa-filter="{{ block.settings.tag | handleize }}" aria-pressed="false" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-        {%- if use_page -%}
-          <div class="costa-shop__meta">
-            <span class="costa-label costa-shop__count" aria-live="polite" data-costa-count data-one="{{ 'costa.shop.count.one' | t }}" data-other="{{ 'costa.shop.count.other' | t: count: '#' }}">{{ 'costa.shop.count' | t: count: collection.products_count }}</span>
-            {%- if section.settings.show_sort -%}
-              {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-              <label class="costa-shop__sort">
-                <span class="costa-label">{{ 'costa.shop.sort' | t }}</span>
-                <select data-costa-sort class="costa-select costa-select--small">
-                  {%- for option in collection.sort_options -%}
-                    <option value="{{ option.value | escape }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name | escape }}</option>
-                  {%- endfor -%}
-                </select>
-              </label>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
+    {%- if section.settings.show_filters and filters.size > 0 -%}
+      <div class="costa-shop__filters costa-pills" role="group" aria-label="{{ 'costa.shop.filter_label' | t }}">
+        {%- assign all_label = section.settings.all_label -%}
+        {%- if all_label == blank -%}{%- assign all_label = 'costa.shop.all' | t -%}{%- endif -%}
+        <button type="button" class="costa-filter" data-costa-filter="" aria-pressed="true">{{ all_label | escape }}</button>
+        {%- for block in filters -%}
+          <button type="button" class="costa-filter" data-costa-filter="{{ block.settings.tag | handleize }}" aria-pressed="false" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>
+        {%- endfor -%}
       </div>
     {%- endif -%}
 
@@ -79,16 +54,10 @@
     {%- elsif use_page -%}
       {%- paginate collection.products by section.settings.products_limit -%}
         <ul class="costa-shop__grid{% if section.settings.mobile_slider %} costa-shop__grid--slider{% endif %}" style="--costa-shop-columns: {{ section.settings.columns }};">
-          {%- assign stories = section.blocks | where: 'type', 'story' -%}
           {%- for product in collection.products -%}
             <li class="costa-shop__item" data-costa-tags="{% for tag in product.tags %}{{ tag | handleize }} {% endfor %}">
               {%- render 'costa-product-card', product: product, section_id: section.id -%}
             </li>
-            {%- if paginate.current_page == 1 -%}
-              {%- for block in stories -%}
-                {%- if block.settings.position == forloop.parentloop.index -%}{%- render 'costa-story-tile', block: block -%}{%- endif -%}
-              {%- endfor -%}
-            {%- endif -%}
           {%- endfor -%}
         </ul>
         {%- if paginate.pages > 1 -%}<div class="costa-shop__more">{{ paginate | default_pagination }}</div>{%- endif -%}
@@ -105,10 +74,6 @@
           <li class="costa-shop__item" data-costa-tags="{% for tag in item.tags %}{{ tag | handleize }} {% endfor %}">
             {%- render 'costa-product-card', product: item, section_id: section.id -%}
           </li>
-          {%- assign stories = section.blocks | where: 'type', 'story' -%}
-          {%- for block in stories -%}
-            {%- if block.settings.position == shown -%}{%- render 'costa-story-tile', block: block -%}{%- endif -%}
-          {%- endfor -%}
         {%- endfor -%}
       </ul>
     {%- endif -%}
@@ -123,13 +88,6 @@
   "tag": "div",
   "class": "costa-section",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_header",
-      "label": "Vis overskrift over gitteret",
-      "default": true,
-      "info": "Slå fra på kategorisiden, hvor «Costa: kategori-åbning» viser titlen."
-    },
     {
       "type": "text",
       "id": "label",
@@ -207,14 +165,8 @@
       "default": "Alle"
     },
     {
-      "type": "checkbox",
-      "id": "show_sort",
-      "label": "Vis antal og sortering (kun kollektionssider)",
-      "default": true
-    },
-    {
       "type": "paragraph",
-      "content": "Tilføj en blok pr. filter. Filteret viser de produkter, der har det valgte produkt-tag. Fortællefelter vises mellem produkterne og skjules, når der filtreres."
+      "content": "Tilføj en blok pr. filter. Filteret viser de produkter, der har det valgte produkt-tag."
     },
     {
       "type": "select",
@@ -241,70 +193,8 @@
       ]
     }
   ],
-  "max_blocks": 12,
+  "max_blocks": 8,
   "blocks": [
-    {
-      "type": "story",
-      "name": "Fortællefelt",
-      "settings": [
-        {
-          "type": "range",
-          "id": "position",
-          "label": "Vises efter produkt nr.",
-          "min": 1,
-          "max": 24,
-          "step": 1,
-          "default": 2
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Etiket",
-          "default": "Fra risteriet"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "title",
-          "label": "Tekst",
-          "default": "Friskristet kaffe smager bare bedre"
-        },
-        {
-          "type": "text",
-          "id": "author",
-          "label": "Afsender (valgfri)"
-        },
-        {
-          "type": "text",
-          "id": "link_label",
-          "label": "Knaptekst"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        },
-        {
-          "type": "select",
-          "id": "color",
-          "label": "Baggrund",
-          "default": "dark",
-          "options": [
-            {
-              "value": "dark",
-              "label": "Mørk"
-            },
-            {
-              "value": "harbor",
-              "label": "Havneblå"
-            },
-            {
-              "value": "surface",
-              "label": "Lys"
-            }
-          ]
-        }
-      ]
-    },
     {
       "type": "filter",
       "name": "Filter",
