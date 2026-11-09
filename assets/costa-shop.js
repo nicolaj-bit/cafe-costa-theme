@@ -3,6 +3,7 @@
   1) Filterknapper viser/skjuler kort ud fra produkt-tags.
   2) Valg af malning opdaterer prisen.
   3) «Læg i kurv» lægger varen i kurven uden at forlade siden.
+  4) Antal (+/−) og valg af variant på produktsiden; adressen følger varianten.
      Virker JavaScript ikke, sendes formularen helt almindeligt til kurven.
 */
 (function () {
