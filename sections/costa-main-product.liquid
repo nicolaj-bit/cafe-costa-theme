@@ -44,11 +44,14 @@
             {%- endfor -%}
           </ul>
         {%- else -%}
-          <div class="costa-pdp__frame costa-pdp__bag" aria-hidden="true">
+          {%- capture roast_class -%}{%- render 'costa-roast', product: product, output: 'class' -%}{%- endcapture -%}
+          <div class="costa-pdp__frame costa-pdp__bag {{ roast_class | strip }}" aria-hidden="true">
             <div class="costa-bag__seal"></div>
             <div class="costa-pdp__bag-body">
-              <span class="costa-bag__mark">{{ settings.costa_cafe_name | split: ' ' | slice: 0, 2 | join: ' ' }}<small>{{ 'costa.shop.roastery' | t }}</small></span>
+              <span class="costa-bag__brand">{{ settings.costa_cafe_name | split: ' ' | slice: 0, 2 | join: ' ' }}</span>
+              <span class="costa-bag__sub">{{ 'costa.shop.roastery' | t }}</span>
               <span class="costa-pdp__bag-name">{{ product.title | escape }}</span>
+              {%- render 'costa-roast', product: product, output: 'meter' -%}
             </div>
           </div>
         {%- endif -%}

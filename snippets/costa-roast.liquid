@@ -1,0 +1,28 @@
+{% comment %}
+  Ristningsniveau ud fra metafeltet custom.ristning.
+  Giver posen farve (lys / kraftpapir / mørk) og en måler med 5 prikker.
+  render 'costa-roast', product: product, output: 'class' | 'meter'
+{% endcomment %}
+{%- liquid
+  assign r = product.metafields.custom.ristning.value | downcase
+  assign level = 3
+  assign tone = 'medium'
+  if r contains 'lys' or r contains 'light'
+    assign level = 1
+    assign tone = 'light'
+  elsif r contains 'medium-m' or r contains 'mellem-m'
+    assign level = 4
+    assign tone = 'medium'
+  elsif r contains 'mørk' or r contains 'dark'
+    assign level = 5
+    assign tone = 'dark'
+  elsif r == blank
+    assign level = 0
+    assign tone = 'medium'
+  endif
+-%}
+{%- if output == 'class' -%}costa-roast--{{ tone }}{%- elsif level > 0 -%}
+  <span class="costa-roast-meter" aria-label="{{ 'costa.coffee.roast' | t }}: {{ product.metafields.custom.ristning.value | escape }}">
+    {%- for i in (1..5) -%}<span class="costa-roast-meter__dot{% if i <= level %} is-on{% endif %}"></span>{%- endfor -%}
+  </span>
+{%- endif -%}

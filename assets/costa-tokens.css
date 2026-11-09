@@ -637,3 +637,46 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 .costa-story .costa-button { align-self: flex-start; }
 .costa-story--dark .costa-button:hover { background: var(--costa-color-dark-text); color: var(--costa-color-dark); }
 .costa-story--harbor .costa-button:hover { background: var(--costa-color-harbor-text); color: var(--costa-color-harbor); }
+
+/* ---------- 29. Poser efter ristning (når der ikke er foto) ---------- */
+/* Lys ristning = lys pose, medium = kraftpapir, mørk = sort pose. Tekst: tryk på lys/kraft (14:1 / 10:1), papir på mørk (14:1). */
+:root { --costa-kraft: #d8c6a8; }
+/* «.costa a.» så linkfarven fra .costa a ikke overskriver posens tekstfarve */
+.costa-roast--light, .costa a.costa-roast--light { background: var(--costa-color-surface); color: var(--costa-color-text); }
+.costa-roast--medium, .costa a.costa-roast--medium { background: var(--costa-kraft); color: var(--costa-color-text); }
+.costa-roast--dark, .costa a.costa-roast--dark { background: var(--costa-color-dark); color: var(--costa-color-dark-text); }
+.costa-bag__front { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; padding: var(--costa-space-l) var(--costa-space-m) calc(var(--costa-space-l) * 1.6); }
+.costa-bag__brand { font-family: var(--costa-font-heading); font-weight: 800; font-size: clamp(3rem, 3.2vw, 4rem); line-height: 0.95; letter-spacing: -0.03em; }
+.costa-bag__sub { font-family: var(--costa-font-mono); font-size: 1.1rem; letter-spacing: 0.14em; text-transform: uppercase; padding-bottom: 1rem; border-bottom: var(--costa-line-width) solid currentColor; }
+.costa-roast-meter { display: inline-flex; gap: 0.5rem; margin-top: 0.8rem; }
+.costa-roast-meter__dot { width: 0.9rem; height: 0.9rem; border-radius: 50%; border: var(--costa-line-width) solid currentColor; box-sizing: border-box; }
+.costa-roast-meter__dot.is-on { background: currentColor; }
+.costa-bag__media--empty { border-bottom: var(--costa-line); }
+.costa-pdp__bag.costa-roast--medium, .costa-pdp__bag.costa-roast--dark { border-color: var(--costa-color-text); }
+.costa-pdp__bag .costa-bag__brand { font-size: clamp(5rem, 7vw, 8rem); }
+.costa-pdp__bag .costa-bag__sub { font-size: 1.3rem; }
+.costa-pdp__bag .costa-pdp__bag-name { margin-top: var(--costa-space-l); border-color: currentColor; }
+.costa-pdp__bag .costa-roast-meter__dot { width: 1.2rem; height: 1.2rem; }
+.costa-pdp__bag-body { gap: var(--costa-space-s); }
+
+/* ---------- 30. Værktøjslinje i én ren række ---------- */
+.costa-shop__bar--sticky { flex-wrap: nowrap; padding-block: 1.2rem; border-top: 0; }
+.costa-shop__bar--sticky .costa-shop__filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.costa-shop__bar--sticky .costa-shop__filters::-webkit-scrollbar { display: none; }
+.costa-shop__bar--sticky .costa-filter { white-space: nowrap; flex: none; }
+.costa-shop__meta { flex: none; flex-wrap: wrap; gap: var(--costa-space-m); }
+@media (max-width: 749px) {
+  .costa-shop__bar--sticky { flex-wrap: wrap; position: static; margin-inline: calc(var(--costa-gutter) * -1); padding-inline: var(--costa-gutter); }
+  .costa-shop__bar--sticky .costa-shop__filters { width: calc(100% + var(--costa-gutter)); margin-right: calc(var(--costa-gutter) * -1); }
+  .costa-shop__meta { width: 100%; justify-content: space-between; }
+  .costa-shop__sort .costa-label { display: none; }
+}
+
+/* ---------- 31. Åbning: lavere foto, tekst i midten ---------- */
+@media (min-width: 990px) {
+  .costa-collection-hero__grid--media { align-items: center; }
+  .costa-collection-hero__media img { aspect-ratio: 5 / 4; }
+}
+
+/* ---------- 32. Bredt fortællefelt ---------- */
+@media (min-width: 990px) { .costa-story--wide { grid-column: span 2; } .costa-story--wide .costa-story__text { font-size: clamp(3.6rem, 4vw, 5.2rem); max-width: 16ch; } }

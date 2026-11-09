@@ -3,7 +3,7 @@
   render 'costa-story-tile', block: block
   Skjules af costa-shop.js, når der filtreres.
 {% endcomment %}
-<li class="costa-shop__item costa-story costa-story--{{ block.settings.color }}" data-costa-story {{ block.shopify_attributes }}>
+<li class="costa-shop__item costa-story costa-story--{{ block.settings.color }}{% if block.settings.wide %} costa-story--wide{% endif %}" data-costa-story {{ block.shopify_attributes }}>
   <div class="costa-story__inner">
     {%- if block.settings.label != blank -%}<p class="costa-label">{{ block.settings.label | escape }}</p>{%- endif -%}
     <p class="costa-story__text">{{ block.settings.title }}</p>

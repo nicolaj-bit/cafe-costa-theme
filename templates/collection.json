@@ -77,7 +77,8 @@
             "author": "",
             "link_label": "Læs om risteriet",
             "link": "shopify://pages/risteriet",
-            "color": "dark"
+            "color": "dark",
+            "wide": false
           }
         },
         "story_286": {
@@ -89,7 +90,8 @@
             "author": "",
             "link_label": "Kaffe til erhverv",
             "link": "shopify://pages/kaffe-til-erhverv",
-            "color": "harbor"
+            "color": "harbor",
+            "wide": true
           }
         }
       },

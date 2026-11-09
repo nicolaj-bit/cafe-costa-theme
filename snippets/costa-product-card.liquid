@@ -23,8 +23,13 @@
       }}
     </a>
   {%- else -%}
-    <a class="costa-bag__media costa-bag__media--empty" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
-      <span class="costa-bag__mark">{{ settings.costa_cafe_name | split: ' ' | slice: 0, 2 | join: ' ' }}<small>{{ 'costa.shop.roastery' | t }}</small></span>
+    {%- capture roast_class -%}{%- render 'costa-roast', product: product, output: 'class' -%}{%- endcapture -%}
+    <a class="costa-bag__media costa-bag__media--empty {{ roast_class | strip }}" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+      <span class="costa-bag__front">
+        <span class="costa-bag__brand">{{ settings.costa_cafe_name | split: ' ' | slice: 0, 2 | join: ' ' }}</span>
+        <span class="costa-bag__sub">{{ 'costa.shop.roastery' | t }}</span>
+        {%- render 'costa-roast', product: product, output: 'meter' -%}
+      </span>
     </a>
   {%- endif -%}
 
