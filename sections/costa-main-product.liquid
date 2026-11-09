@@ -1,0 +1,236 @@
+{%- liquid
+  assign current = product.selected_or_first_available_variant
+  assign m = product.metafields.custom
+  assign smagsnoter = m.smagsnoter.value
+  assign ristning = m.ristning.value
+  assign uid = section.id | append: '-' | append: product.id
+-%}
+<section class="costa costa-pdp" data-costa-product data-product-url="{{ product.url }}">
+  <div class="costa__inner">
+    <nav class="costa-pdp__crumbs costa-label" aria-label="{{ 'costa.product.breadcrumbs' | t }}">
+      <a href="{{ routes.root_url }}">{{ 'costa.product.home' | t }}</a>
+      <span aria-hidden="true">/</span>
+      {%- if collection -%}
+        <a href="{{ collection.url }}">{{ collection.title | escape }}</a>
+      {%- elsif section.settings.back_collection != blank -%}
+        <a href="{{ section.settings.back_collection.url }}">{{ section.settings.back_collection.title | escape }}</a>
+      {%- endif -%}
+    </nav>
+
+    <div class="costa-pdp__grid">
+      <div class="costa-pdp__media">
+        {%- if product.media.size > 0 -%}
+          <ul class="costa-pdp__gallery" role="list">
+            {%- for media in product.media -%}
+              <li class="costa-pdp__frame">
+                {%- if media.media_type == 'image' -%}
+                  {%- liquid
+                    assign loading = 'lazy'
+                    if forloop.first
+                      assign loading = 'eager'
+                    endif
+                  -%}
+                  {{ media | image_url: width: 1800 | image_tag:
+                    loading: loading,
+                    widths: '600, 900, 1200, 1500, 1800',
+                    sizes: '(min-width: 990px) 55vw, 90vw',
+                    alt: media.alt | default: product.title | escape
+                  }}
+                {%- else -%}
+                  {{ media | media_tag: image_size: '1500x' }}
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
+          <div class="costa-pdp__frame costa-pdp__bag" aria-hidden="true">
+            <div class="costa-bag__seal"></div>
+            <div class="costa-pdp__bag-body">
+              <span class="costa-bag__mark">{{ settings.costa_cafe_name | split: ' ' | slice: 0, 2 | join: ' ' }}<small>{{ 'costa.shop.roastery' | t }}</small></span>
+              <span class="costa-pdp__bag-name">{{ product.title | escape }}</span>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="costa-pdp__info">
+        <p class="costa-label">
+          {%- if ristning != blank -%}{{ 'costa.coffee.roast' | t }} · {{ ristning | escape }}{%- else -%}{{ product.type | escape }}{%- endif -%}
+        </p>
+        <h1 class="costa-pdp__title">{{ product.title | escape }}</h1>
+        {%- if smagsnoter != blank -%}<p class="costa-pdp__notes">{{ smagsnoter | escape }}</p>{%- endif -%}
+
+        {%- form 'product', product, class: 'costa-pdp__form', data-costa-add: '', novalidate: 'novalidate' -%}
+          <div class="costa-pdp__price">
+            <span class="costa-price" data-costa-price>
+              {%- if current.compare_at_price > current.price -%}<s>{{ current.compare_at_price | money }}</s>{%- endif -%}
+              {{- current.price | money -}}
+            </span>
+            <span class="costa-pdp__tax">
+              {%- if cart.taxes_included -%}{{ 'costa.product.incl_vat' | t }}{%- endif -%}
+              {%- if section.settings.price_note != blank %} · {{ section.settings.price_note | escape }}{% endif -%}
+            </span>
+          </div>
+
+          {%- unless product.has_only_default_variant -%}
+            {%- if product.options.size == 1 -%}
+              <fieldset class="costa-pdp__option">
+                <legend class="costa-label">{{ product.options.first | escape }}</legend>
+                <div class="costa-pills">
+                  {%- for variant in product.variants -%}
+                    <label class="costa-pill costa-pill--large">
+                      <input
+                        type="radio" name="id" value="{{ variant.id }}"
+                        data-price="{{ variant.price | money }}"
+                        {% if variant.compare_at_price > variant.price %}data-compare="{{ variant.compare_at_price | money }}"{% endif %}
+                        {% if variant == current %}checked{% endif %}
+                        {% unless variant.available %}disabled{% endunless %}
+                      >
+                      <span>{{ variant.title | escape }}</span>
+                    </label>
+                  {%- endfor -%}
+                </div>
+              </fieldset>
+            {%- else -%}
+              <label class="costa-label" for="CostaVariant-{{ uid }}">{{ 'costa.shop.variant' | t }}</label>
+              <select id="CostaVariant-{{ uid }}" name="id" class="costa-select">
+                {%- for variant in product.variants -%}
+                  <option value="{{ variant.id }}" data-price="{{ variant.price | money }}" {% if variant == current %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title | escape }}</option>
+                {%- endfor -%}
+              </select>
+            {%- endif -%}
+          {%- else -%}
+            <input type="hidden" name="id" value="{{ current.id }}">
+          {%- endunless -%}
+
+          <div class="costa-pdp__buy">
+            <div class="costa-qty">
+              <button type="button" data-costa-qty="-1" aria-label="{{ 'costa.product.qty_minus' | t }}">−</button>
+              <input type="number" name="quantity" value="1" min="1" inputmode="numeric" aria-label="{{ 'costa.product.qty' | t }}">
+              <button type="button" data-costa-qty="1" aria-label="{{ 'costa.product.qty_plus' | t }}">+</button>
+            </div>
+            <button
+              type="submit"
+              class="costa-button costa-button--buy costa-pdp__submit"
+              data-label-add="{{ 'costa.shop.add' | t }}"
+              data-label-adding="{{ 'costa.shop.adding' | t }}"
+              {% unless product.available %}disabled{% endunless %}
+            >
+              {%- if product.available -%}{{ 'costa.shop.add' | t }}{%- else -%}{{ 'costa.shop.sold_out' | t }}{%- endif -%}
+            </button>
+          </div>
+          <p class="costa-bag__status" role="status" aria-live="polite" data-costa-status data-added="{{ 'costa.shop.added' | t }}" data-error="{{ 'costa.shop.error' | t }}"></p>
+          <a class="costa-pdp__cartlink" href="{{ routes.cart_url }}" data-costa-cart-link hidden>{{ 'costa.product.go_to_cart' | t }} →</a>
+          {%- if section.settings.show_dynamic_checkout -%}{{ form | payment_button }}{%- endif -%}
+        {%- endform -%}
+
+        {%- if section.settings.delivery_note != blank -%}
+          <p class="costa-pdp__delivery costa-label">{{ section.settings.delivery_note | escape }}</p>
+        {%- endif -%}
+
+        {%- if m.oprindelse.value != blank or m.proces.value != blank or ristning != blank -%}
+          <div class="costa-pdp__etiket">
+            <p class="costa-label">{{ section.settings.label_heading | escape }}</p>
+            {%- render 'costa-coffee-data', product: product -%}
+          </div>
+        {%- endif -%}
+
+        {%- if product.description != blank -%}
+          <div class="costa-pdp__desc costa-richtext">{{ product.description }}</div>
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'collapsible' -%}
+              <details class="costa-pdp__more" {{ block.shopify_attributes }}>
+                <summary>{{ block.settings.title | escape }}</summary>
+                <div class="costa-richtext">{{ block.settings.content }}</div>
+              </details>
+            {%- when 'text' -%}
+              <div class="costa-richtext" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">{{ product | structured_data }}</script>
+<script src="{{ 'costa-shop.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Costa: produktside",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "price_note",
+      "label": "Note ved prisen",
+      "info": "F.eks. posens vægt, «250 g»."
+    },
+    {
+      "type": "text",
+      "id": "delivery_note",
+      "label": "Note under knappen",
+      "default": "Friskristet i eget risteri i Kalundborg"
+    },
+    {
+      "type": "text",
+      "id": "label_heading",
+      "label": "Overskrift på etiketten",
+      "default": "Om kaffen"
+    },
+    {
+      "type": "collection",
+      "id": "back_collection",
+      "label": "Kollektion i brødkrummen",
+      "info": "Bruges, når man ikke kommer fra en kollektion."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "Vis «Køb nu»-knap",
+      "default": false,
+      "info": "Slået fra, så der er én tydelig knap."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collapsible",
+      "name": "Fold-ud tekst",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Overskrift",
+          "default": "Opbevaring"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Tekst",
+          "default": "<p>Tekst</p>"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "<p>Skriv din tekst her.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: produktside"
+    }
+  ]
+}
+{% endschema %}
