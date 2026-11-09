@@ -579,3 +579,8 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 .costa-pdp__more summary::after { content: '+'; font-family: var(--costa-font-mono); font-size: 2rem; }
 .costa-pdp__more[open] summary::after { content: '−'; }
 .costa-pdp__more .costa-richtext { padding-bottom: var(--costa-space-m); }
+
+/* ---------- 24. Hold skjult tekst inde i kortene ---------- */
+/* Dawns .visually-hidden er position: absolute. Uden en positioneret forælder
+   slipper den ud af produkt-sliderens ramme og gør hele siden bredere på mobil. */
+.costa-bag, .costa-card, .costa-pdp__frame { position: relative; }
