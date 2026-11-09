@@ -10,113 +10,56 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "costa-main-product",
+      "settings": {
+        "price_note": "",
+        "delivery_note": "Friskristet i eget risteri i Kalundborg",
+        "label_heading": "Om kaffen",
+        "back_collection": "kaffe",
+        "show_dynamic_checkout": false
+      },
       "blocks": {
-        "vendor": {
-          "type": "custom_liquid",
+        "opbevaring": {
+          "type": "collapsible",
           "settings": {
-            "custom_liquid": "<p class=\"costa-label\" style=\"margin:0;\">{% if product.metafields.custom.ristning.value != blank %}{{ 'costa.coffee.roast' | t }} · {{ product.metafields.custom.ristning.value | escape }}{% else %}{{ product.type | escape }}{% endif %}</p>"
+            "title": "Servering og opbevaring",
+            "content": "<p>Vi deler gerne vores viden om kaffebønnernes oprindelse og giver råd om, hvordan du bedst serverer og opbevarer din kaffe derhjemme.</p>"
           }
         },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
+        "risteriet": {
+          "type": "collapsible",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        },
-        "coffee": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div class=\"costa-coffee-data\">{% if product.metafields.custom.smagsnoter.value != blank %}<p class=\"costa-coffee-data__notes\">{{ product.metafields.custom.smagsnoter.value | escape }}</p>{% endif %}{% render 'costa-coffee-data', product: product %}</div>"
+            "title": "Fra vores risteri",
+            "content": "<p>Med vores slowroasting-teknik, sikrer vi, at hver kop kaffe ikke blot afspejler vores dybe passion for det perfekte bryg, men også kærligheden og stoltheden bag hver bønne. Vi omhyggeligt udvælger og rister vores bønner på stedet for at garantere den højeste kvalitet og friskhed.</p>"
           }
         }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "price",
-        "coffee",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "share"
-      ],
-      "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "cover",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
+        "opbevaring",
+        "risteriet"
+      ]
     },
-    "disclosures": {
-      "type": "disclosures",
+    "mere": {
+      "type": "costa-product-grid",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
+        "label": "Mere fra risteriet",
+        "heading": "Mere fra risteriet",
+        "collection": "kaffe",
+        "use_page_collection": false,
+        "products_limit": 3,
+        "columns": 3,
+        "view_all_label": "Se al kaffe",
+        "mobile_slider": true,
+        "show_filters": false,
+        "all_label": "Alle",
+        "color": "surface"
+      },
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "main",
-    "disclosures",
-    "related-products"
+    "mere"
   ]
 }
