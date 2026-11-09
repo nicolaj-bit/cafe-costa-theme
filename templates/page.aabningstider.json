@@ -1,16 +1,16 @@
 /*
- * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
  */
 {
   "sections": {
     "hero": {
       "type": "costa-hero",
-      "settings": {
-        "image": "shopify://shop_images/costa-hero.jpg",
-        "height": "small",
-        "show_logo": false,
-        "logo_width": 180
-      },
       "blocks": {
         "heading_234": {
           "type": "heading",
@@ -22,16 +22,16 @@
       },
       "block_order": [
         "heading_234"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/costa-hero.jpg",
+        "height": "small",
+        "show_logo": false,
+        "logo_width": 180
+      }
     },
     "tider": {
       "type": "costa-text-image",
-      "settings": {
-        "image": "shopify://shop_images/costa-aabningstider-cafe-front.jpg",
-        "image_position": "left",
-        "ratio": "4 / 3",
-        "color": "bg"
-      },
       "blocks": {
         "heading_235": {
           "type": "heading",
@@ -80,20 +80,16 @@
         "text_238",
         "heading_239",
         "text_240"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/costa-aabningstider-cafe-front.jpg",
+        "image_position": "left",
+        "ratio": "4 / 3",
+        "color": "bg"
+      }
     },
     "kontakt": {
       "type": "costa-contact",
-      "settings": {
-        "heading": "Kontakt",
-        "show_info": true,
-        "show_hours": false,
-        "show_form": true,
-        "form_heading": "Skriv til os",
-        "form_name": "Åbningstider & kontakt",
-        "submit_label": "Send besked",
-        "color": "surface"
-      },
       "blocks": {
         "text_241": {
           "type": "text",
@@ -144,7 +140,17 @@
         "field_243",
         "field_244",
         "field_245"
-      ]
+      ],
+      "settings": {
+        "heading": "Kontakt",
+        "show_info": true,
+        "show_hours": false,
+        "show_form": true,
+        "form_heading": "Skriv til os",
+        "form_name": "Åbningstider & kontakt",
+        "submit_label": "Send besked",
+        "color": "surface"
+      }
     },
     "kort": {
       "type": "costa-map",
@@ -153,17 +159,10 @@
         "zoom": 15,
         "load_on_click": true,
         "color": "bg"
-      },
-      "blocks": {},
-      "block_order": []
+      }
     },
     "social": {
       "type": "costa-social",
-      "settings": {
-        "heading": "Følg Café Costa Kalundborg på de sociale medier",
-        "background": "shopify://shop_images/costa-social-bg.png",
-        "color": "surface"
-      },
       "blocks": {
         "link_246": {
           "type": "link",
@@ -183,16 +182,15 @@
       "block_order": [
         "link_246",
         "link_247"
-      ]
+      ],
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      }
     },
     "galleri": {
       "type": "costa-gallery",
-      "settings": {
-        "style": "photos",
-        "columns": 3,
-        "tight": true,
-        "color": "bg"
-      },
       "blocks": {
         "image_248": {
           "type": "image",
@@ -250,7 +248,13 @@
         "image_251",
         "image_252",
         "image_253"
-      ]
+      ],
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      }
     }
   },
   "order": [
