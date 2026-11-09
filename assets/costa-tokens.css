@@ -589,3 +589,6 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 /* Dawn placerer .icon-caret absolut (til sin egen header). I costa-header skal den stå efter ordet. */
 .costa-nav summary .icon-caret { position: static; width: 1rem; height: 0.6rem; flex: none; transition: transform 0.15s; }
 .costa-nav details[open] > summary .icon-caret { transform: rotate(180deg); }
+
+/* ---------- 26. Ingen understregning på posebilledet ---------- */
+.costa a.costa-bag__media, .costa a.costa-bag__media * { text-decoration: none; }

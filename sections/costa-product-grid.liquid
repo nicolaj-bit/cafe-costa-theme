@@ -64,9 +64,15 @@
       {%- endpaginate -%}
     {%- else -%}
       <ul class="costa-shop__grid{% if section.settings.mobile_slider %} costa-shop__grid--slider{% endif %}" style="--costa-shop-columns: {{ section.settings.columns }};">
-        {%- for product in source.products limit: section.settings.products_limit -%}
-          <li class="costa-shop__item" data-costa-tags="{% for tag in product.tags %}{{ tag | handleize }} {% endfor %}">
-            {%- render 'costa-product-card', product: product, section_id: section.id -%}
+        {%- comment -%} På en produktside springes det produkt over, man står på. {%- endcomment -%}
+        {%- assign current_product_id = product.id | default: 0 -%}
+        {%- assign shown = 0 -%}
+        {%- for item in source.products -%}
+          {%- if item.id == current_product_id -%}{%- continue -%}{%- endif -%}
+          {%- if shown >= section.settings.products_limit -%}{%- break -%}{%- endif -%}
+          {%- assign shown = shown | plus: 1 -%}
+          <li class="costa-shop__item" data-costa-tags="{% for tag in item.tags %}{{ tag | handleize }} {% endfor %}">
+            {%- render 'costa-product-card', product: item, section_id: section.id -%}
           </li>
         {%- endfor -%}
       </ul>
