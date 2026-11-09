@@ -1,16 +1,16 @@
 /*
- * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
  */
 {
   "sections": {
     "hero": {
       "type": "costa-hero",
-      "settings": {
-        "image": "shopify://shop_images/costa-hero.jpg",
-        "height": "small",
-        "show_logo": false,
-        "logo_width": 180
-      },
       "blocks": {
         "heading_195": {
           "type": "heading",
@@ -29,16 +29,16 @@
       "block_order": [
         "heading_195",
         "tagline_196"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/costa-hero.jpg",
+        "height": "small",
+        "show_logo": false,
+        "logo_width": 180
+      }
     },
     "service": {
       "type": "costa-text-image",
-      "settings": {
-        "image": "shopify://shop_images/costa-erhverv-kaffe.jpg",
-        "image_position": "left",
-        "ratio": "4 / 3",
-        "color": "bg"
-      },
       "blocks": {
         "heading_197": {
           "type": "heading",
@@ -57,20 +57,16 @@
       "block_order": [
         "heading_197",
         "text_198"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/costa-erhverv-kaffe.jpg",
+        "image_position": "left",
+        "ratio": "4 / 3",
+        "color": "bg"
+      }
     },
     "bestil": {
       "type": "costa-contact",
-      "settings": {
-        "heading": "Bestil en kaffeløsning til din arbejdsplads",
-        "show_info": false,
-        "show_hours": false,
-        "show_form": true,
-        "form_name": "Kaffe til erhverv",
-        "submit_label": "Send",
-        "color": "surface",
-        "anchor": "bestil"
-      },
       "blocks": {
         "text_199": {
           "type": "text",
@@ -132,18 +128,20 @@
         "field_203",
         "field_204"
       ],
-      "disabled": true
+      "disabled": true,
+      "settings": {
+        "heading": "Bestil en kaffeløsning til din arbejdsplads",
+        "show_info": false,
+        "show_hours": false,
+        "show_form": true,
+        "form_name": "Kaffe til erhverv",
+        "submit_label": "Send",
+        "color": "surface",
+        "anchor": "bestil"
+      }
     },
     "kunder": {
       "type": "costa-gallery",
-      "settings": {
-        "heading": "Nuværende erhvervskunder:",
-        "style": "carousel",
-        "speed": 40,
-        "columns": 6,
-        "tight": false,
-        "color": "bg"
-      },
       "blocks": {
         "image_205": {
           "type": "image",
@@ -255,14 +253,18 @@
         "image_214",
         "image_215",
         "image_216"
-      ]
+      ],
+      "settings": {
+        "heading": "Nuværende erhvervskunder:",
+        "style": "carousel",
+        "speed": 40,
+        "columns": 6,
+        "tight": false,
+        "color": "bg"
+      }
     },
     "intertek": {
       "type": "costa-text-image",
-      "settings": {
-        "image_position": "none",
-        "color": "surface"
-      },
       "blocks": {
         "subheading_217": {
           "type": "subheading",
@@ -296,15 +298,14 @@
         "heading_218",
         "text_219",
         "quote_220"
-      ]
+      ],
+      "settings": {
+        "image_position": "none",
+        "color": "surface"
+      }
     },
     "udtalelser": {
       "type": "costa-text-image",
-      "settings": {
-        "image_position": "none",
-        "center": false,
-        "color": "bg"
-      },
       "blocks": {
         "quote_221": {
           "type": "quote",
@@ -324,15 +325,15 @@
       "block_order": [
         "quote_221",
         "quote_222"
-      ]
+      ],
+      "settings": {
+        "image_position": "none",
+        "center": false,
+        "color": "bg"
+      }
     },
     "social": {
       "type": "costa-social",
-      "settings": {
-        "heading": "Følg Café Costa Kalundborg på de sociale medier",
-        "background": "shopify://shop_images/costa-social-bg.png",
-        "color": "surface"
-      },
       "blocks": {
         "link_223": {
           "type": "link",
@@ -352,16 +353,15 @@
       "block_order": [
         "link_223",
         "link_224"
-      ]
+      ],
+      "settings": {
+        "heading": "Følg Café Costa Kalundborg på de sociale medier",
+        "background": "shopify://shop_images/costa-social-bg.png",
+        "color": "surface"
+      }
     },
     "galleri": {
       "type": "costa-gallery",
-      "settings": {
-        "style": "photos",
-        "columns": 3,
-        "tight": true,
-        "color": "bg"
-      },
       "blocks": {
         "image_225": {
           "type": "image",
@@ -419,28 +419,16 @@
         "image_228",
         "image_229",
         "image_230"
-      ]
+      ],
+      "settings": {
+        "style": "photos",
+        "columns": 3,
+        "tight": true,
+        "color": "bg"
+      }
     },
     "ansoegning": {
       "type": "apps",
-      "blocks": {
-        "ansoegning_1": {
-          "type": "shopify://apps/cafe-costa-erhverv/blocks/ansoegning/45f8fbec-72b3-0000-06b1-82ca55e2bffb",
-          "settings": {
-            "label": "Bliv erhvervskunde",
-            "heading": "Ansøg om en erhvervsaftale",
-            "intro": "<p>Udfyld formularen, så vender vi hurtigst muligt tilbage. Når aftalen er godkendt, logger I ind og bestiller til erhvervspris — med levering fra risteriet i Kalundborg.</p>",
-            "newsletter_text": "Ja tak, send os nyhedsbrevet med nye kaffer og tilbud. Vi kan altid afmelde det igen.",
-            "button": "Send ansøgning",
-            "privacy": "<p>Vi bruger oplysningerne til at behandle ansøgningen og levere til jer.</p>",
-            "success_heading": "Ansøgningen er modtaget",
-            "success_text": "<p>Vi ser på den hurtigst muligt og skriver til jer, når aftalen er godkendt. Allerede kunde? <a href=\"/pages/erhverv\">Gå til erhvervsportalen</a>.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "ansoegning_1"
-      ],
       "settings": {
         "include_margins": false
       }
