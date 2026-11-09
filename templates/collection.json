@@ -1,69 +1,196 @@
 /*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-/*
  * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
  */
 {
   "sections": {
+    "aabning": {
+      "type": "costa-collection-hero",
+      "settings": {
+        "label": "Webshop · Fra risteriet",
+        "meta": "Ristet på havnen i Kalundborg",
+        "image": "shopify://shop_images/costa-risteriet-kaffeposer.jpg",
+        "badge_label": "I risteren nu",
+        "badge_text": "'Kiwi' espresso",
+        "color": "bg"
+      }
+    },
     "produkter": {
       "type": "costa-product-grid",
       "settings": {
-        "label": "Webshop",
+        "show_header": false,
+        "label": "",
         "heading": "",
         "use_page_collection": true,
-        "products_limit": 12,
+        "products_limit": 24,
         "columns": 3,
         "view_all_label": "",
+        "mobile_slider": false,
         "show_filters": true,
+        "show_sort": true,
         "all_label": "Alle",
         "color": "bg"
       },
       "blocks": {
-        "filter_269": {
+        "filter_281": {
           "type": "filter",
           "settings": {
             "label": "Espresso",
             "tag": "espresso"
           }
         },
-        "filter_270": {
+        "filter_282": {
           "type": "filter",
           "settings": {
             "label": "Filter",
             "tag": "filter"
           }
         },
-        "filter_271": {
+        "filter_283": {
           "type": "filter",
           "settings": {
             "label": "Single origin",
             "tag": "single-origin"
           }
         },
-        "filter_272": {
+        "filter_284": {
           "type": "filter",
           "settings": {
             "label": "Gaver",
             "tag": "gaver"
           }
+        },
+        "story_285": {
+          "type": "story",
+          "settings": {
+            "position": 2,
+            "label": "Fra risteriet",
+            "title": "Friskristet kaffe smager bare bedre",
+            "author": "",
+            "link_label": "Læs om risteriet",
+            "link": "shopify://pages/risteriet",
+            "color": "dark"
+          }
+        },
+        "story_286": {
+          "type": "story",
+          "settings": {
+            "position": 5,
+            "label": "Kaffe til erhverv",
+            "title": "Ønsker I bedre kaffe på arbejdspladsen?",
+            "author": "",
+            "link_label": "Kaffe til erhverv",
+            "link": "shopify://pages/kaffe-til-erhverv",
+            "color": "harbor"
+          }
         }
       },
       "block_order": [
-        "filter_269",
-        "filter_270",
-        "filter_271",
-        "filter_272"
+        "filter_281",
+        "filter_282",
+        "filter_283",
+        "filter_284",
+        "story_285",
+        "story_286"
+      ]
+    },
+    "loefter": {
+      "type": "costa-promises",
+      "settings": {
+        "autoplay": true,
+        "speed": 36,
+        "color": "surface"
+      },
+      "blocks": {
+        "promise_287": {
+          "type": "promise",
+          "settings": {
+            "label": "01",
+            "title": "Friskristet i eget risteri",
+            "text": "Vi udvælger og rister vores bønner på stedet."
+          }
+        },
+        "promise_288": {
+          "type": "promise",
+          "settings": {
+            "label": "02",
+            "title": "Slowroasting",
+            "text": "For at garantere den højeste kvalitet og friskhed."
+          }
+        },
+        "promise_289": {
+          "type": "promise",
+          "settings": {
+            "label": "03",
+            "title": "Lokale råvarer",
+            "text": "Så vidt muligt altid fra lokale leverandører."
+          }
+        },
+        "promise_290": {
+          "type": "promise",
+          "settings": {
+            "label": "04",
+            "title": "Levering til døren",
+            "text": "Vi er lokale, så vi garanterer hurtige svartider."
+          }
+        }
+      },
+      "block_order": [
+        "promise_287",
+        "promise_288",
+        "promise_289",
+        "promise_290"
+      ]
+    },
+    "risteriet": {
+      "type": "costa-text-image",
+      "settings": {
+        "image": "shopify://shop_images/costa-risteriet-shaun.jpg",
+        "image_position": "left",
+        "ratio": "4 / 3",
+        "color": "dark"
+      },
+      "blocks": {
+        "label_291": {
+          "type": "label",
+          "settings": {
+            "text": "Risteriet"
+          }
+        },
+        "heading_292": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stort udvalg i vores kafferisteri",
+            "tag": "h2"
+          }
+        },
+        "text_293": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vores sortiment spænder bredt, og der er noget for enhver smag, når det kommer til kaffe. Fra den fyldige espresso til den bløde filterkaffe, inviterer vi dig til at udforske en verden af smag i vores kafferisteri.</p><p>Vi deler gerne vores viden om kaffebønnernes oprindelse og giver råd om, hvordan du bedst serverer og opbevarer din kaffe derhjemme.</p>"
+          }
+        },
+        "button_294": {
+          "type": "button",
+          "settings": {
+            "label": "Læs om risteriet",
+            "link": "shopify://pages/risteriet",
+            "style": "secondary",
+            "link_type": "custom"
+          }
+        }
+      },
+      "block_order": [
+        "label_291",
+        "heading_292",
+        "text_293",
+        "button_294"
       ]
     }
   },
   "order": [
-    "produkter"
+    "aabning",
+    "produkter",
+    "loefter",
+    "risteriet"
   ]
 }

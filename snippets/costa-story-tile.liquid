@@ -1,0 +1,15 @@
+{% comment %}
+  Fortællefelt mellem produkterne i gitteret (som i et magasin).
+  render 'costa-story-tile', block: block
+  Skjules af costa-shop.js, når der filtreres.
+{% endcomment %}
+<li class="costa-shop__item costa-story costa-story--{{ block.settings.color }}" data-costa-story {{ block.shopify_attributes }}>
+  <div class="costa-story__inner">
+    {%- if block.settings.label != blank -%}<p class="costa-label">{{ block.settings.label | escape }}</p>{%- endif -%}
+    <p class="costa-story__text">{{ block.settings.title }}</p>
+    {%- if block.settings.author != blank -%}<p class="costa-story__author costa-label">– {{ block.settings.author | escape }}</p>{%- endif -%}
+    {%- if block.settings.link_label != blank and block.settings.link != blank -%}
+      <a class="costa-button" href="{{ block.settings.link }}">{{ block.settings.link_label | escape }}</a>
+    {%- endif -%}
+  </div>
+</li>

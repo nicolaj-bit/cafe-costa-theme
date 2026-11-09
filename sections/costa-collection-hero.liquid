@@ -1,0 +1,136 @@
+{%- liquid
+  assign color_class = ''
+  if section.settings.color == 'surface'
+    assign color_class = ' costa--surface'
+  elsif section.settings.color == 'dark'
+    assign color_class = ' costa--dark'
+  elsif section.settings.color == 'harbor'
+    assign color_class = ' costa--harbor'
+  endif
+-%}
+
+{%- liquid
+  assign image = section.settings.image
+  if image == blank and collection.image
+    assign image = collection.image
+  endif
+  assign title = section.settings.title
+  if title == blank
+    assign title = collection.title | escape
+  endif
+-%}
+<section class="costa costa-collection-hero{{ color_class }}">
+  <div class="costa__inner">
+    <div class="costa-collection-hero__grid{% if image != blank %} costa-collection-hero__grid--media{% endif %}">
+      <div class="costa-collection-hero__text">
+        {%- if section.settings.label != blank -%}<p class="costa-label">{{ section.settings.label | escape }}</p>{%- endif -%}
+        <h1>{{ title }}</h1>
+        {%- if section.settings.text != blank -%}
+          <div class="costa-richtext costa-collection-hero__lead">{{ section.settings.text }}</div>
+        {%- elsif collection.description != blank -%}
+          <div class="costa-richtext costa-collection-hero__lead">{{ collection.description }}</div>
+        {%- endif -%}
+        <p class="costa-collection-hero__meta costa-label">
+          {%- if collection.products_count -%}{{ 'costa.shop.count' | t: count: collection.products_count }}{%- endif -%}
+          {%- if section.settings.meta != blank %} · {{ section.settings.meta | escape }}{% endif -%}
+        </p>
+      </div>
+      {%- if image != blank -%}
+        <div class="costa-collection-hero__media">
+          {%- render 'costa-image', image: image, loading: 'eager', sizes: '(min-width: 990px) 40vw, 100vw' -%}
+          {%- if section.settings.badge_label != blank or section.settings.badge_text != blank -%}
+            <div class="costa-badge">
+              {%- if section.settings.badge_label != blank -%}<span class="costa-badge__label">{{ section.settings.badge_label | escape }}</span>{%- endif -%}
+              {%- if section.settings.badge_text != blank -%}<span class="costa-badge__text">{{ section.settings.badge_text }}</span>{%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Costa: kategori-åbning",
+  "tag": "div",
+  "class": "costa-section",
+  "enabled_on": {
+    "templates": [
+      "collection"
+    ]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Etiket",
+      "default": "Webshop"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titel",
+      "info": "Tom = kollektionens navn."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst",
+      "info": "Tom = kollektionens beskrivelse."
+    },
+    {
+      "type": "text",
+      "id": "meta",
+      "label": "Linje efter antal",
+      "default": "Ristet på havnen i Kalundborg"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Foto",
+      "info": "Tom = kollektionens billede."
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Mærke – etiket",
+      "default": "I risteren nu"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "badge_text",
+      "label": "Mærke – tekst"
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Baggrund",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Papir"
+        },
+        {
+          "value": "surface",
+          "label": "Kort (lysere papir)"
+        },
+        {
+          "value": "dark",
+          "label": "Mørk"
+        },
+        {
+          "value": "harbor",
+          "label": "Havneblå"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Costa: kategori-åbning"
+    }
+  ]
+}
+{% endschema %}

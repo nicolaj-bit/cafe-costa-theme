@@ -577,7 +577,12 @@
       "error": "That didn't work. Please try again.",
       "sold_out": "Sold out",
       "variant": "Choose variant",
-      "roastery": "Coffee roastery · Kalundborg"
+      "roastery": "Coffee roastery · Kalundborg",
+      "count": {
+        "one": "1 coffee",
+        "other": "{{ count }} coffees"
+      },
+      "sort": "Sort"
     },
     "product": {
       "breadcrumbs": "Breadcrumb",

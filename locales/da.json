@@ -577,7 +577,12 @@
       "error": "Det lykkedes ikke. Prøv igen.",
       "sold_out": "Udsolgt",
       "variant": "Vælg variant",
-      "roastery": "Kafferisteri · Kalundborg"
+      "roastery": "Kafferisteri · Kalundborg",
+      "count": {
+        "one": "1 kaffe",
+        "other": "{{ count }} kaffer"
+      },
+      "sort": "Sortér"
     },
     "product": {
       "breadcrumbs": "Brødkrumme",

@@ -592,3 +592,46 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 
 /* ---------- 26. Ingen understregning på posebilledet ---------- */
 .costa a.costa-bag__media, .costa a.costa-bag__media * { text-decoration: none; }
+
+/* ---------- 27. Lister uden standard-indrykning ---------- */
+/* .costa ul giver 2rem indrykning til tekstlister; gitre og bånd skal stå i flugt med overskriften. */
+.costa .costa-shop__grid, .costa .costa-promises__list, .costa .costa-steps, .costa .costa-marquee__track, .costa .costa-pdp__gallery { padding-left: 0; }
+.costa .costa-shop__grid--slider { padding-left: var(--costa-gutter); }
+@media (min-width: 600px) { .costa .costa-shop__grid--slider { padding-left: 0; } }
+
+/* ---------- 28. Kategoriside ---------- */
+.costa-collection-hero { border-top: 0; padding-block: var(--costa-space-xl) var(--costa-space-l); }
+.costa-collection-hero__grid { display: grid; gap: var(--costa-space-l); align-items: end; }
+@media (min-width: 990px) { .costa-collection-hero__grid--media { grid-template-columns: 1.3fr 1fr; gap: var(--costa-space-xl); } }
+.costa-collection-hero h1 { font-size: clamp(6.4rem, 13vw, 16rem); line-height: 0.85; letter-spacing: -0.045em; margin-bottom: var(--costa-space-l); }
+.costa-collection-hero__lead { font-size: calc(var(--costa-text-base) * 1.2); max-width: 44ch; }
+.costa-collection-hero__meta { margin: var(--costa-space-l) 0 0 !important; padding-top: var(--costa-space-m); border-top: var(--costa-line); display: block; }
+.costa-collection-hero__media { position: relative; }
+.costa-collection-hero__media img, .costa-collection-hero__media .placeholder-svg { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: var(--costa-line); border-radius: var(--costa-radius); display: block; }
+@media (max-width: 989px) { .costa-collection-hero__media img { aspect-ratio: 4 / 3; } }
+
+/* Værktøjslinje: filtre, antal og sortering. Følger med ned ad siden på kategorisiden. */
+.costa-shop__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--costa-space-m); margin-bottom: var(--costa-space-l); }
+.costa-shop__bar .costa-shop__filters { margin-bottom: 0; }
+.costa-shop__bar--sticky { position: sticky; top: var(--costa-header-height, 74px); z-index: 5; background: var(--costa-color-bg); padding-block: var(--costa-space-m); border-top: var(--costa-line); border-bottom: var(--costa-line); }
+.costa--surface .costa-shop__bar--sticky { background: var(--costa-color-surface); }
+.costa-shop__meta { display: flex; align-items: center; gap: var(--costa-space-l); margin-left: auto; }
+.costa-shop__meta .costa-label { margin: 0; }
+.costa-shop__sort { display: inline-flex; align-items: center; gap: var(--costa-space-s); }
+.costa-select--small { min-height: 36px; width: auto; padding: 0 3.2rem 0 1.4rem; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%231c1a17' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1.2rem center; }
+@media (max-width: 749px) { .costa-shop__meta { margin-left: 0; width: 100%; justify-content: space-between; } }
+
+/* Fortællefelt mellem poserne */
+.costa-story { display: flex; }
+.costa-story[hidden] { display: none; }
+.costa-story__inner { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: var(--costa-space-l); padding: var(--costa-space-l); border: var(--costa-line); border-radius: 2px 2px 14px 14px; min-height: 100%; box-sizing: border-box; }
+.costa-story--dark .costa-story__inner { background: var(--costa-color-dark); color: var(--costa-color-dark-text); border-color: var(--costa-color-dark); }
+.costa-story--harbor .costa-story__inner { background: var(--costa-color-harbor); color: var(--costa-color-harbor-text); border-color: var(--costa-color-harbor); }
+.costa-story--surface .costa-story__inner { background: var(--costa-color-surface); }
+.costa-story__text { font-family: var(--costa-font-heading); font-weight: 800; font-size: clamp(2.8rem, 3vw, 3.8rem); line-height: 1.02; letter-spacing: -0.02em; margin: 0 !important; }
+.costa-story__author { margin: 0 !important; }
+.costa-story .costa-button { align-self: flex-start; }
+.costa-story--dark .costa-button:hover { background: var(--costa-color-dark-text); color: var(--costa-color-dark); }
+.costa-story--harbor .costa-button:hover { background: var(--costa-color-harbor-text); color: var(--costa-color-harbor); }
