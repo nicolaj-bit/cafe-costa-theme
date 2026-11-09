@@ -9,11 +9,21 @@
   endif
 -%}
 
+{%- comment -%}
+  Menukort: hver kategori samles i sit eget kort med nummer, titel og note.
+  Retterne står i to spalter på computer med en prikket linje hen til prisen.
+  Blokkene samles med capture, så HTML'en altid er lukket korrekt.
+{%- endcomment -%}
 {%- assign categories = section.blocks | where: 'type', 'category' -%}
-<section class="costa{{ color_class }}">
-  <div class="costa__inner costa__inner--narrow">
+{%- assign has_cat = false -%}
+{%- assign cat_head = '' -%}
+{%- assign cat_body = '' -%}
+{%- assign cat_class = '' -%}
+{%- assign cat_id = '' -%}
+<section class="costa costa-menu-card{{ color_class }}">
+  <div class="costa__inner">
     {%- if section.settings.show_nav and categories.size > 1 -%}
-      <nav class="costa-menu__nav" aria-label="{{ 'costa.menu.nav_label' | t }}">
+      <nav class="costa-menu__jump" aria-label="{{ 'costa.menu.nav_label' | t }}">
         {%- for block in categories -%}
           {%- if block.settings.nav_label != blank -%}
             <a href="#{{ block.settings.anchor | default: block.settings.title | handleize }}">{{ block.settings.nav_label }}</a>
@@ -21,31 +31,66 @@
         {%- endfor -%}
       </nav>
     {%- endif -%}
+
     {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        {%- when 'category' -%}
-          <h2 class="costa-menu__category" id="{{ block.settings.anchor | default: block.settings.title | handleize }}" {{ block.shopify_attributes }}>{{ block.settings.title }}</h2>
-          {%- if block.settings.note != blank -%}<p class="costa-menu__note">{{ block.settings.note }}</p>{%- endif -%}
-        {%- when 'group' -%}
-          <h3 class="costa-menu__group" {{ block.shopify_attributes }}>{{ block.settings.title }}</h3>
-          {%- if block.settings.note != blank -%}<p class="costa-menu__note">{{ block.settings.note }}</p>{%- endif -%}
-        {%- when 'item' -%}
-          <div class="costa-menu__item" {{ block.shopify_attributes }}>
-            <span class="costa-menu__name">{{ block.settings.name }}</span>
-            <span class="costa-menu__price">{{ block.settings.price | newline_to_br }}</span>
-            {%- if block.settings.description != blank -%}<div class="costa-menu__desc">{{ block.settings.description }}</div>{%- endif -%}
-          </div>
-        {%- when 'text' -%}
-          <div class="costa-richtext" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-        {%- when 'image' -%}
-          <div class="costa-menu__images costa-gallery" style="--costa-gallery-columns: {% if block.settings.image_2 != blank %}2{% else %}1{% endif %};" {{ block.shopify_attributes }}>
-            {%- if block.settings.image != blank -%}<figure class="costa-gallery__item">{%- render 'costa-image', image: block.settings.image, sizes: '(min-width: 750px) 410px, 50vw' -%}</figure>{%- endif -%}
-            {%- if block.settings.image_2 != blank -%}<figure class="costa-gallery__item">{%- render 'costa-image', image: block.settings.image_2, sizes: '(min-width: 750px) 410px, 50vw' -%}</figure>{%- endif -%}
-          </div>
-      {%- endcase -%}
+      {%- if block.type == 'category' -%}
+        {%- if has_cat -%}
+          <section class="costa-menu__cat{{ cat_class }}" id="{{ cat_id }}">{{ cat_head }}<div class="costa-menu__items">{{ cat_body }}</div></section>
+        {%- endif -%}
+        {%- assign has_cat = true -%}
+        {%- assign cat_id = block.settings.anchor | default: block.settings.title | handleize -%}
+        {%- assign cat_class = '' -%}
+        {%- if block.settings.style != 'plain' and block.settings.style != blank -%}{%- assign cat_class = ' costa-menu__cat--' | append: block.settings.style -%}{%- endif -%}
+        {%- capture cat_head -%}
+          <header class="costa-menu__cathead" {{ block.shopify_attributes }}>
+            {%- if block.settings.number != blank -%}<span class="costa-label costa-menu__num">{{ block.settings.number | escape }}</span>{%- endif -%}
+            <h2 class="costa-menu__category">{{ block.settings.title }}</h2>
+            {%- if block.settings.note != blank -%}<p class="costa-menu__note">{{ block.settings.note }}</p>{%- endif -%}
+          </header>
+        {%- endcapture -%}
+        {%- assign cat_body = '' -%}
+        {%- continue -%}
+      {%- endif -%}
+
+      {%- capture piece -%}
+        {%- case block.type -%}
+          {%- when 'jumpnav' -%}
+            <nav class="costa-menu__jump costa-menu__span" aria-label="{{ 'costa.menu.nav_label' | t }}" {{ block.shopify_attributes }}>{{ block.settings.links }}</nav>
+          {%- when 'group' -%}
+            <div class="costa-menu__group costa-menu__span" {{ block.shopify_attributes }}>
+              <h3>{{ block.settings.title }}</h3>
+              {%- if block.settings.note != blank -%}<p class="costa-menu__note">{{ block.settings.note }}</p>{%- endif -%}
+            </div>
+          {%- when 'item' -%}
+            <div class="costa-menu__item" {{ block.shopify_attributes }}>
+              <div class="costa-menu__line">
+                <span class="costa-menu__name">{{ block.settings.name }}</span>
+                <span class="costa-menu__leader" aria-hidden="true"></span>
+                <span class="costa-menu__price">{{ block.settings.price | newline_to_br }}</span>
+              </div>
+              {%- if block.settings.description != blank -%}<div class="costa-menu__desc">{{ block.settings.description }}</div>{%- endif -%}
+            </div>
+          {%- when 'text' -%}
+            <div class="costa-richtext costa-menu__text costa-menu__span" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          {%- when 'image' -%}
+            <div class="costa-menu__images costa-menu__span" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}<figure>{%- render 'costa-image', image: block.settings.image, sizes: '(min-width: 990px) 560px, 90vw' -%}</figure>{%- endif -%}
+              {%- if block.settings.image_2 != blank -%}<figure>{%- render 'costa-image', image: block.settings.image_2, sizes: '(min-width: 990px) 560px, 90vw' -%}</figure>{%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endcapture -%}
+      {%- if has_cat -%}
+        {%- assign cat_body = cat_body | append: piece -%}
+      {%- else -%}
+        {{ piece }}
+      {%- endif -%}
     {%- endfor -%}
-    {%- if section.settings.footnote != blank -%}<div class="costa-muted" style="margin-top: var(--costa-space-xl);">{{ section.settings.footnote }}</div>{%- endif -%}
-    {%- if section.settings.show_top_link -%}<p class="costa--center" style="margin-top: var(--costa-space-l);"><a href="#MainContent">{{ 'costa.menu.to_top' | t }} ↑</a></p>{%- endif -%}
+    {%- if has_cat -%}
+      <section class="costa-menu__cat{{ cat_class }}" id="{{ cat_id }}">{{ cat_head }}<div class="costa-menu__items">{{ cat_body }}</div></section>
+    {%- endif -%}
+
+    {%- if section.settings.footnote != blank -%}<div class="costa-menu__foot costa-muted">{{ section.settings.footnote }}</div>{%- endif -%}
+    {%- if section.settings.show_top_link -%}<p class="costa-menu__top"><a href="#MainContent">{{ 'costa.menu.to_top' | t }} ↑</a></p>{%- endif -%}
   </div>
 </section>
 
@@ -104,6 +149,32 @@
       "name": "Kategori",
       "settings": [
         {
+          "type": "text",
+          "id": "number",
+          "label": "Nummer (lille mono-tekst)",
+          "info": "F.eks. 01."
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Udseende",
+          "default": "plain",
+          "options": [
+            {
+              "value": "plain",
+              "label": "Almindelig"
+            },
+            {
+              "value": "kraft",
+              "label": "Fremhævet på kraftpapir"
+            },
+            {
+              "value": "dark",
+              "label": "Fremhævet på mørk bund"
+            }
+          ]
+        },
+        {
           "type": "inline_richtext",
           "id": "title",
           "label": "Overskrift",
@@ -125,6 +196,20 @@
           "type": "inline_richtext",
           "id": "note",
           "label": "Note under overskriften"
+        }
+      ]
+    },
+    {
+      "type": "jumpnav",
+      "name": "Genveje",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "links",
+          "label": "Links",
+          "info": "Links til ankre, f.eks. #morgenmad. Vises som piller.",
+          "default": "<p>Morgenmad · Frokost</p>"
         }
       ]
     },
