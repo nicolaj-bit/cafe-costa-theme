@@ -248,6 +248,9 @@ h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--costa-font-heading); fon
 .costa-icon-link { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; color: inherit; border: var(--costa-line-width) solid transparent; }
 .costa-icon-link:hover { border-color: currentColor; }
 .costa-icon-link svg { width: 2.2rem; height: 2.2rem; }
+/* Dawns kurv-ikon fylder kun midten af sin ramme (viewBox 40) */
+.costa-icon-link svg.icon-cart-empty, .costa-icon-link svg.icon-cart { width: 4rem; height: 4rem; margin: -0.9rem; }
+.costa-icon-link svg.icon-hamburger, .costa-icon-link svg.icon-close { width: 2rem; height: 2rem; }
 .costa-cart-count { position: absolute; top: 2px; right: 0; min-width: 1.9rem; height: 1.9rem; padding: 0 0.4rem; box-sizing: border-box; border-radius: 999px; background: var(--costa-color-accent); color: var(--costa-color-accent-text); font-family: var(--costa-font-mono); font-size: 1.1rem; display: grid; place-items: center; }
 .costa-cart-count[hidden] { display: none; }
 .costa-mobile-menu { display: block; }
