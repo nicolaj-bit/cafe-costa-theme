@@ -12,6 +12,9 @@
 <section class="costa{{ color_class }}{% if section.settings.tight %} costa--tight{% endif %}" {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handleize }}"{% endif %}>
   <div class="costa__inner">
     {%- if section.settings.heading != blank -%}<h2 class="costa--center">{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.settings.style == 'carousel' -%}
+      {%- render 'costa-logo-marquee', blocks: section.blocks, speed: section.settings.speed -%}
+    {%- else -%}
     <div class="costa-gallery{% if section.settings.style == 'logos' %} costa-gallery--logos{% endif %}" style="--costa-gallery-columns: {{ section.settings.columns }};">
       {%- for block in section.blocks -%}
         <figure class="costa-gallery__item" {{ block.shopify_attributes }}>
@@ -22,6 +25,7 @@
         </figure>
       {%- endfor -%}
     </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -48,9 +52,23 @@
         },
         {
           "value": "logos",
-          "label": "Logoer"
+          "label": "Logoer i gitter"
+        },
+        {
+          "value": "carousel",
+          "label": "Logo-karrusel (ruller automatisk)"
         }
       ]
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Karrusel: tid for én omgang",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "unit": "s",
+      "default": 40
     },
     {
       "type": "range",

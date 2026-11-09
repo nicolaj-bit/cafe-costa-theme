@@ -1,13 +1,4 @@
 /*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-/*
  * Café Costa – opbygget af costa-sektioner. Rediger i Theme Editor.
  */
 {
@@ -71,6 +62,8 @@
     "loefter": {
       "type": "costa-promises",
       "settings": {
+        "autoplay": true,
+        "speed": 36,
         "color": "surface"
       },
       "blocks": {
@@ -125,6 +118,7 @@
         "products_limit": 6,
         "columns": 3,
         "view_all_label": "Se al kaffe",
+        "mobile_slider": true,
         "show_filters": true,
         "all_label": "Alle",
         "color": "bg"
@@ -280,6 +274,8 @@
     "erhverv": {
       "type": "costa-steps",
       "settings": {
+        "logos_heading": "Nuværende erhvervskunder",
+        "logos_speed": 40,
         "label": "Kaffe til erhverv",
         "heading": "Ønsker I bedre kaffe på arbejdspladsen?",
         "text": "<p>Sammen med en partner kan vi levere, installere og træne i alle typer maskiner. Kaffeautomater, espresso maskine, kværn, osv.</p>",
@@ -325,6 +321,102 @@
             "style": "secondary",
             "link_type": "custom"
           }
+        },
+        "logo_29": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-1.png",
+            "name": "Intertek",
+            "link": ""
+          }
+        },
+        "logo_30": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-hushlittleone.png",
+            "name": "Hush Little One",
+            "link": ""
+          }
+        },
+        "logo_31": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-3.png",
+            "name": "Benny Petersen",
+            "link": ""
+          }
+        },
+        "logo_32": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-4.png",
+            "name": "Wild Kiwi Pies",
+            "link": ""
+          }
+        },
+        "logo_33": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-5.png",
+            "name": "Tømmerup Friskole & Friluftsbørnehave",
+            "link": ""
+          }
+        },
+        "logo_34": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-kalundborg.png",
+            "name": "Kalundborgegnens Erhvervsråd",
+            "link": ""
+          }
+        },
+        "logo_35": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-7.png",
+            "name": "Reersø Bryghus",
+            "link": ""
+          }
+        },
+        "logo_36": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-8.png",
+            "name": "Kiropraktisk Center Kalundborg",
+            "link": ""
+          }
+        },
+        "logo_37": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-9.png",
+            "name": "UNG Kalundborg",
+            "link": ""
+          }
+        },
+        "logo_38": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-skoel.png",
+            "name": "SKØL",
+            "link": ""
+          }
+        },
+        "logo_39": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-luve.png",
+            "name": "LUVE",
+            "link": ""
+          }
+        },
+        "logo_40": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/costa-kunde-betterlife.png",
+            "name": "Better Life",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -332,7 +424,19 @@
         "step_25",
         "step_26",
         "button_27",
-        "button_28"
+        "button_28",
+        "logo_29",
+        "logo_30",
+        "logo_31",
+        "logo_32",
+        "logo_33",
+        "logo_34",
+        "logo_35",
+        "logo_36",
+        "logo_37",
+        "logo_38",
+        "logo_39",
+        "logo_40"
       ]
     },
     "kaffevogn": {
@@ -345,26 +449,26 @@
         "anchor": "kaffevogn"
       },
       "blocks": {
-        "label_29": {
+        "label_41": {
           "type": "label",
           "settings": {
             "text": "Kaffevogn"
           }
         },
-        "heading_30": {
+        "heading_42": {
           "type": "heading",
           "settings": {
             "heading": "Skab en speciel stemning ved dit næste arrangement med vores super hyggelige el-Kaffe Knallert",
             "tag": "h2"
           }
         },
-        "text_31": {
+        "text_43": {
           "type": "text",
           "settings": {
             "text": "<p>Vi bringer den fulde caféoplevelse og byens bedste kaffe til næsten enhver lokation. Med vognen følger højkvalitetskaffe og professionelt udstyr.</p>"
           }
         },
-        "button_32": {
+        "button_44": {
           "type": "button",
           "settings": {
             "label": "Book kaffevognen",
@@ -375,10 +479,10 @@
         }
       },
       "block_order": [
-        "label_29",
-        "heading_30",
-        "text_31",
-        "button_32"
+        "label_41",
+        "heading_42",
+        "text_43",
+        "button_44"
       ]
     }
   },

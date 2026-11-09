@@ -9,18 +9,29 @@
   endif
 -%}
 
+{%- capture promises -%}
+  {%- for block in section.blocks -%}
+    <li class="costa-promise" {{ block.shopify_attributes }}>
+      {%- if block.settings.label != blank -%}<p class="costa-label">{{ block.settings.label | escape }}</p>{%- endif -%}
+      <p class="costa-promise__title">{{ block.settings.title }}</p>
+      {%- if block.settings.text != blank -%}<p class="costa-promise__text">{{ block.settings.text }}</p>{%- endif -%}
+    </li>
+  {%- endfor -%}
+{%- endcapture -%}
 <section class="costa costa-promises{{ color_class }}">
-  <div class="costa__inner">
-    <ul class="costa-promises__list">
-      {%- for block in section.blocks -%}
-        <li class="costa-promise" {{ block.shopify_attributes }}>
-          {%- if block.settings.label != blank -%}<p class="costa-label">{{ block.settings.label | escape }}</p>{%- endif -%}
-          <p class="costa-promise__title">{{ block.settings.title }}</p>
-          {%- if block.settings.text != blank -%}<p class="costa-promise__text">{{ block.settings.text }}</p>{%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
+  {%- if section.settings.autoplay -%}
+    <div class="costa-marquee" style="--costa-marquee-duration: {{ section.settings.speed }}s;">
+      <ul class="costa-marquee__track costa-promises__track">
+        {{ promises }}
+        {%- comment -%} Kopi, så båndet kan rulle i ring. Skjult for skærmlæsere. {%- endcomment -%}
+        {{ promises | replace: '<li class="costa-promise"', '<li aria-hidden="true" class="costa-promise"' }}
+      </ul>
+    </div>
+  {%- else -%}
+    <div class="costa__inner">
+      <ul class="costa-promises__list">{{ promises }}</ul>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
@@ -29,6 +40,23 @@
   "tag": "div",
   "class": "costa-section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Rul automatisk som et bånd",
+      "default": true,
+      "info": "Stopper, når musen holdes over. Står stille for brugere, der har slået bevægelse fra."
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Tid for én omgang",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "unit": "s",
+      "default": 36
+    },
     {
       "type": "select",
       "id": "color",

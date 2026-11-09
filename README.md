@@ -142,3 +142,18 @@ Malning er en variant med indstillingen «Malning»: «Hele bønner» / «Formal
 - **«Opret erhvervskonto»** peger på siden *Kaffe til erhverv* (formularen). Rigtige erhvervskonti
   (Shopify B2B) kræver Shopify Plus.
 - **Testprodukterne** har pladsholdertekst og intet foto. Uden foto vises en tegnet pose.
+
+## Bevægelse (slidere og bånd)
+
+- **Produktgitter:** vandret slider på mobil (under 600 px) med swipe. Slås til/fra i sektionen
+  («Vis som slider på mobil»).
+- **Løfter:** ruller automatisk som et bånd. Hastighed og til/fra i sektionen.
+- **Erhvervskunder:** logo-karrusel nederst i erhvervssektionen på forsiden og på siden *Kaffe til erhverv*
+  (galleri-sektionen med visningen «Logo-karrusel»). Logoerne er blokke, så ejeren kan tilføje og fjerne kunder.
+
+Båndene stopper, når musen holdes over, og står helt stille for besøgende, der har slået
+bevægelse fra («Reducer bevægelse»). Kopien, der får båndet til at køre i ring, er skjult for skærmlæsere.
+
+Kundenavnene i logoernes alt-tekst er aflæst fra logoerne: Intertek, Hush Little One, Benny Petersen,
+Wild Kiwi Pies, Tømmerup Friskole & Friluftsbørnehave, Kalundborgegnens Erhvervsråd, Reersø Bryghus,
+Kiropraktisk Center Kalundborg, UNG Kalundborg, SKØL, LUVE og Better Life.

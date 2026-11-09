@@ -1,0 +1,24 @@
+{% comment %}
+  Logo-karrusel, der ruller af sig selv i ring.
+  render 'costa-logo-marquee', blocks: logo_blocks, speed: 40
+  Rækken vises to gange, så båndet kan rulle uden spring; kopien er skjult for skærmlæsere.
+  Stopper ved mus/fokus og står stille ved «reducer bevægelse».
+{% endcomment %}
+{%- capture logos -%}
+  {%- for block in blocks -%}
+    {%- if block.settings.image != blank -%}
+      {%- assign alt = block.settings.name | default: block.settings.caption | default: block.settings.image.alt -%}
+      <li class="costa-logo-tile" {{ block.shopify_attributes }}>
+        {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" target="_blank" rel="noopener">{%- endif -%}
+        {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: alt, sizes: '200px', widths: '200, 400' }}
+        {%- if block.settings.link != blank -%}</a>{%- endif -%}
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+<div class="costa-marquee costa-marquee--logos" style="--costa-marquee-duration: {{ speed | default: 40 }}s;">
+  <ul class="costa-marquee__track">
+    {{ logos }}
+    {{ logos | replace: '<li class="costa-logo-tile"', '<li aria-hidden="true" class="costa-logo-tile"' | replace: '<a href=', '<a tabindex="-1" href=' }}
+  </ul>
+</div>

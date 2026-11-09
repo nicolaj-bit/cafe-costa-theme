@@ -122,8 +122,8 @@ h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--costa-font-heading); fon
   border-top: var(--costa-line);
 }
 .costa--surface { background: var(--costa-color-surface); }
-.costa--dark { background: var(--costa-color-dark); color: var(--costa-color-dark-text); --costa-color-border: var(--costa-color-dark-text); }
-.costa--harbor { background: var(--costa-color-harbor); color: var(--costa-color-harbor-text); --costa-color-border: var(--costa-color-harbor-text); }
+.costa--dark { background: var(--costa-color-dark); color: var(--costa-color-dark-text); --costa-color-border: var(--costa-color-dark-text); --costa-line: var(--costa-line-width) solid var(--costa-color-dark-text); }
+.costa--harbor { background: var(--costa-color-harbor); color: var(--costa-color-harbor-text); --costa-color-border: var(--costa-color-harbor-text); --costa-line: var(--costa-line-width) solid var(--costa-color-harbor-text); }
 .costa--tight { padding-block: calc(var(--costa-space-section) / 2); }
 .costa__inner { max-width: var(--costa-page-width); margin-inline: auto; padding-inline: var(--costa-gutter); }
 @media (min-width: 750px) { .costa__inner { padding-inline: calc(var(--costa-gutter) * 2); } }
@@ -476,3 +476,44 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 /* ---------- 20. Sidehoved på kollektion ---------- */
 .costa-collection-head { padding-block: var(--costa-space-xl) var(--costa-space-l); border-top: 0; }
 .costa-collection-head h1 { font-size: var(--costa-text-display); line-height: 0.92; letter-spacing: -0.035em; margin-bottom: var(--costa-space-m); }
+
+/* ---------- 21. Rullebånd (løfter og logoer) ---------- */
+.costa-marquee { overflow: hidden; }
+.costa-marquee__track {
+  display: flex; width: max-content; list-style: none; margin: 0; padding: 0;
+  animation: costa-marquee var(--costa-marquee-duration, 36s) linear infinite;
+}
+.costa-marquee:hover .costa-marquee__track,
+.costa-marquee:focus-within .costa-marquee__track { animation-play-state: paused; }
+@keyframes costa-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .costa-marquee { overflow-x: auto; }
+  .costa-marquee__track { animation: none; }
+  .costa-marquee__track > [aria-hidden='true'] { display: none; }
+}
+
+/* Løfter som bånd: faste bredder, lodrette streger imellem */
+.costa-promises__track .costa-promise { flex: 0 0 auto; width: 30rem; border-right: var(--costa-line); border-bottom: 0; }
+@media (min-width: 990px) { .costa-promises__track .costa-promise { width: 34rem; } }
+
+/* Logoer som bånd: papirfarvede felter, så logoerne kan ses på blå og mørk bund */
+.costa-logos { margin-top: var(--costa-space-xl); }
+.costa-logos .costa-label { margin-bottom: var(--costa-space-m); }
+.costa-marquee--logos .costa-marquee__track { gap: var(--costa-space-m); padding-right: var(--costa-space-m); }
+.costa-logo-tile {
+  flex: 0 0 auto; width: 18rem; height: 9rem; display: grid; place-items: center;
+  background: var(--costa-color-surface); border: var(--costa-line); border-radius: var(--costa-radius); padding: 1.2rem 1.6rem; box-sizing: border-box;
+}
+.costa-logo-tile a { display: contents; }
+.costa-logo-tile img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+
+/* ---------- 22. Produktgitter som slider på mobil ---------- */
+@media (max-width: 599px) {
+  .costa-shop__grid--slider {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--costa-gutter);
+    gap: var(--costa-space-m);
+    margin-inline: calc(var(--costa-gutter) * -1); padding: 0 var(--costa-gutter) var(--costa-space-s);
+    scrollbar-width: thin; -webkit-overflow-scrolling: touch;
+  }
+  .costa-shop__grid--slider > .costa-shop__item { flex: 0 0 82%; scroll-snap-align: start; }
+}

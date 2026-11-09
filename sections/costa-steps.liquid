@@ -34,6 +34,13 @@
         {%- endif -%}
       {%- endfor -%}
     </ol>
+    {%- assign logos = section.blocks | where: 'type', 'logo' -%}
+    {%- if logos.size > 0 -%}
+      <div class="costa-logos">
+        {%- if section.settings.logos_heading != blank -%}<p class="costa-label">{{ section.settings.logos_heading | escape }}</p>{%- endif -%}
+        {%- render 'costa-logo-marquee', blocks: logos, speed: section.settings.logos_speed -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -84,13 +91,33 @@
       ]
     },
     {
+      "type": "header",
+      "content": "Logo-karrusel"
+    },
+    {
+      "type": "text",
+      "id": "logos_heading",
+      "label": "Overskrift over logoerne",
+      "default": "Nuværende erhvervskunder"
+    },
+    {
+      "type": "range",
+      "id": "logos_speed",
+      "label": "Tid for én omgang",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "unit": "s",
+      "default": 40
+    },
+    {
       "type": "text",
       "id": "anchor",
       "label": "Anker-id (til links som #morgenmad)",
       "info": "Kun små bogstaver og bindestreger."
     }
   ],
-  "max_blocks": 8,
+  "max_blocks": 30,
   "blocks": [
     {
       "type": "step",
@@ -163,6 +190,27 @@
               "label": "Køb (ristet rød)"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Kundelogo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Kundens navn (til skærmlæsere)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (valgfrit)"
         }
       ]
     }

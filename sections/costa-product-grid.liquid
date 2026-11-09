@@ -50,7 +50,7 @@
       <p class="costa-shop__empty">{{ 'costa.shop.no_collection' | t }}</p>
     {%- elsif use_page -%}
       {%- paginate collection.products by section.settings.products_limit -%}
-        <ul class="costa-shop__grid" style="--costa-shop-columns: {{ section.settings.columns }};">
+        <ul class="costa-shop__grid{% if section.settings.mobile_slider %} costa-shop__grid--slider{% endif %}" style="--costa-shop-columns: {{ section.settings.columns }};">
           {%- for product in collection.products -%}
             <li class="costa-shop__item" data-costa-tags="{% for tag in product.tags %}{{ tag | handleize }} {% endfor %}">
               {%- render 'costa-product-card', product: product, section_id: section.id -%}
@@ -60,7 +60,7 @@
         {%- if paginate.pages > 1 -%}<div class="costa-shop__more">{{ paginate | default_pagination }}</div>{%- endif -%}
       {%- endpaginate -%}
     {%- else -%}
-      <ul class="costa-shop__grid" style="--costa-shop-columns: {{ section.settings.columns }};">
+      <ul class="costa-shop__grid{% if section.settings.mobile_slider %} costa-shop__grid--slider{% endif %}" style="--costa-shop-columns: {{ section.settings.columns }};">
         {%- for product in source.products limit: section.settings.products_limit -%}
           <li class="costa-shop__item" data-costa-tags="{% for tag in product.tags %}{{ tag | handleize }} {% endfor %}">
             {%- render 'costa-product-card', product: product, section_id: section.id -%}
@@ -131,6 +131,13 @@
       "id": "view_all_label",
       "label": "Knap til hele kollektionen",
       "default": "Se al kaffe"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_slider",
+      "label": "Vis som slider på mobil",
+      "default": true,
+      "info": "På mobil swiper man vandret mellem poserne."
     },
     {
       "type": "header",
