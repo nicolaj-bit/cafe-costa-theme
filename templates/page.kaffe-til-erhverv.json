@@ -425,7 +425,7 @@
       "type": "apps",
       "blocks": {
         "ansoegning_1": {
-          "type": "shopify://apps/cafe-costa-erhverv/blocks/ansoegning/45f8fbec-72b3-0000-06b1-82ca55e2bffb5c0a81e4",
+          "type": "shopify://apps/cafe-costa-erhverv/blocks/ansoegning/45f8fbec-72b3-0000-06b1-82ca55e2bffb",
           "settings": {
             "label": "Bliv erhvervskunde",
             "heading": "Ansøg om en erhvervsaftale",
