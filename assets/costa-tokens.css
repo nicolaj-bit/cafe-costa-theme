@@ -677,3 +677,6 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
   .costa-collection-hero__grid--media { align-items: center; }
   .costa-collection-hero__media img { aspect-ratio: 5 / 4; }
 }
+
+/* ---------- 32. Bredt fortællefelt ---------- */
+@media (min-width: 990px) { .costa-story--wide { grid-column: span 2; } .costa-story--wide .costa-story__text { font-size: clamp(3.6rem, 4vw, 5.2rem); max-width: 16ch; } }
