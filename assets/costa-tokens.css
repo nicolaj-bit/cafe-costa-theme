@@ -684,13 +684,12 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 
 /* ---------- 33. Menukort (costa-menu) ---------- */
 .costa-menu-card { padding-block: var(--costa-space-l) var(--costa-space-xl); }
-.costa-menu-card .costa__inner { max-width: 1160px; }
 
 /* Genveje som piller */
-.costa-menu__jump { display: flex; flex-wrap: wrap; gap: var(--costa-space-xs); margin-bottom: var(--costa-space-xl); }
+.costa-menu__jump { display: flex; flex-wrap: wrap; gap: var(--costa-space-xs); margin-bottom: var(--costa-space-xl); font-size: 0; color: transparent; } /* skjuler skilletegn mellem links */
 .costa-menu__jump p { display: contents; }
-.costa-menu__jump a { display: inline-flex; align-items: center; min-height: 36px; padding: 0.6rem 1.4rem; border: var(--costa-line); border-radius: 999px; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; text-decoration: none !important; color: inherit; }
-.costa-menu__jump a:hover { background: var(--costa-color-text); color: var(--costa-color-bg); }
+.costa-menu__jump a { color: var(--costa-color-text) !important; display: inline-flex; align-items: center; min-height: 36px; padding: 0.6rem 1.4rem; border: var(--costa-line); border-radius: 999px; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; text-decoration: none !important; color: inherit; }
+.costa-menu__jump a:hover { background: var(--costa-color-text); color: var(--costa-color-bg) !important; }
 @media (max-width: 749px) {
   .costa-menu__jump { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--costa-gutter) * -1); padding-inline: var(--costa-gutter); }
   .costa-menu__jump::-webkit-scrollbar { display: none; }
