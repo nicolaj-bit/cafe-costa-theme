@@ -1,15 +1,18 @@
 {% comment %}
   Oversætter tema-indstillingerne (Costa – stil) til CSS-variabler.
-  Selve stilen og skrifterne ligger i assets/costa-tokens.css – her står kun værdierne.
+  Selve stilen og standardværdierne ligger i assets/costa-tokens.css.
+  En tom indstilling springes over, så standarden fra stil-filen gælder –
+  ellers ville f.eks. tekststørrelsen blive ganget med nul.
 {% endcomment %}
 {%- liquid
+  assign button_radius = ''
   case settings.costa_button_shape
+    when 'pill'
+      assign button_radius = '999px'
     when 'rounded'
       assign button_radius = '8px'
     when 'square'
       assign button_radius = '0px'
-    else
-      assign button_radius = '999px'
   endcase
 -%}
 {%- if settings.costa_font_mode != 'shopify' -%}
@@ -17,7 +20,7 @@
   {{ 'costa-instrument-sans-400.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
 {%- endif -%}
 <style>
-  {%- if settings.costa_font_mode == 'shopify' -%}
+  {%- if settings.costa_font_mode == 'shopify' and settings.costa_font_heading and settings.costa_font_body -%}
     {%- assign heading_font = settings.costa_font_heading -%}
     {%- assign body_font = settings.costa_font_body -%}
     {%- assign body_bold = body_font | font_modify: 'weight', 'bold' -%}
@@ -26,34 +29,32 @@
     {{ body_bold | font_face: font_display: 'swap' }}
   {%- endif -%}
   :root {
-    --costa-color-bg: {{ settings.costa_color_bg }};
-    --costa-color-surface: {{ settings.costa_color_surface }};
-    --costa-color-text: {{ settings.costa_color_text }};
-    --costa-color-border: {{ settings.costa_color_text }};
-    --costa-color-muted: {{ settings.costa_color_muted }};
-    --costa-color-accent: {{ settings.costa_color_accent }};
-    --costa-color-accent-text: {{ settings.costa_color_accent_text }};
-    --costa-color-harbor: {{ settings.costa_color_harbor }};
-    --costa-color-harbor-text: {{ settings.costa_color_harbor_text }};
-    --costa-color-dark: {{ settings.costa_color_dark }};
-    --costa-color-dark-text: {{ settings.costa_color_dark_text }};
-    --costa-overlay-opacity: {{ settings.costa_overlay_opacity | divided_by: 100.0 }};
-    --costa-line-width: {{ settings.costa_line_width }}px;
-    {%- if settings.costa_font_mode == 'shopify' %}
+    {%- if settings.costa_color_bg != blank %} --costa-color-bg: {{ settings.costa_color_bg }};{% endif -%}
+    {%- if settings.costa_color_surface != blank %} --costa-color-surface: {{ settings.costa_color_surface }};{% endif -%}
+    {%- if settings.costa_color_text != blank %} --costa-color-text: {{ settings.costa_color_text }}; --costa-color-border: {{ settings.costa_color_text }};{% endif -%}
+    {%- if settings.costa_color_muted != blank %} --costa-color-muted: {{ settings.costa_color_muted }};{% endif -%}
+    {%- if settings.costa_color_accent != blank %} --costa-color-accent: {{ settings.costa_color_accent }};{% endif -%}
+    {%- if settings.costa_color_accent_text != blank %} --costa-color-accent-text: {{ settings.costa_color_accent_text }};{% endif -%}
+    {%- if settings.costa_color_harbor != blank %} --costa-color-harbor: {{ settings.costa_color_harbor }};{% endif -%}
+    {%- if settings.costa_color_harbor_text != blank %} --costa-color-harbor-text: {{ settings.costa_color_harbor_text }};{% endif -%}
+    {%- if settings.costa_color_dark != blank %} --costa-color-dark: {{ settings.costa_color_dark }};{% endif -%}
+    {%- if settings.costa_color_dark_text != blank %} --costa-color-dark-text: {{ settings.costa_color_dark_text }};{% endif -%}
+    {%- if settings.costa_overlay_opacity != blank %} --costa-overlay-opacity: {{ settings.costa_overlay_opacity | divided_by: 100.0 }};{% endif -%}
+    {%- if settings.costa_line_width != blank %} --costa-line-width: {{ settings.costa_line_width }}px; --costa-button-border: {{ settings.costa_line_width }}px;{% endif -%}
+    {%- if settings.costa_font_mode == 'shopify' and heading_font and body_font %}
     --costa-font-heading: {{ heading_font.family }}, {{ heading_font.fallback_families }};
     --costa-font-heading-weight: {{ heading_font.weight }};
     --costa-font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
     --costa-font-body-weight: {{ body_font.weight }};
-    {%- endif %}
-    --costa-font-scale: {{ settings.costa_font_scale | divided_by: 100.0 }};
-    --costa-heading-case: {{ settings.costa_heading_case }};
-    --costa-space-section: {{ settings.costa_space_section }}px;
-    --costa-page-width: {{ settings.costa_page_width }}px;
-    --costa-gutter: {{ settings.costa_gutter }}px;
-    --costa-radius: {{ settings.costa_radius }}px;
-    --costa-button-radius: {{ button_radius }};
-    --costa-button-padding: {{ settings.costa_button_padding }}px;
-    --costa-button-case: {{ settings.costa_button_case }};
-    --costa-button-border: {{ settings.costa_line_width }}px;
+    {%- endif -%}
+    {%- if settings.costa_font_scale != blank and settings.costa_font_scale > 0 %} --costa-font-scale: {{ settings.costa_font_scale | divided_by: 100.0 }};{% endif -%}
+    {%- if settings.costa_heading_case != blank %} --costa-heading-case: {{ settings.costa_heading_case }};{% endif -%}
+    {%- if settings.costa_space_section != blank %} --costa-space-section: {{ settings.costa_space_section }}px;{% endif -%}
+    {%- if settings.costa_page_width != blank %} --costa-page-width: {{ settings.costa_page_width }}px;{% endif -%}
+    {%- if settings.costa_gutter != blank %} --costa-gutter: {{ settings.costa_gutter }}px;{% endif -%}
+    {%- if settings.costa_radius != blank %} --costa-radius: {{ settings.costa_radius }}px;{% endif -%}
+    {%- if button_radius != blank %} --costa-button-radius: {{ button_radius }};{% endif -%}
+    {%- if settings.costa_button_padding != blank %} --costa-button-padding: {{ settings.costa_button_padding }}px;{% endif -%}
+    {%- if settings.costa_button_case != blank %} --costa-button-case: {{ settings.costa_button_case }};{% endif %}
   }
 </style>
