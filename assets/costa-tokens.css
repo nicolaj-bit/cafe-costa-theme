@@ -681,3 +681,63 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 
 /* ---------- 32. Bredt fortællefelt ---------- */
 @media (min-width: 990px) { .costa-story--wide { grid-column: span 2; } .costa-story--wide .costa-story__text { font-size: clamp(3.6rem, 4vw, 5.2rem); max-width: 16ch; } }
+
+/* ---------- 33. Menukort (costa-menu) ---------- */
+.costa-menu-card { padding-block: var(--costa-space-l) var(--costa-space-xl); }
+.costa-menu-card .costa__inner { max-width: 1160px; }
+
+/* Genveje som piller */
+.costa-menu__jump { display: flex; flex-wrap: wrap; gap: var(--costa-space-xs); margin-bottom: var(--costa-space-xl); }
+.costa-menu__jump p { display: contents; }
+.costa-menu__jump a { display: inline-flex; align-items: center; min-height: 36px; padding: 0.6rem 1.4rem; border: var(--costa-line); border-radius: 999px; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; text-decoration: none !important; color: inherit; }
+.costa-menu__jump a:hover { background: var(--costa-color-text); color: var(--costa-color-bg); }
+@media (max-width: 749px) {
+  .costa-menu__jump { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--costa-gutter) * -1); padding-inline: var(--costa-gutter); }
+  .costa-menu__jump::-webkit-scrollbar { display: none; }
+  .costa-menu__jump a { flex: none; white-space: nowrap; }
+}
+
+/* Kategori: nummer, titel og note øverst; retter i to spalter */
+.costa-menu__cat { scroll-margin-top: calc(var(--costa-header-height) + 1.6rem); padding-block: var(--costa-space-xl); border-top: var(--costa-line); }
+.costa-menu__cat:first-of-type { border-top: 0; padding-top: 0; }
+.costa-menu__cathead { display: grid; gap: var(--costa-space-xs); margin-bottom: var(--costa-space-l); }
+.costa-menu__num { margin: 0 !important; }
+.costa .costa-menu__category { font-size: var(--costa-text-h1); line-height: 0.95; letter-spacing: -0.03em; margin: 0; padding: 0; border: 0; text-transform: none; }
+.costa-menu__cathead .costa-menu__note { margin: var(--costa-space-xs) 0 0; color: var(--costa-color-muted); font-style: italic; }
+.costa-menu__items { display: grid; grid-template-columns: 1fr; column-gap: var(--costa-space-xl); }
+@media (min-width: 990px) { .costa-menu__items { grid-template-columns: 1fr 1fr; } }
+.costa-menu__span { grid-column: 1 / -1; }
+
+/* Ret: navn – prikker – pris */
+.costa-menu__item { padding: var(--costa-space-m) 0; border-bottom: var(--costa-line-width) dotted color-mix(in srgb, currentColor 35%, transparent); break-inside: avoid; display: block; }
+.costa-menu__line { display: flex; align-items: baseline; gap: 0.8rem; }
+.costa-menu__name { font-family: var(--costa-font-heading); font-weight: 800; font-size: 2rem; line-height: 1.15; letter-spacing: -0.01em; }
+.costa-menu__leader { flex: 1; min-width: 2rem; border-bottom: var(--costa-line-width) dotted currentColor; transform: translateY(-0.4rem); opacity: 0.5; }
+.costa-menu__price { flex: none; font-family: var(--costa-font-mono); font-size: var(--costa-text-base); font-weight: 500; white-space: pre-line; text-align: right; line-height: 1.3; }
+.costa-menu__desc { color: var(--costa-color-muted); margin-top: 0.4rem; font-size: var(--costa-text-small); max-width: 52ch; }
+.costa-menu__desc p { margin: 0; }
+
+/* Undergruppe (fx Sandwiches, Hot Pies) */
+.costa-menu__group { margin: var(--costa-space-l) 0 var(--costa-space-xs); padding-top: var(--costa-space-m); border-top: var(--costa-line); }
+.costa-menu__group:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.costa-menu__group h3 { font-size: var(--costa-text-h3); margin: 0 0 var(--costa-space-xs) !important; }
+.costa-menu__group .costa-menu__note { margin: 0; color: var(--costa-color-muted); font-style: italic; }
+.costa-menu__text { margin-top: var(--costa-space-m); font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; }
+
+/* Fremhævet kategori (sæsonmenu) */
+.costa-menu__cat--kraft, .costa-menu__cat--dark { border: var(--costa-line); border-radius: var(--costa-radius); padding: var(--costa-space-l) var(--costa-space-l) var(--costa-space-m); margin-bottom: var(--costa-space-l); }
+.costa-menu__cat--kraft:first-of-type, .costa-menu__cat--dark:first-of-type { padding-top: var(--costa-space-l); }
+.costa-menu__cat--kraft { background: var(--costa-kraft); color: var(--costa-color-text); }
+.costa-menu__cat--kraft .costa-menu__desc, .costa-menu__cat--kraft .costa-menu__note { color: var(--costa-color-text); }
+.costa-menu__cat--dark { background: var(--costa-color-dark); color: var(--costa-color-dark-text); border-color: var(--costa-color-dark); }
+.costa-menu__cat--dark .costa-menu__desc, .costa-menu__cat--dark .costa-menu__note { color: inherit; opacity: 0.85; }
+@media (max-width: 749px) { .costa-menu__cat--kraft, .costa-menu__cat--dark { padding: var(--costa-space-m); } }
+.costa-menu__cat--kraft + .costa-menu__cat { border-top: 0; }
+
+/* Fotos i menukortet */
+.costa-menu__images { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--costa-space-m); margin: var(--costa-space-l) 0; }
+.costa-menu__images figure { margin: 0; }
+.costa-menu__images img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: var(--costa-line); border-radius: var(--costa-radius); }
+
+.costa-menu__foot { margin-top: var(--costa-space-xl); padding-top: var(--costa-space-m); border-top: var(--costa-line); font-family: var(--costa-font-mono); font-size: var(--costa-text-label); letter-spacing: 0.04em; }
+.costa-menu__top { margin-top: var(--costa-space-l); text-align: center; font-family: var(--costa-font-mono); font-size: var(--costa-text-label); }

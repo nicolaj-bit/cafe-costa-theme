@@ -15,8 +15,10 @@
     assign image = collection.image
   endif
   assign title = section.settings.title
-  if title == blank
+  if title == blank and collection
     assign title = collection.title | escape
+  elsif title == blank
+    assign title = page.title | escape
   endif
 -%}
 <section class="costa costa-collection-hero{{ color_class }}">
@@ -31,8 +33,9 @@
           <div class="costa-richtext costa-collection-hero__lead">{{ collection.description }}</div>
         {%- endif -%}
         <p class="costa-collection-hero__meta costa-label">
-          {%- if collection.products_count -%}{{ 'costa.shop.count' | t: count: collection.products_count }}{%- endif -%}
-          {%- if section.settings.meta != blank %} · {{ section.settings.meta | escape }}{% endif -%}
+          {%- if collection.products_count -%}{{ 'costa.shop.count' | t: count: collection.products_count }} · {% endif -%}
+          {%- if section.settings.show_hours -%}{{ settings.costa_hours | newline_to_br | split: '<br />' | first | strip }} · {{ settings.costa_street }}{%- if section.settings.meta != blank %} · {% endif -%}{%- endif -%}
+          {{- section.settings.meta | escape -}}
         </p>
       </div>
       {%- if image != blank -%}
@@ -52,14 +55,9 @@
 
 {% schema %}
 {
-  "name": "Costa: kategori-åbning",
+  "name": "Costa: stor åbning",
   "tag": "div",
   "class": "costa-section",
-  "enabled_on": {
-    "templates": [
-      "collection"
-    ]
-  },
   "settings": [
     {
       "type": "text",
@@ -71,7 +69,7 @@
       "type": "text",
       "id": "title",
       "label": "Titel",
-      "info": "Tom = kollektionens navn."
+      "info": "Tom = kollektionens eller sidens navn."
     },
     {
       "type": "richtext",
@@ -80,9 +78,15 @@
       "info": "Tom = kollektionens beskrivelse."
     },
     {
+      "type": "checkbox",
+      "id": "show_hours",
+      "label": "Vis åbningstider og adresse i mono-linjen",
+      "default": false
+    },
+    {
       "type": "text",
       "id": "meta",
-      "label": "Linje efter antal",
+      "label": "Tekst i mono-linjen",
       "default": "Ristet på havnen i Kalundborg"
     },
     {
@@ -129,7 +133,7 @@
   ],
   "presets": [
     {
-      "name": "Costa: kategori-åbning"
+      "name": "Costa: stor åbning"
     }
   ]
 }
