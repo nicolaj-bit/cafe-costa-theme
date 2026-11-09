@@ -11,38 +11,31 @@
   "sections": {
     "portal": {
       "type": "apps",
-      "settings": {
-        "include_margins": false
-      }
-    },
-    "1794252915b2bba28c": {
-      "type": "apps",
       "blocks": {
-        "cafe_costa_erhverv_portal_6PwX7L": {
+        "portal_1": {
           "type": "shopify://apps/cafe-costa-erhverv/blocks/portal/01a1c1c2-dbcc-76e9-9caa-49b27559a2b8",
           "settings": {
-            "collection": "",
-            "apply_url": "",
+            "collection": "erhverv",
+            "apply_url": "/pages/kaffe-til-erhverv",
             "guest_heading": "Kaffe til erhverv",
             "guest_text": "<p>Erhvervskunder bestiller her til egen pris og ser deres ordrer og fakturaer.</p>",
             "pending_text": "<p>Tak for ansøgningen. Vi kigger på den og skriver til jer, så snart aftalen er på plads — som regel inden for to hverdage.</p>",
             "rejected_text": "<p>Vi kan desværre ikke tilbyde en erhvervsaftale lige nu. I er velkomne til at handle i webshoppen eller ringe til os.</p>",
             "contact_name": "Café Costa Kalundborg",
-            "contact_phone": "",
-            "contact_email": ""
+            "contact_phone": "52 76 04 60",
+            "contact_email": "kontakt@costakalundborgkaffe.dk"
           }
         }
       },
       "block_order": [
-        "cafe_costa_erhverv_portal_6PwX7L"
+        "portal_1"
       ],
       "settings": {
-        "include_margins": true
+        "include_margins": false
       }
     }
   },
   "order": [
-    "portal",
-    "1794252915b2bba28c"
+    "portal"
   ]
 }
