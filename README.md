@@ -165,3 +165,11 @@ foto), fast infokolonne på computer, kaffedata som etiket, malning som piller, 
 «Læg i kurv», som lægger varen i kurven uden at forlade siden. «Køb nu» kan slås til i sektionen.
 Fold-ud-tekster er blokke. «Mere fra risteriet» viser tre andre kaffer fra kollektionen «Kaffe».
 Noten ved prisen (f.eks. posens vægt) er tom, indtil ejeren oplyser den.
+
+## Kategoriside
+
+- `costa-collection-hero` – stor titel, beskrivelse, antal kaffer og foto med «I risteren nu»-mærke.
+- `costa-product-grid` på kategorisiden har en værktøjslinje, der følger med ned ad siden: filtre, antal
+  (opdateres ved filtrering) og sortering. Sorteringen bruger Shopifys egen (`?sort_by=`).
+- **Fortællefelter** er blokke i produktgitteret, som vises efter et valgt produktnummer. De skjules, når der
+  filtreres. Teksterne er fra de gamle sider.

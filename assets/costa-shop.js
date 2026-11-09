@@ -14,6 +14,8 @@
     var items = shop.querySelectorAll('.costa-shop__item');
     var shown = 0;
     items.forEach(function (item) {
+      // Fortællefelter vises kun, når der ikke er filtreret.
+      if (item.hasAttribute('data-costa-story')) { item.hidden = !!tag; return; }
       var tags = ' ' + (item.getAttribute('data-costa-tags') || '') + ' ';
       var match = !tag || tags.indexOf(' ' + tag + ' ') !== -1;
       item.hidden = !match;
@@ -21,7 +23,21 @@
     });
     var empty = shop.querySelector('[data-costa-empty]');
     if (empty) empty.hidden = shown !== 0;
+    var count = shop.querySelector('[data-costa-count]');
+    if (count && !count.hasAttribute('data-total')) count.setAttribute('data-total', count.textContent);
+    if (count && tag) count.textContent = shown === 1 ? count.getAttribute('data-one') : count.getAttribute('data-other').replace('#', shown);
+    if (count && !tag) count.textContent = count.getAttribute('data-total');
   }
+
+  // Sortering på kategorisiden: Shopify sorterer selv ud fra ?sort_by=
+  document.addEventListener('change', function (event) {
+    var select = event.target.closest('[data-costa-sort]');
+    if (!select) return;
+    var url = new URL(window.location.href);
+    url.searchParams.set('sort_by', select.value);
+    url.searchParams.delete('page');
+    window.location.href = url.toString();
+  });
 
   document.addEventListener('click', function (event) {
     var button = event.target.closest('[data-costa-filter]');
