@@ -584,3 +584,8 @@ section[id^='MainProduct-'] .quantity::after { box-shadow: 0 0 0 var(--costa-lin
 /* Dawns .visually-hidden er position: absolute. Uden en positioneret forælder
    slipper den ud af produkt-sliderens ramme og gør hele siden bredere på mobil. */
 .costa-bag, .costa-card, .costa-pdp__frame { position: relative; }
+
+/* ---------- 25. Pil ved undermenu ---------- */
+/* Dawn placerer .icon-caret absolut (til sin egen header). I costa-header skal den stå efter ordet. */
+.costa-nav summary .icon-caret { position: static; width: 1rem; height: 0.6rem; flex: none; transition: transform 0.15s; }
+.costa-nav details[open] > summary .icon-caret { transform: rotate(180deg); }
