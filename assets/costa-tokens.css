@@ -313,15 +313,40 @@ h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--costa-font-heading); fon
 .costa-badge__text { font-family: var(--costa-font-heading); font-weight: 800; font-size: 2rem; line-height: 1.1; }
 
 /* ---------- 7. Løfter ---------- */
+/* Løfter. Står de stille, vises de som en rolig, redaktionel række: stort
+   nummer i ristet rød, overskrift i Bricolage og en tynd linje over hvert
+   løfte. Som rullende bånd (costa-marquee) gælder reglerne længere nede. */
 .costa-promises { padding-block: 0; }
-.costa-promises__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; }
-@media (min-width: 990px) { .costa-promises__list { grid-template-columns: repeat(4, 1fr); } }
-.costa-promise { padding: var(--costa-space-l) var(--costa-space-m); border-right: var(--costa-line); border-bottom: var(--costa-line); }
-.costa-promise:nth-child(2n) { border-right: 0; }
-@media (min-width: 990px) { .costa-promise { border-bottom: 0; } .costa-promise:nth-child(2n) { border-right: var(--costa-line); } .costa-promise:last-child { border-right: 0; } }
+.costa-promises:has(.costa-promises__list) { padding-block: var(--costa-space-xl); }
+.costa-promises__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: var(--costa-space-l) var(--costa-space-l); }
+@media (min-width: 750px) { .costa-promises__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 990px) { .costa-promises__list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.costa-promise { padding: var(--costa-space-l) var(--costa-space-m); border-right: var(--costa-line); }
+.costa-promises__list .costa-promise { padding: var(--costa-space-m) 0 0; border: 0; border-top: var(--costa-line); }
 .costa-promise .costa-label { margin-bottom: var(--costa-space-s); }
+.costa-promises__list .costa-promise .costa-label {
+  display: block; margin: 0 0 var(--costa-space-m);
+  font-family: var(--costa-font-heading); font-weight: var(--costa-font-heading-weight);
+  font-size: var(--costa-text-h2); line-height: 1; letter-spacing: -0.02em; text-transform: none;
+  color: var(--costa-color-accent);
+}
+.costa--dark .costa-promises__list .costa-promise .costa-label, .costa--harbor .costa-promises__list .costa-promise .costa-label { color: inherit; }
 .costa-promise__title { font-family: var(--costa-font-heading); font-weight: 800; font-size: 2rem; line-height: 1.1; margin: 0 0 var(--costa-space-xs); }
+.costa-promises__list .costa-promise__title { font-size: var(--costa-text-h3); letter-spacing: -0.01em; margin-bottom: var(--costa-space-s); }
 .costa-promise__text { color: var(--costa-color-muted); font-size: var(--costa-text-small); margin: 0; }
+.costa-promises__list .costa-promise__text { font-size: var(--costa-text-base); max-width: 32ch; }
+/* Mobil: løfterne glider automatisk ét ad gangen (sections/costa-promises.liquid).
+   Næste løfte titter frem i kanten, så man kan se, at der er flere. */
+@media (max-width: 749px) {
+  .costa-promises__list {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%;
+    gap: var(--costa-space-m); overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none;
+  }
+  .costa-promises__list::-webkit-scrollbar { display: none; }
+  .costa-promises__list .costa-promise { scroll-snap-align: start; }
+}
+@media (max-width: 749px) and (prefers-reduced-motion: reduce) { .costa-promises__list { scroll-behavior: auto; } }
 
 /* ---------- 8. Produktgitter og kaffeposer ---------- */
 .costa-shop { padding-block: var(--costa-space-xl); }
