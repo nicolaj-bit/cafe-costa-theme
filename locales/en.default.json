@@ -559,7 +559,11 @@
     "header": {
       "menu": "Menu",
       "cart": "Cart",
-      "logout": "Log out"
+      "logout": "Log out",
+      "account": "Account",
+      "logged_in_as": "Signed in as",
+      "portal": "Business portal",
+      "my_account": "My account"
     },
     "coffee": {
       "origin": "Origin",

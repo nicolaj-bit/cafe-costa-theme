@@ -245,9 +245,19 @@ h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--costa-font-heading); fon
 .costa-nav details > ul { position: absolute; top: calc(100% + 0.6rem); left: 0; min-width: 22rem; list-style: none; margin: 0; padding: 0.6rem; background: var(--costa-color-surface); border: var(--costa-line); border-radius: var(--costa-radius); z-index: 5; }
 .costa-nav details > ul a { display: flex; width: 100%; box-sizing: border-box; }
 .costa-header__icons { display: flex; align-items: center; gap: 0.4rem; }
-.costa-header__logout { padding: 0.6rem 1.2rem; border: var(--costa-line-width) solid currentColor; border-radius: 999px; color: inherit; text-decoration: none; white-space: nowrap; }
-.costa-header__logout:hover { background: var(--costa-color-text); color: var(--costa-color-bg); }
-@media (max-width: 749px) { .costa-header__logout { display: none; } }
+/* Kontomenu: ikonet åbner portal, konto og log ud, når kunden er logget ind */
+.costa-account { position: relative; }
+.costa-account > summary { list-style: none; cursor: pointer; }
+.costa-account > summary::-webkit-details-marker { display: none; }
+.costa-account[open] > summary { border-color: currentColor; }
+.costa-account__dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--costa-color-accent); box-shadow: 0 0 0 2px var(--costa-color-bg); }
+.costa-account__panel { position: absolute; top: calc(100% + 0.6rem); right: 0; min-width: 24rem; padding: 0.6rem; background: var(--costa-color-surface); color: var(--costa-color-text); border: var(--costa-line); border-radius: var(--costa-radius); z-index: 6; }
+.costa-account__who { display: grid; gap: 0.2rem; margin: 0; padding: 0.8rem 1.2rem 1rem; border-bottom: var(--costa-line); }
+.costa-account__who strong { font-weight: 600; overflow-wrap: anywhere; }
+.costa-account__panel ul { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+.costa-account__panel a { display: flex; padding: 0.8rem 1.2rem; border-radius: 999px; color: inherit; text-decoration: none; font-weight: 500; border: var(--costa-line-width) solid transparent; }
+.costa-account__panel a:hover { border-color: currentColor; }
+.costa-account__logout { color: var(--costa-color-accent) !important; }
 .costa-icon-link { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; color: inherit; border: var(--costa-line-width) solid transparent; }
 .costa-icon-link:hover { border-color: currentColor; }
 .costa-icon-link svg { width: 2.2rem; height: 2.2rem; }
