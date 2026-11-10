@@ -62,7 +62,7 @@
     "loefter": {
       "type": "costa-promises",
       "settings": {
-        "autoplay": true,
+        "autoplay": false,
         "speed": 36,
         "color": "surface"
       },
