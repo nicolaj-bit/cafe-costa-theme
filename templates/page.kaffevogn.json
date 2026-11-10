@@ -61,8 +61,31 @@
         "text_161"
       ]
     },
+    "book": {
+      "type": "apps",
+      "blocks": {
+        "kaffevogn_1": {
+          "type": "shopify://apps/cafe-costa-erhverv/blocks/kaffevogn/01a1c1c2-dbcc-76e9-9caa-49b27559a2b8",
+          "settings": {
+            "product": "kaffevogn",
+            "label": "Kaffevogn",
+            "heading": "Book kaffevognen",
+            "intro": "<p>Vælg dag, hvor længe og hvor vi skal holde. Betal ved bestillingen — så er dagen jeres.</p>",
+            "button": "Læg i kurv",
+            "phone": "52 76 04 60"
+          }
+        }
+      },
+      "block_order": [
+        "kaffevogn_1"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "bestil": {
       "type": "costa-contact",
+      "disabled": true,
       "settings": {
         "heading": "Bestil en kaffevogn til dit næste arrangement",
         "show_info": false,
@@ -313,6 +336,7 @@
   "order": [
     "hero",
     "video",
+    "book",
     "bestil",
     "kaffevogn_billeder",
     "social",
