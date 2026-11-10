@@ -39,15 +39,34 @@
     </nav>
 
     <div class="costa-header__icons">
-      {%- if customer -%}
-        {%- comment -%} Log ud uden at forlade siden: Shopify sender kunden tilbage til forsiden. {%- endcomment -%}
-        <a class="costa-header__logout costa-label" href="{{ routes.account_logout_url }}">{{ 'costa.header.logout' | t }}</a>
-      {%- endif -%}
       {%- if section.settings.show_account -%}
-        <a class="costa-icon-link" href="{{ account_url }}">
-          {{- 'icon-account.svg' | inline_asset_content -}}
-          <span class="visually-hidden">{{ section.settings.account_label | escape }}</span>
-        </a>
+        {%- if customer -%}
+          {%- comment -%} Logget ind: ikonet åbner en lille menu med portal, konto og log ud. {%- endcomment -%}
+          <details class="costa-account" data-costa-account>
+            <summary class="costa-icon-link" aria-label="{{ 'costa.header.account' | t }}">
+              {{- 'icon-account.svg' | inline_asset_content -}}
+              <span class="costa-account__dot" aria-hidden="true"></span>
+            </summary>
+            <div class="costa-account__panel">
+              <p class="costa-account__who">
+                <span class="costa-label">{{ 'costa.header.logged_in_as' | t }}</span>
+                <strong>{{ customer.metafields.erhverv.firmanavn.value | default: customer.first_name | default: customer.email | escape }}</strong>
+              </p>
+              <ul>
+                {%- if customer.tags contains 'erhverv' -%}
+                  <li><a href="{{ routes.root_url | append: 'pages/erhverv' | replace: '//', '/' }}">{{ 'costa.header.portal' | t }}</a></li>
+                {%- endif -%}
+                <li><a href="{{ routes.account_url }}">{{ 'costa.header.my_account' | t }}</a></li>
+                <li><a class="costa-account__logout" href="{{ routes.account_logout_url }}">{{ 'costa.header.logout' | t }}</a></li>
+              </ul>
+            </div>
+          </details>
+        {%- else -%}
+          <a class="costa-icon-link" href="{{ account_url }}">
+            {{- 'icon-account.svg' | inline_asset_content -}}
+            <span class="visually-hidden">{{ section.settings.account_label | escape }}</span>
+          </a>
+        {%- endif -%}
       {%- endif -%}
       <a class="costa-icon-link" href="{{ routes.cart_url }}">
         {{- 'icon-cart-empty.svg' | inline_asset_content -}}
@@ -83,6 +102,18 @@
     </div>
   </div>
 </header>
+
+<script>
+  (() => {
+    const luk = (e) => {
+      document.querySelectorAll('[data-costa-account][open]').forEach((d) => {
+        if (e.type === 'keydown' ? e.key === 'Escape' : !d.contains(e.target)) d.removeAttribute('open');
+      });
+    };
+    document.addEventListener('click', luk);
+    document.addEventListener('keydown', luk);
+  })();
+</script>
 
 {% schema %}
 {
