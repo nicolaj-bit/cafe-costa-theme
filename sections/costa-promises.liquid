@@ -29,8 +29,30 @@
     </div>
   {%- else -%}
     <div class="costa__inner">
-      <ul class="costa-promises__list">{{ promises }}</ul>
+      <ul class="costa-promises__list" data-costa-slide>{{ promises }}</ul>
     </div>
+    <script>
+      // Mobil: glid til næste løfte hvert 4. sekund. Står stille, når kunden selv
+      // rører båndet, når siden er skjult, og for brugere, der har slået bevægelse fra.
+      (() => {
+        for (const liste of document.querySelectorAll('[data-costa-slide]')) {
+          if (liste.dataset.klar) continue;
+          liste.dataset.klar = '1';
+          const mobil = window.matchMedia('(max-width: 749px)');
+          const rolig = window.matchMedia('(prefers-reduced-motion: reduce)');
+          let pause = false;
+          let timer;
+          const hold = () => { pause = true; clearTimeout(timer); timer = setTimeout(() => { pause = false; }, 8000); };
+          for (const e of ['pointerdown', 'touchstart', 'focusin', 'wheel']) liste.addEventListener(e, hold, { passive: true });
+          setInterval(() => {
+            if (!mobil.matches || rolig.matches || pause || document.hidden || liste.children.length < 2) return;
+            const trin = liste.children[1].offsetLeft - liste.children[0].offsetLeft;
+            const sidst = liste.scrollLeft + liste.clientWidth >= liste.scrollWidth - 4;
+            liste.scrollTo({ left: sidst ? 0 : liste.scrollLeft + trin });
+          }, 4000);
+        }
+      })();
+    </script>
   {%- endif -%}
 </section>
 

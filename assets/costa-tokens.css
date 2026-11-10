@@ -335,6 +335,18 @@ h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--costa-font-heading); fon
 .costa-promises__list .costa-promise__title { font-size: var(--costa-text-h3); letter-spacing: -0.01em; margin-bottom: var(--costa-space-s); }
 .costa-promise__text { color: var(--costa-color-muted); font-size: var(--costa-text-small); margin: 0; }
 .costa-promises__list .costa-promise__text { font-size: var(--costa-text-base); max-width: 32ch; }
+/* Mobil: løfterne glider automatisk ét ad gangen (sections/costa-promises.liquid).
+   Næste løfte titter frem i kanten, så man kan se, at der er flere. */
+@media (max-width: 749px) {
+  .costa-promises__list {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%;
+    gap: var(--costa-space-m); overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none;
+  }
+  .costa-promises__list::-webkit-scrollbar { display: none; }
+  .costa-promises__list .costa-promise { scroll-snap-align: start; }
+}
+@media (max-width: 749px) and (prefers-reduced-motion: reduce) { .costa-promises__list { scroll-behavior: auto; } }
 
 /* ---------- 8. Produktgitter og kaffeposer ---------- */
 .costa-shop { padding-block: var(--costa-space-xl); }
