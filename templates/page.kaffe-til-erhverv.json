@@ -24,11 +24,21 @@
           "settings": {
             "text": "Ønsker I bedre kaffe på arbejdspladsen?"
           }
+        },
+        "button_portal": {
+          "type": "button",
+          "settings": {
+            "label": "Log ind som erhvervskunde",
+            "link_type": "custom",
+            "link": "/pages/erhverv",
+            "style": "primary"
+          }
         }
       },
       "block_order": [
         "heading_195",
-        "tagline_196"
+        "tagline_196",
+        "button_portal"
       ],
       "settings": {
         "image": "shopify://shop_images/costa-hero.jpg",
