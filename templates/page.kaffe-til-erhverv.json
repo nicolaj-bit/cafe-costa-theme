@@ -445,7 +445,7 @@
           "settings": {
             "label": "Bliv erhvervskunde",
             "heading": "Opret en erhvervsaftale",
-            "intro": "<p>Udfyld formularen, så opretter vi jeres aftale. Når den er godkendt, logger I ind og bestiller med 15 % rabat, som trækkes fra ved kassen — med levering fra risteriet i Kalundborg.</p>",
+            "intro": "<p>Udfyld formularen, så opretter vi jeres aftale. Når den er godkendt, logger I ind og bestiller med jeres erhvervsrabat, som trækkes fra ved kassen — med levering fra risteriet i Kalundborg.</p>",
             "newsletter_text": "Ja tak, send os nyhedsbrevet med nye kaffer og tilbud. Vi kan altid afmelde det igen.",
             "button": "Opret erhvervsaftale",
             "privacy": "<p>Vi bruger oplysningerne til at oprette aftalen og levere til jer.</p>",
