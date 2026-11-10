@@ -107,8 +107,8 @@
     "loefter": {
       "type": "costa-promises",
       "settings": {
-        "autoplay": false,
-        "speed": 36,
+        "autoplay": true,
+        "speed": 60,
         "color": "surface"
       },
       "blocks": {
