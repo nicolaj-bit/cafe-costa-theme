@@ -63,6 +63,7 @@
     },
     "book": {
       "type": "apps",
+      "disabled": true,
       "blocks": {
         "kaffevogn_1": {
           "type": "shopify://apps/cafe-costa-erhverv/blocks/kaffevogn/01a1c1c2-dbcc-76e9-9caa-49b27559a2b8",
