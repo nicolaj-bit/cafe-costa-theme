@@ -1,0 +1,148 @@
+{%- comment -%}
+  Café Costa – kurv-skuffe. Glider ind fra højre, når kunden lægger noget i
+  kurven eller trykker på kurv-ikonet. Indholdet tegnes af Liquid og hentes
+  igen fra Shopify (section rendering), når kurven ændrer sig – se
+  assets/costa-cart-drawer.js. Uden JavaScript fører kurv-ikonet til /cart.
+
+  Handelsbetingelserne skal accepteres aktivt: feltet er aldrig krydset af på
+  forhånd, og «Gå til kassen» er slået fra, indtil det er sat.
+{%- endcomment -%}
+{%- liquid
+  assign terms_url = section.settings.terms_url
+  if terms_url == blank and shop.terms_of_service.body != blank
+    assign terms_url = shop.terms_of_service.url
+  endif
+  assign shop_url = section.settings.shop_url | default: routes.all_products_collection_url
+-%}
+<div class="costa-drawer" data-costa-drawer hidden>
+  <div class="costa-drawer__veil" data-costa-drawer-close></div>
+  <aside
+    class="costa-drawer__panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="CostaDrawerTitle"
+    tabindex="-1"
+    data-costa-drawer-panel
+  >
+    <div class="costa-drawer__content" data-costa-drawer-content>
+      <header class="costa-drawer__top">
+        <h2 class="costa-drawer__title" id="CostaDrawerTitle">
+          {{ 'costa.cart.title' | t }}
+          {%- if cart.item_count > 0 %} · {{ 'costa.cart.items' | t: count: cart.item_count }}{% endif -%}
+        </h2>
+        <button type="button" class="costa-drawer__close" data-costa-drawer-close aria-label="{{ 'costa.cart.close' | t }}">×</button>
+      </header>
+
+      {%- if cart.item_count == 0 -%}
+        <div class="costa-drawer__empty">
+          <p>{{ 'costa.cart.empty' | t }}</p>
+          <a class="costa-button costa-button--primary" href="{{ shop_url }}">{{ 'costa.cart.shop' | t }}</a>
+        </div>
+      {%- else -%}
+        <ul class="costa-drawer__list">
+          {%- for item in cart.items -%}
+            <li class="costa-drawer__item">
+              <a class="costa-drawer__media" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+                {%- if item.image -%}
+                  {{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '', widths: '100, 200' }}
+                {%- endif -%}
+              </a>
+              <div class="costa-drawer__info">
+                <p class="costa-drawer__name"><a href="{{ item.url }}">{{ item.product.title | escape }}</a></p>
+                {%- unless item.product.has_only_default_variant -%}
+                  <p class="costa-muted">{{ item.variant.title | escape }}</p>
+                {%- endunless -%}
+                {%- if item.selling_plan_allocation -%}
+                  <p class="costa-drawer__plan">{{ item.selling_plan_allocation.selling_plan.name | escape }}</p>
+                {%- endif -%}
+                {%- for property in item.properties -%}
+                  {%- assign first = property.first | slice: 0 -%}
+                  {%- if property.last == blank or first == '_' -%}{%- continue -%}{%- endif -%}
+                  <p class="costa-muted">
+                    {{ property.first | escape }}:
+                    {% if property.last contains '/uploads/' %}{{ 'costa.cart.attached' | t }}{% else %}{{ property.last | escape }}{% endif %}
+                  </p>
+                {%- endfor -%}
+                <div class="costa-drawer__row">
+                  <div class="costa-qty costa-drawer__qty">
+                    <button type="button" data-costa-line="{{ item.key }}" data-quantity="{{ item.quantity | minus: 1 }}" aria-label="{{ 'costa.product.qty_minus' | t }}">−</button>
+                    <input
+                      type="number"
+                      value="{{ item.quantity }}"
+                      min="0"
+                      inputmode="numeric"
+                      data-costa-line-input="{{ item.key }}"
+                      aria-label="{{ 'costa.cart.quantity' | t: title: item.product.title | escape }}"
+                    >
+                    <button type="button" data-costa-line="{{ item.key }}" data-quantity="{{ item.quantity | plus: 1 }}" aria-label="{{ 'costa.product.qty_plus' | t }}">+</button>
+                  </div>
+                  <span class="costa-price costa-drawer__price">
+                    {%- if item.original_line_price != item.final_line_price -%}<s>{{ item.original_line_price | money }}</s>{%- endif -%}
+                    {{ item.final_line_price | money }}
+                  </span>
+                </div>
+                <button type="button" class="costa-drawer__remove" data-costa-line="{{ item.key }}" data-quantity="0">{{ 'costa.cart.remove' | t }}</button>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        <form class="costa-drawer__foot" action="{{ routes.cart_url }}" method="post">
+          <p class="costa-drawer__status" role="status" aria-live="polite" data-costa-drawer-status data-error="{{ 'costa.shop.error' | t }}"></p>
+          <p class="costa-drawer__total"><span>{{ 'costa.cart.total' | t }}</span><span>{{ cart.total_price | money }}</span></p>
+          {%- if cart.total_discount > 0 -%}
+            {%- liquid
+              assign business = false
+              for discount in cart.discount_applications
+                if discount.title contains 'Erhvervsrabat'
+                  assign business = true
+                endif
+              endfor
+            -%}
+            <p class="costa-drawer__discount">
+              <span>{% if business %}{{ 'costa.cart.business_discount' | t }}{% else %}{{ 'costa.cart.discount' | t }}{% endif %}</span>
+              <span>−{{ cart.total_discount | money }}</span>
+            </p>
+          {%- endif -%}
+          <p class="costa-muted">{{ 'costa.cart.shipping' | t }}</p>
+
+          <label class="costa-drawer__terms">
+            <input type="checkbox" name="attributes[Handelsbetingelser accepteret]" value="Ja" required data-costa-terms>
+            <span>
+              {%- if terms_url != blank -%}
+                {{ 'costa.cart.terms_html' | t: url: terms_url }}
+              {%- else -%}
+                {{ 'costa.cart.terms' | t }}
+              {%- endif -%}
+            </span>
+          </label>
+          <button type="submit" name="checkout" class="costa-button costa-button--buy" data-costa-checkout>{{ 'costa.cart.checkout' | t }}</button>
+          <button type="button" class="costa-drawer__continue" data-costa-drawer-close>{{ 'costa.cart.continue' | t }}</button>
+        </form>
+      {%- endif -%}
+    </div>
+  </aside>
+</div>
+<script src="{{ 'costa-cart-drawer.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Costa: kurv-skuffe",
+  "tag": "div",
+  "class": "costa-section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "terms_url",
+      "label": "Link til handelsbetingelser",
+      "info": "Tom = butikkens servicevilkår under Indstillinger › Politikker."
+    },
+    {
+      "type": "url",
+      "id": "shop_url",
+      "label": "Knap ved tom kurv",
+      "info": "Tom = alle produkter."
+    }
+  ]
+}
+{% endschema %}
