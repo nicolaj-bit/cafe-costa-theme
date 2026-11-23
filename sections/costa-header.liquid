@@ -68,7 +68,7 @@
           </a>
         {%- endif -%}
       {%- endif -%}
-      <a class="costa-icon-link" href="{{ routes.cart_url }}">
+      <a class="costa-icon-link" href="{{ routes.cart_url }}" data-costa-cart-open>
         {{- 'icon-cart-empty.svg' | inline_asset_content -}}
         <span class="visually-hidden">{{ 'costa.header.cart' | t }}</span>
         <span class="costa-cart-count" data-costa-cart-count {% if cart.item_count == 0 %}hidden{% endif %} aria-hidden="true">{{ cart.item_count }}</span>

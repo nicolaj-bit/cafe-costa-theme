@@ -589,6 +589,24 @@
       },
       "sort": "Sort"
     },
+    "cart": {
+      "title": "Your cart",
+      "items": { "one": "1 item", "other": "{{ count }} items" },
+      "close": "Close cart",
+      "empty": "Your cart is empty.",
+      "shop": "See the coffee",
+      "remove": "Remove",
+      "quantity": "Quantity of {{ title }}",
+      "attached": "attached",
+      "total": "Total",
+      "discount": "Discount included",
+      "business_discount": "Business discount included",
+      "shipping": "Incl. VAT. Shipping is calculated at checkout.",
+      "terms": "I accept the terms and conditions",
+      "terms_html": "I accept the <a href=\"{{ url }}\" target=\"_blank\" rel=\"noopener\">terms and conditions</a>",
+      "checkout": "Go to checkout",
+      "continue": "Continue shopping"
+    },
     "product": {
       "breadcrumbs": "Breadcrumb",
       "home": "Home",

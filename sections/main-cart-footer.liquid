@@ -104,6 +104,22 @@
                 </small>
               </div>
             {%- else -%}
+              {%- comment -%}
+                Café Costa: handelsbetingelserne skal accepteres aktivt, også her
+                på kurv-siden. Feltet er aldrig krydset af på forhånd.
+              {%- endcomment -%}
+              {%- unless cart == empty -%}
+                <label class="costa-drawer__terms costa-cart-terms">
+                  <input type="checkbox" name="attributes[Handelsbetingelser accepteret]" value="Ja" required form="cart">
+                  <span>
+                    {%- if shop.terms_of_service.body != blank -%}
+                      {{ 'costa.cart.terms_html' | t: url: shop.terms_of_service.url }}
+                    {%- else -%}
+                      {{ 'costa.cart.terms' | t }}
+                    {%- endif -%}
+                  </span>
+                </label>
+              {%- endunless -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
                 <button
                   type="submit"
@@ -119,11 +135,10 @@
                 </button>
               </div>
 
-              {%- if additional_checkout_buttons -%}
-                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-                  {{ content_for_additional_checkout_buttons }}
-                </div>
-              {%- endif -%}
+              {%- comment -%}
+                Café Costa: hurtigknapperne (Shop Pay, Apple Pay m.fl.) vises ikke
+                her. De ville springe krydset ved handelsbetingelserne over.
+              {%- endcomment -%}
           {%- endcase -%}
         {% endfor %}
 

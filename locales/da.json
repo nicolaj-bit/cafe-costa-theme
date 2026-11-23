@@ -589,6 +589,24 @@
       },
       "sort": "Sortér"
     },
+    "cart": {
+      "title": "Din kurv",
+      "items": { "one": "1 vare", "other": "{{ count }} varer" },
+      "close": "Luk kurven",
+      "empty": "Din kurv er tom.",
+      "shop": "Se kaffen",
+      "remove": "Fjern",
+      "quantity": "Antal af {{ title }}",
+      "attached": "vedhæftet",
+      "total": "I alt",
+      "discount": "Heraf rabat",
+      "business_discount": "Heraf erhvervsrabat",
+      "shipping": "Inkl. moms. Fragt beregnes i kassen.",
+      "terms": "Jeg accepterer handelsbetingelserne",
+      "terms_html": "Jeg accepterer <a href=\"{{ url }}\" target=\"_blank\" rel=\"noopener\">handelsbetingelserne</a>",
+      "checkout": "Gå til kassen",
+      "continue": "Handl videre"
+    },
     "product": {
       "breadcrumbs": "Brødkrumme",
       "home": "Forside",
